@@ -48,4 +48,10 @@ The project requires API for making the game more unique and random
 If not, then it will be set values.
 Which may cause the user to become bored
 
-  
+# Test Plan
+
+| Test | Input | Expected | Actual | Comment |
+| :--- | :---: | :---: | :---: | ---: |
+| Inputting the right answer | The actual Word | It fills the grid with the correct letter and words | N/A | N/A |
+| Inputting the wrong answer | "ASJF" | Says text saying "Incorrect" | N/A | N/A |
+| Inputting random number | 123 | Says text saying "Incorrect | N/A | N/A |
