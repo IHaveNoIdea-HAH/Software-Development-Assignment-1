@@ -17,3 +17,8 @@ def game_status(game_id):
     # Placeholder: Return game status
     return jsonify({'game_id': game_id, 'status': 'in_progress'})
 
+@game_bp.route('/welcome', methods=['GET'])
+def game_welcome():
+    # Placeholder: Returns welcome message
+    return jsonify({'welcome_message': 'Hello and welcome to our cool crossword game', 'status': 'running'})
+

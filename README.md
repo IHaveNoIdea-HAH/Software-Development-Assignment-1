@@ -74,6 +74,14 @@ Mitigation: The scope should be frozen to ensure it can be delievered by the dea
 | Inputting the wrong answer | "ASJF" | Says text saying "Incorrect" | N/A | N/A |
 | Inputting random number | 123 | Says text saying "Incorrect | N/A | N/A |
 
+## Unit Tests
+
+Unit tests are done on the backend to test the game logic, scoring, timer etc.
+pytest framework is used for unit testing of the backend part.
+In the backend folder, run the following command to execute the unit tests:
+python -m pytest tests/test_app.py 
+
+
 # High level user requirements
 
 1. Game has to have main menu 
@@ -120,3 +128,16 @@ We go with RAD because your project:
 8. RAD also works well for teams with mixed experience levels as the more experienced members can help the less experienced ones.
 9. RAD is good for small projects and our project is small in scope.
 10. Outcome focus: deliver working prototype quickly and then iterate fast so that the game crystalises into its final version.
+
+# Architecture Design
+
+Here goes the architecture design of the project (Alex).
+
+We are using a client-server architecture with a RESTful API.
+We are going to have a backend server (controller) which will handle the game logic, scoring, timer, leaderboard etc.
+The backend will expose a RESTful API which the frontend (view) will call to get game state, submit guesses, get leaderboard etc.
+The frontend will be a web app which will render the gameboard, clues, HUD etc.
+The frontend will call the backend API to get game state, submit guesses etc.
+Initially the backend will use a set of json files to store the game data (words, clues etc.) but later we might move to a database if time permits.
+
+ToDo: add a block diagram here (Alex).
