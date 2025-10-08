@@ -43,6 +43,46 @@ When the all the words have been found
 
 <img width="1472" height="806" alt="image" src="https://github.com/user-attachments/assets/39253ee9-a178-4f77-ac15-d32e052e46be" />
 
+---
+
+# Activity 1 – Requirements and Creative Session
+
+### Task 2 – Primary Target Audience
+Our crossword game targets **young adults aged 15–30**, mainly students and young professionals who enjoy short, word-based puzzles during study or work breaks.  
+They prefer something quick, clean, and rewarding that helps improve vocabulary while relaxing.
+
+---
+
+### Task 4 – User Profiles
+
+#### 👩‍💼 Sophie (21)
+- University student (Business & Marketing)  
+- Plays puzzle games to take breaks from studying.  
+- **Needs:** Fast-loading crossword, clear design, instant feedback.  
+- **Frustrations:** Cluttered interface or slow response.
+
+#### 👨‍💻 Aaron (27)
+- Software technician; plays games on lunch breaks.  
+- **Needs:** Responsive design (desktop & mobile), ability to resume game.  
+- **Frustrations:** Laggy inputs or confusing controls.
+
+---
+
+### Task 6 – Non-Functional Specifications
+
+| Category | Specification |
+|-----------|----------------|
+| **Aesthetic** | Clean grid layout, minimal colours, modern typography. |
+| **Usability** | Simple controls and clear instructions. |
+| **Responsiveness** | Works perfectly on desktop, tablet, and mobile. |
+| **Accessibility** | High contrast colours, large text option, keyboard navigation. |
+| **Feedback** | Real-time indicators: green for correct, red for wrong. |
+| **Performance** | Loads under 3 seconds, no noticeable lag. |
+| **Reliability** | Auto-saves progress locally. |
+| **Maintainability** | Code modular and well-commented for easy updates. |
+
+---
+
 
 # Risk 
 
