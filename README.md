@@ -20,7 +20,7 @@ The team is comprised from the following team members:
 
 ## Contribution from Alex
 
-# Storyboard
+# Storyboard (Task 8)
 
 The storyboard on how it functions.
 This is not what the final product will look like.
@@ -84,7 +84,7 @@ They prefer something quick, clean, and rewarding that helps improve vocabulary 
 ---
 
 
-# Risk 
+# Risk (Task 9) 
 
 - Lack of Coding Knowledge
   
@@ -173,7 +173,7 @@ Initially the backend will use a set of json files to store the game data (words
 
 ToDo: add a block diagram here (Alex).
 
-# Overall Test Plan
+# Overall Test Plan (Task 11)
 
 | Test | Input | Expected | Actual | Comment |
 | :--- | :---: | :---: | :---: | ---: |
