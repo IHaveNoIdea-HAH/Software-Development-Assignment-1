@@ -68,34 +68,31 @@ Mitigation: The scope should be frozen to ensure it can be delievered by the dea
 
 
 
-## Unit Tests
-
-Unit tests are done on the backend to test the game logic, scoring, timer etc.
-pytest framework is used for unit testing of the backend part.
-In the backend folder, run the following command to execute the unit tests:
-python -m pytest tests/test_app.py 
-
-
 # High level user requirements
+NOTE: Delete the things in the bracket in the future. For now do not delete it so we dont confuse ourselves.
+If we have time, task to do:
+2,4,6 (for now just random generated words), 8, 9, 10, 16, 17, 18
+
+Ignore these task when creating the game, for now create the necessary stuff
 
 1. Game has to have main menu 
-2. Game has to have leaderboard with 10 best players and their scores and times
+2. Game has to have leaderboard with 10 best players and their scores and times (In the future perhaps)
 3. Game has to have Game Win screen.
-4. Game has to have Game Over screen.
+4. Game has to have Game Over screen. (How does one lose) (if we have time, multiplayer currently lose singleplayer)
 5. Player must be able to play new game
-6. The game is going to be focusing on a single topic (to make the delivery manageable).
-7. Player must be able to score points when correct letter or word are deduced.
-8. Game should have in-built game time which measures how much time a player spent on the game.
-9. Player can be asked whether timer should be enabled or not.
-10. There has to be a HUD in the game showing current score/time hints remaining.
+6. The game is going to be focusing on a single topic (to make the delivery manageable). (Things about the topic chosen apparently))
+7. Player must be able to score points when correct letter or word are deduced. 
+8. Game should have in-built game time which measures how much time a player spent on the game. (For the future perhaps, for now it doesn't need a timer)
+9. Player can be asked whether timer should be enabled or not. (Its too much effort to add a timer currently, and isnt needed maybe future)
+10. There has to be a HUD in the game showing current score/time hints remaining.  (Crossword is an endless game)
 11. Gameboard should be rendered on screen with words hidden horizontally and vertically also numbered so a player knows what word they are guessing.
-12. Player has to be able to select a word on the gameboard and enter a letter or entire word and click ‘Check’ button to see if they guessed correctly.
+12. Player has to be able to select a word on the gameboard and enter a letter or entire word and click ‘Check’ button to see if they guessed correctly. (We could just have a box where we input text but maybe)
 13. There has to be a clues display which contains all of the clues about words hidden on the crossword gameboard.
 14. Player has to be able to uncover a selected letter or an entire word hidden on the gameboard. But this gives a penalty to the score.
-15. Player has to be able to click a button to auto-solve the whole crossword but this resets all the scored points to zero.
-16. Accessibility features!: high contrast color scheme, fonts, links etc.
-17. LOW: More advanced scoring logic like combo-bonuses, power-ups, streak bonuses??? Nice to have, low priority.
-18. LOW: Difficulty levels??? Only we manage to deliver this in time. Low priority and nice to have.
+15. Player has to be able to click a button to auto-solve the whole crossword but this resets all the scored points to zero. 
+16. Accessibility features!: high contrast color scheme, fonts, links etc. (ehh maybe in the futyre)
+17. LOW: More advanced scoring logic like combo-bonuses, power-ups, streak bonuses??? Nice to have, low priority. (Future)
+18. LOW: Difficulty levels??? Only we manage to deliver this in time. Low priority and nice to have. (Future)
 
 # Project's functional requirements
 
@@ -143,3 +140,10 @@ ToDo: add a block diagram here (Alex).
 | Inputting the right answer | The actual Word | It fills the grid with the correct letter and words | N/A | N/A |
 | Inputting the wrong answer | "ASJF" | Says text saying "Incorrect" | N/A | N/A |
 | Inputting random number | 123 | Says text saying "Incorrect | N/A | N/A |
+
+## Unit Tests
+
+Unit tests are done on the backend to test the game logic, scoring, timer etc.
+pytest framework is used for unit testing of the backend part.
+In the backend folder, run the following command to execute the unit tests:
+python -m pytest tests/test_app.py 
