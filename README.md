@@ -66,13 +66,7 @@ Which may cause the user to become bored
 Risk: The project may become too big to handle for the three of us if we keep adding more and more features to the scope.
 Mitigation: The scope should be frozen to ensure it can be delievered by the deadline.
 
-# Test Plan
 
-| Test | Input | Expected | Actual | Comment |
-| :--- | :---: | :---: | :---: | ---: |
-| Inputting the right answer | The actual Word | It fills the grid with the correct letter and words | N/A | N/A |
-| Inputting the wrong answer | "ASJF" | Says text saying "Incorrect" | N/A | N/A |
-| Inputting random number | 123 | Says text saying "Incorrect | N/A | N/A |
 
 ## Unit Tests
 
@@ -141,3 +135,11 @@ The frontend will call the backend API to get game state, submit guesses etc.
 Initially the backend will use a set of json files to store the game data (words, clues etc.) but later we might move to a database if time permits.
 
 ToDo: add a block diagram here (Alex).
+
+# Overall Test Plan
+
+| Test | Input | Expected | Actual | Comment |
+| :--- | :---: | :---: | :---: | ---: |
+| Inputting the right answer | The actual Word | It fills the grid with the correct letter and words | N/A | N/A |
+| Inputting the wrong answer | "ASJF" | Says text saying "Incorrect" | N/A | N/A |
+| Inputting random number | 123 | Says text saying "Incorrect | N/A | N/A |
