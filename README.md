@@ -199,4 +199,21 @@ python -m pytest tests/test_app.py
 
 
 # Activity 2
+## Refining and improving (Task 1)
+
+## Psuedocode: (Task 3)
+```
+
+```
+
+## UML Flowchart (Task 4)
+
+## Game State maangement (Task 5)
+Win Conditions: All words have been found
+Lose Conditiion: If time ran out. You lose. (If time limit has been implemented)
+
+2 player game: (IF time limit has been implemented and Multiplayer Implemented)
+Win condition: Get more words than the other opponent when time runs out.
+Lose Condition: Get less words than the other opponent when time runs out.
+Draw condition: If both players is equal in the amount of words they found.
 
