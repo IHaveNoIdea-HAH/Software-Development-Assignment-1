@@ -25,6 +25,8 @@ The team is comprised from the following team members:
 
 # Activity 1 – Requirements and Creative Session
 
+We've decided to re-arrange the tasks stated in the assignment brief for the Activity 1 in a more logical order to make it easier to work on them and split the work amongst us three.
+
 --- 
 
 ## Task 1 – Review all available projects before deciding which to develop
@@ -57,15 +59,16 @@ We've created two user profiles representing our primary target audience:
 
 ---
 
-### Task 5 - High level user requirements
+## Task 5 - High level user requirements
 
-Based on target audience and user profiles, we've came up with the following preliminary high-level user requirements for our crossword game.
-Depending on time available, some of these may be deprioritised to ensure we meet the deadline.
+### High level user requirements
+Based on target audience and user profiles, we've come up with the following preliminary high-level user requirements for our crossword game.
+Depending on time available, some of these may be deprioritised to ensure we meet the deadline for our assignment.
+
 
 NOTE: Delete the things in the bracket in the future. For now do not delete it so we don't confuse ourselves.
 If we have time, task to do:
 2,4,6 (for now just random generated words), 8, 9, 10, 16, 17, 18
-
 Ignore these task when creating the game, for now create the necessary stuff
 
 1. Game has to have main menu 
@@ -76,7 +79,7 @@ Ignore these task when creating the game, for now create the necessary stuff
 6. The game is going to use a set of random words from different topics.
 7. Player must be able to score points when correct letter or word are deduced. 
 8. Game should have in-built game time which measures how much time a player spent on the game. (For the future perhaps, for now it doesn't need a timer)
-9. Player can be asked whether timer should be enabled or not. (Its too much effort to add a timer currently, and isnt needed maybe future)
+9. Player can be asked whether timer should be enabled or not. (Its too much effort to add a timer currently, and isn't needed maybe future)
 10. There has to be a HUD in the game showing current score/time hints remaining.  (Crossword is an endless game)
 11. Gameboard should be rendered on screen with words hidden horizontally and vertically also numbered so a player knows what word they are guessing.
 12. Player has to be able to select a word on the gameboard and enter a letter or entire word and click ‘Check’ button to see if they guessed correctly. (We could just have a box where we input text but maybe)
@@ -87,9 +90,42 @@ Ignore these task when creating the game, for now create the necessary stuff
 17. LOW: More advanced scoring logic like combo-bonuses, power-ups, streak bonuses??? Nice to have, low priority. (Future)
 18. LOW: Difficulty levels??? Only we manage to deliver this in time. Low priority and nice to have. (Future)
 
+### Hardware Requirements
+
+Players of our crossword game will need a device capable of running a web browser, such as a desktop computer, laptop, tablet, or smartphone. 
+The device should have a minimum of 2GB RAM and a modern processor to ensure smooth gameplay.
+
+### Operating System Requirements
+
+The crossword game will be web-based and compatible with major operating systems including Windows, macOS, Linux, iOS, and Android.
+
+### Key application functions
+
+Below list of key application functions that the crossword game must support to meet high level user requirements.
+This is preliminary list as per our brainstorming session and may be refined further.
+
+| Functionality               | Description                                                                     |
+|-----------------------------|---------------------------------------------------------------------------------|
+| User Authentication         | Players can create accounts and log in to save progress and access leaderboards |
+| Game Interface              | Intuitive UI for navigating menus, starting games, and viewing scores           |
+| Crossword Generation        | Dynamic generation of crossword puzzles based on selected difficulty levels     |
+| Scoring System              | Points awarded for correct answers, with penalties for hints or auto-solve      |
+| Clue Display                | Clear presentation of clues for each word in the crossword                      |
+| Accessibility Features     | Options for high contrast mode, larger fonts, and keyboard navigation           |
+| Responsive Design          | Optimized for various screen sizes and devices                                  |
+| Feedback Mechanism         | Real-time feedback on answers (correct/incorrect)                               |
+| Progress Saving            | Saving of game progress and scores in order player can resume unfinished game   |
+
+### AI in the game
+
+In our game we are not planning to use AI features as part of the core gameplay experience.
+The only kind of 'AI' feature we are going to use is using a simple algorithm to generate random words for the crossword puzzles our players will be solving.
+For this we will use a predefined list of words and clues, and the algorithm would randomly select words from this list to create unique crossword puzzles for each game session played by a user.
+So, this is going to be a basic implementation and does not involve advanced AI techniques.
+
 ---
 
-### Task 3 - Create an overall specification 
+## Task 3 - Create an overall specification 
 
 Create an overall specification based on user and system requirements (including HCI, game/application-rules and the 
 game/application-mechanics (e.g. what are the rules for the game, how will the game be controlled, how will 
@@ -97,22 +133,22 @@ any non-player characters interact, etc.)
 
 ToDo: add functional requirements here together with acceptance criteria (Alex).
 
-| Category | Specification |
-|-----------|----------------|
-| **Aesthetic** | Clean grid layout, minimal colours, modern typography. |
-| **Usability** | Simple controls and clear instructions. |
-| **Responsiveness** | Works perfectly on desktop, tablet, and mobile. |
-| **Accessibility** | High contrast colours, large text option, keyboard navigation. |
-| **Feedback** | Real-time indicators: green for correct, red for wrong. |
-| **Performance** | Loads under 3 seconds, no noticeable lag. |
-| **Reliability** | Auto-saves progress locally. |
-| **Maintainability** | Code modular and well-commented for easy updates. |
+| Functional requirement      | Type | Specification                                                                                       | Acceptance Criteria                                                                                                         |
+|-----------------------------|------|-----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| Main menu when app starts   | UI   | The main menu is displayed with options to start a new game, view leaderboard, and access settings. | When the app starts, main menu is displayed with all options visible and clickable.                          |
+| Leaderboard shown to a user | UI   | Leaderboard displays the top 10 players with their scores and times.                                | When user clicks Leaderboard main menu item in the app the Leaderboard is shown and displays top 10 players sorted by score. |
+|                             |      |
+|                             |      |
+|                             |      |
+|                             |      |
+|                             |      |
+|                             |      |
 
 
 ---
 
 
-### Task 6 – Non-Functional Specifications
+## Task 6 – Non-Functional Specifications
 
 It is important to consider non-functional specifications as part of the overall specification for the crossword game.
 We've identified the following non-functional specifications to be important for our game:
@@ -130,18 +166,18 @@ We've identified the following non-functional specifications to be important for
 
 ---
 
-### Task 7 - Overall mockup
+## Task 7 - Overall mockup
 
 ToDo: add overall mockup here (Cedric).
 
 ---
 
-### Task 8 - Construct basic storyboards associated with the game-play/app use
+## Task 8 - Construct basic storyboards associated with the game-play/app use
 
 The storyboard on how it functions.
 This is not what the final product will look like.
 
-## Start Screen
+### Start Screen
 
 <img width="753" height="650" alt="image" src="https://github.com/user-attachments/assets/990d4a10-7e1e-498d-ade4-97eb49ce9500" />
 
@@ -162,7 +198,7 @@ When the all the words have been found
 
 ---
 
-### Task 9 - Identify and rank potential risks to the project’s success 
+## Task 9 - Identify and rank potential risks to the project’s success 
 
 During the brainstorming session, we identified the following potential risks to the project's success along with their mitigation strategies:
 
@@ -176,15 +212,15 @@ During the brainstorming session, we identified the following potential risks to
 
 ---
 
-### Task 10 - Software development strategy 
+## Task 10 - Software development strategy 
 
 We compared three development strategies: Waterfall, Agile and Rapid Application Development (RAD).
 
-## Comparison of the three strategies
+### Comparison of the three strategies
 
 ToDo: add a comparison table here with refs (Alex).
 
-## Reasons for choosing RAD for our project
+### Reasons for choosing RAD for our project
 
 We go with RAD because your project:
 1. Time sensitive as the delivery has to happen by 3rd of Nov.
@@ -200,14 +236,14 @@ We go with RAD because your project:
 
 ---
 
-### Task 11 - Overall Test Plan
+## Task 11 - Overall Test Plan
 
-## Overall test strategy
+### Overall test strategy
 
 The overall test strategy for the Crossword game involves a combination of manual testing and automated unit tests to ensure the game functions correctly and meets user requirements.
 Such combination of manual functional testing and unit tests covering the code allows us to achieve high quality of the software being developed such as our crossword game.
 
-### Manual Testing
+#### Manual Testing
 
 Manual tests are going to be done on the frontend to test the user interface and user experience.
 The manual tests will cover the following scenarios:
@@ -218,7 +254,7 @@ The manual tests will cover the following scenarios:
 | Inputting the wrong answer | "ASJF" | Says text saying "Incorrect" | N/A | N/A |
 | Inputting random number | 123 | Says text saying "Incorrect | N/A | N/A |
 
-### Unit Tests
+#### Unit Tests
 
 Unit tests are done on the backend to test the game logic, scoring, timer etc.
 pytest framework is used for unit testing of the backend part.
