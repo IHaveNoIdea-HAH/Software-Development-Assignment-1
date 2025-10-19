@@ -25,34 +25,44 @@ The team is comprised from the following team members:
 
 # Activity 1 – Requirements and Creative Session
 
-### Task 2 – Primary Target Audience
-Our crossword game targets **young adults aged 15–30**, mainly students and young professionals who enjoy short, word-based puzzles during study or work breaks.  
-They prefer something quick, clean, and rewarding that helps improve vocabulary while relaxing.
+--- 
 
-# Project's functional requirements (Task 3)
+## Task 1 – Review all available projects before deciding which to develop
 
-ToDo: add functional requirements here together with acceptance criteria (Alex).
+ToDo: add review of available projects here (Cedric).
 
 ---
 
-### Task 4 – User Profiles
+## Task 2 – Primary Target Audience
 
-#### 👩‍💼 Sophie (21)
+During the brainstorming session we've agreed that our crossword game targets **young adults aged 15–30**, mainly students and young professionals who enjoy short, word-based puzzles during study or work breaks.  
+They prefer something quick, clean, and rewarding that helps improve vocabulary while relaxing.
+
+---
+
+## Task 4 – User Profiles
+
+We've created two user profiles representing our primary target audience:
+
+### 👩‍💼 Sophie (21)
 - University student (Business & Marketing)  
 - Plays puzzle games to take breaks from studying.  
 - **Needs:** Fast-loading crossword, clear design, instant feedback.  
 - **Frustrations:** Cluttered interface or slow response.
 
-#### 👨‍💻 Aaron (27)
+### 👨‍💻 Aaron (27)
 - Software technician; plays games on lunch breaks.  
 - **Needs:** Responsive design (desktop & mobile), ability to resume game.  
 - **Frustrations:** Laggy inputs or confusing controls.
 
-
 ---
 
-# High level user requirements (Task 5)
-NOTE: Delete the things in the bracket in the future. For now do not delete it so we dont confuse ourselves.
+### Task 5 - High level user requirements
+
+Based on target audience and user profiles, we've came up with the following preliminary high-level user requirements for our crossword game.
+Depending on time available, some of these may be deprioritised to ensure we meet the deadline.
+
+NOTE: Delete the things in the bracket in the future. For now do not delete it so we don't confuse ourselves.
 If we have time, task to do:
 2,4,6 (for now just random generated words), 8, 9, 10, 16, 17, 18
 
@@ -63,7 +73,7 @@ Ignore these task when creating the game, for now create the necessary stuff
 3. Game has to have Game Win screen.
 4. Game has to have Game Over screen. (How does one lose) (if we have time, multiplayer currently lose singleplayer)
 5. Player must be able to play new game
-6. The game is going to be focusing on a single topic (to make the delivery manageable). (Things about the topic chosen apparently))
+6. The game is going to use a set of random words from different topics.
 7. Player must be able to score points when correct letter or word are deduced. 
 8. Game should have in-built game time which measures how much time a player spent on the game. (For the future perhaps, for now it doesn't need a timer)
 9. Player can be asked whether timer should be enabled or not. (Its too much effort to add a timer currently, and isnt needed maybe future)
@@ -77,7 +87,35 @@ Ignore these task when creating the game, for now create the necessary stuff
 17. LOW: More advanced scoring logic like combo-bonuses, power-ups, streak bonuses??? Nice to have, low priority. (Future)
 18. LOW: Difficulty levels??? Only we manage to deliver this in time. Low priority and nice to have. (Future)
 
+---
+
+### Task 3 - Create an overall specification 
+
+Create an overall specification based on user and system requirements (including HCI, game/application-rules and the 
+game/application-mechanics (e.g. what are the rules for the game, how will the game be controlled, how will 
+any non-player characters interact, etc.) 
+
+ToDo: add functional requirements here together with acceptance criteria (Alex).
+
+| Category | Specification |
+|-----------|----------------|
+| **Aesthetic** | Clean grid layout, minimal colours, modern typography. |
+| **Usability** | Simple controls and clear instructions. |
+| **Responsiveness** | Works perfectly on desktop, tablet, and mobile. |
+| **Accessibility** | High contrast colours, large text option, keyboard navigation. |
+| **Feedback** | Real-time indicators: green for correct, red for wrong. |
+| **Performance** | Loads under 3 seconds, no noticeable lag. |
+| **Reliability** | Auto-saves progress locally. |
+| **Maintainability** | Code modular and well-commented for easy updates. |
+
+
+---
+
+
 ### Task 6 – Non-Functional Specifications
+
+It is important to consider non-functional specifications as part of the overall specification for the crossword game.
+We've identified the following non-functional specifications to be important for our game:
 
 | Category | Specification |
 |-----------|----------------|
@@ -91,15 +129,19 @@ Ignore these task when creating the game, for now create the necessary stuff
 | **Maintainability** | Code modular and well-commented for easy updates. |
 
 ---
-# Overall mockup (Task 7)
 
+### Task 7 - Overall mockup
 
-# Storyboard (Task 8)
+ToDo: add overall mockup here (Cedric).
+
+---
+
+### Task 8 - Construct basic storyboards associated with the game-play/app use
 
 The storyboard on how it functions.
 This is not what the final product will look like.
 
-Start Screen
+## Start Screen
 
 <img width="753" height="650" alt="image" src="https://github.com/user-attachments/assets/990d4a10-7e1e-498d-ade4-97eb49ce9500" />
 
@@ -118,36 +160,23 @@ When the all the words have been found
 <img width="1472" height="806" alt="image" src="https://github.com/user-attachments/assets/39253ee9-a178-4f77-ac15-d32e052e46be" />
 
 
+---
+
+### Task 9 - Identify and rank potential risks to the project’s success 
+
+During the brainstorming session, we identified the following potential risks to the project's success along with their mitigation strategies:
+
+| Category                                      | Description                                                    | Mitigtion Strategy                                                                       |
+|-----------------------------------------------|----------------------------------------------------------------|------------------------------------------------------------------------------------------|
+| Lack of Coding Knowledge                      | Some people in this project may have different coding experience | Pair programming, online tutorials, team knowledge sharing.                              |
+| Dependencies on libraries                     | The project requires API for making the game more unique and random. If not, then it will be set values. Which may cause the user to become bored. | Create backend which will offer wider set of words to be used for crosswords generation. |
+| Presence of bugs which affect user experience | No amount of testing can make sure the final product will be bug free. Some things might be overlooked. | Thorough testing, user feedback loops, quick bug fixing cycles.                        |
+| Scope creep                             | The project may become too big to handle for the three of us if we keep adding more and more features to the scope. | Mitigation: The scope should be frozen to ensure it can be delievered by the deadline.    |
 
 
+---
 
-
-# Risk (Task 9) 
-
-- Lack of Coding Knowledge
-  
-Some people in this project may have different coding experience
-Causing
-
-- Testing
-
-No amount of testing can make sure the final product will be bug free. Some things might be overlooked.
-
-- Dependencies on libraries
-
-The project requires API for making the game more unique and random
-If not, then it will be set values.
-Which may cause the user to become bored
-
-- Scope creep
-
-Risk: The project may become too big to handle for the three of us if we keep adding more and more features to the scope.
-Mitigation: The scope should be frozen to ensure it can be delievered by the deadline.
-
-
-
-
-# Software development strategy (Task 10)
+### Task 10 - Software development strategy 
 
 We compared three development strategies: Waterfall, Agile and Rapid Application Development (RAD).
 
@@ -169,20 +198,19 @@ We go with RAD because your project:
 9. RAD is good for small projects and our project is small in scope.
 10. Outcome focus: deliver working prototype quickly and then iterate fast so that the game crystalises into its final version.
 
-# Architecture Design
+---
 
-Here goes the architecture design of the project (Alex).
+### Task 11 - Overall Test Plan
 
-We are using a client-server architecture with a RESTful API.
-We are going to have a backend server (controller) which will handle the game logic, scoring, timer, leaderboard etc.
-The backend will expose a RESTful API which the frontend (view) will call to get game state, submit guesses, get leaderboard etc.
-The frontend will be a web app which will render the gameboard, clues, HUD etc.
-The frontend will call the backend API to get game state, submit guesses etc.
-Initially the backend will use a set of json files to store the game data (words, clues etc.) but later we might move to a database if time permits.
+## Overall test strategy
 
-ToDo: add a block diagram here (Alex).
+The overall test strategy for the Crossword game involves a combination of manual testing and automated unit tests to ensure the game functions correctly and meets user requirements.
+Such combination of manual functional testing and unit tests covering the code allows us to achieve high quality of the software being developed such as our crossword game.
 
-# Overall Test Plan (Task 11)
+### Manual Testing
+
+Manual tests are going to be done on the frontend to test the user interface and user experience.
+The manual tests will cover the following scenarios:
 
 | Test | Input | Expected | Actual | Comment |
 | :--- | :---: | :---: | :---: | ---: |
@@ -190,7 +218,7 @@ ToDo: add a block diagram here (Alex).
 | Inputting the wrong answer | "ASJF" | Says text saying "Incorrect" | N/A | N/A |
 | Inputting random number | 123 | Says text saying "Incorrect | N/A | N/A |
 
-## Unit Tests
+### Unit Tests
 
 Unit tests are done on the backend to test the game logic, scoring, timer etc.
 pytest framework is used for unit testing of the backend part.
@@ -198,22 +226,61 @@ In the backend folder, run the following command to execute the unit tests:
 python -m pytest tests/test_app.py 
 
 
-# Activity 2
-## Refining and improving (Task 1)
+---
 
-## Psuedocode: (Task 3)
-```
+# Activity 2 - Design Analysis Session
 
-```
+---
 
-## UML Flowchart (Task 4)
+## Task 1 - Refining and improving 
 
-## Game State maangement (Task 5)
+Refine and improve your overall specification and ideas by removing inappropriate or out-of-scope elements, simplify requirements, identify opportunities to improve and streamline HCI elements, game-play and game mechanics, etc.)
+
+---
+
+## Task 2 - agree project requirements and specifications
+
+Agree your project’s requirements ensuring you can deliver them successfully
+
+---
+
+## Task 3 - Psuedocode
+
+Use basic pseudo code to help define, establish and quickly test high-level in-game functions, actions and logic (depending on your preference you may prefer to complete step 4 before step 3)
+
+---
+
+## Task 4 - UML Flowchart
+
+Use basic UML flowcharts to help plan, design and test game logic, interaction, mechanics and flow
+
+---
+
+## Task 5 - Game State management
+
+Establish game state management (start, win, lose, draw) – confirm how the state could be monitored, detected or changed?
+
 Win Conditions: All words have been found
 Lose Conditiion: If time ran out. You lose. (If time limit has been implemented)
+
 
 2 player game: (IF time limit has been implemented and Multiplayer Implemented)
 Win condition: Get more words than the other opponent when time runs out.
 Lose Condition: Get less words than the other opponent when time runs out.
 Draw condition: If both players is equal in the amount of words they found.
+
+---
+
+## Architecture Design
+
+Here goes the architecture design of the project (Alex).
+
+We are using a client-server architecture.
+We are going to have a backend server (controller) which will handle the game logic, scoring, timer, leaderboard etc.
+The backend will expose a RESTful API which the frontend (view) will call to get game state, submit guesses, get leaderboard etc.
+The frontend will be a web app which will render the gameboard, clues, HUD etc.
+The frontend will call the backend API to get game state, submit guesses etc.
+Initially the backend will use a set of json files to store the game data (words, clues etc.) but later we might move to a database if time permits.
+
+ToDo: add a block diagram here (Alex).
 
