@@ -7,5 +7,10 @@ def create_app():
     app.config.from_object('app.config.Config')
     app.register_blueprint(game_bp, url_prefix='/api/game')
     app.register_blueprint(user_bp, url_prefix='/api/user')
+    #homepage
+    @app.route('/')
+    def hello():
+        return render_template('homepage.html')
+    
     return app
 
