@@ -170,6 +170,10 @@ We've identified the following non-functional specifications to be important for
 
 ToDo: add overall mockup here (Cedric).
 
+Main game:
+<img width="1362" height="768" alt="image" src="https://github.com/user-attachments/assets/95f33b87-0f67-4dba-98ae-33869336d6b8" />
+
+
 ---
 
 ## Task 8 - Construct basic storyboards associated with the game-play/app use
