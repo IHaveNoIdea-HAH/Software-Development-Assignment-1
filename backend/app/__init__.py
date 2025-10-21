@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from .routes.game import game_bp
 from .routes.user import user_bp
 
