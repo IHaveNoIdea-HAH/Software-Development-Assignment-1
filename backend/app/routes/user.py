@@ -1,14 +1,103 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, current_app
+from app.models.user import User
+from app.utils.helpers import save_users_to_json
 
 user_bp = Blueprint('user', __name__)
 
 @user_bp.route('/login', methods=['POST'])
 def login():
-    # Placeholder: User login
-    return jsonify({'message': 'Login successful'})
+    # Handling user login
+    try:
+        # Retrieve JSON payload from request body
+        data = request.get_json()
+        # Extract username and password
+        username = data.get('username', None)
+        password = data.get('password', None)
+
+        # Validate presence of username and password
+        if not username or not password:
+            return jsonify({
+                'result': 'failure',
+                'message': 'Username and password are required',
+                'error': 'Missing credentials'
+            }), 400
+        else:
+            # Check against loaded users in app config
+            for id, user in current_app.config['USERS'].items():
+                if user.username == username and user.password == password:
+                    return jsonify({
+                        'result': 'success',
+                        'message': 'Login successful',
+                        'user_id': id,
+                        'username': user.username
+                    }), 200
+
+            # If no match found, return invalid credentials response
+            return jsonify({
+                'result': 'failure',
+                'message': 'Invalid credentials supplied',
+                'error': 'Invalid credentials'
+            }), 401
+    except Exception as e:
+        return jsonify({
+            'result': 'failure',
+            'message': 'Error during login',
+            'error': str(e)
+        }), 500
 
 @user_bp.route('/register', methods=['POST'])
 def register():
-    # Placeholder: User registration
-    return jsonify({'message': 'Registration successful'})
+    # Handling user registration
+    try:
+        # Retrieve JSON payload from request body
+        data = request.get_json()
+        # Extract username and password
+        username = data.get('username', None)
+        password = data.get('password', None)
+        email = data.get('email', None)
+
+        # Validate presence of username and password
+        if not username or not password:
+            return jsonify({
+                'result': 'failure',
+                'message': 'Username and password are required to register new user',
+                'error': 'Missing username or password'
+            }), 400
+        else:
+            # Check against loaded users in app config if a username with the same name exists
+            for id, user in current_app.config['USERS'].items():
+                if user.username == username:
+                    return jsonify({
+                        'result': 'failure',
+                        'message': 'Username already exists, please choose a different one',
+                        'error': 'Username already exists'
+                    }), 401
+
+            # If no match found, let's register the new user
+            current_app.config['LAST_USER_ID'] += 1
+            id = current_app.config['LAST_USER_ID']
+            new_user = User(
+                    user_id=id,
+                    username=username,
+                    password=password,
+                    email=email
+            )
+            # Add new user to app config
+            current_app.config['USERS'][id] = new_user
+            # We need to persist the new user to the users.json file
+            save_users_to_json()
+
+            # Return success response back to frontend
+            return jsonify({
+                'result': 'success',
+                'message': 'User registered successfully',
+                'user_id': id,
+                'username': user.username
+            }), 200
+    except Exception as e:
+        return jsonify({
+            'result': 'failure',
+            'message': 'Error during new user registration',
+            'error': str(e)
+        }), 500
 
