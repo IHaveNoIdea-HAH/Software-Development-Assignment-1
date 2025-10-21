@@ -13,3 +13,17 @@ def test_welcome(client):
     assert response.status_code == 200
     assert b"welcome" in response.data.lower()
 
+def test_game_start_success(client):
+    payload = {
+        "gameDifficultyLevel": "normal",
+        "userId": 1  # Assuming user ID 1 exists in test data
+    }
+    headers = {
+        "Content-Type": "application/json"
+    }
+    response = client.post('/api/game/start', json=payload, headers=headers)
+    assert response.status_code == 200
+    data = response.get_json()
+    assert data['result'] == 'success'
+    assert 'game_id' in data
+    assert 'crossword' in data

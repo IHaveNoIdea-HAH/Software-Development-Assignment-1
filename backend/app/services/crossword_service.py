@@ -1,8 +1,12 @@
 from app.models.crossword import Crossword, Clue
+from flask import current_app
+import random
+
 
 class CrosswordService:
+
     @staticmethod
-    def generate_crossword():
+    def generate_dummy_crossword():
         # Create a 20x20 empty grid
         grid = [['' for _ in range(20)] for _ in range(20)]
 
@@ -29,6 +33,61 @@ class CrosswordService:
         ]
 
         return Crossword(grid, clues)
+
+
+    @staticmethod
+    def generate_crossword(target_count_of_words=10):
+        # Load (or reuse) the cached word list
+        words_clues = current_app.config['CROSSWORDS_DATA']
+
+        # Shuffle and pick a subset
+        random.shuffle(words_clues)
+        selected = words_clues[:target_count_of_words]  # Adjust count as needed
+
+        # Let's initialize the grid
+        grid_size = current_app.config['GRID_SIZE']
+        grid = [['' for _ in range(grid_size)] for _ in range(grid_size)]
+
+        # Split into across/down words
+        half = len(selected) // 2
+        across_words = selected[:half]
+        down_words = selected[half:]
+
+        def place_across(word, row, col):
+            for i, letter in enumerate(word):
+                if col + i < grid_size:
+                    grid[row][col + i] = letter
+
+        def place_down(word, row, col):
+            for i, letter in enumerate(word):
+                if row + i < grid_size:
+                    grid[row + i][col] = letter
+
+        # Place words
+        for entry in across_words:
+            word = entry['word'].upper()
+            row = random.randint(0, grid_size - 1)
+            col = random.randint(0, grid_size - len(word))
+            place_across(word, row, col)
+
+        for entry in down_words:
+            word = entry['word'].upper()
+            row = random.randint(0, grid_size - len(word))
+            col = random.randint(0, grid_size - 1)
+            place_down(word, row, col)
+
+        # Generate clues
+        clues = []
+        num = 1
+        for entry in across_words:
+            clues.append(Clue(num, 'across', entry['clue'], entry['word']))
+            num += 1
+        for entry in down_words:
+            clues.append(Clue(num, 'down', entry['clue'], entry['word']))
+            num += 1
+
+        return Crossword(grid, clues)
+
 
     @staticmethod
     def check_guess(crossword, guess):
