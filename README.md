@@ -171,7 +171,8 @@ We've identified the following non-functional specifications to be important for
 ToDo: add overall mockup here (Cedric).
 
 Main game:
-<img width="1362" height="768" alt="image" src="https://github.com/user-attachments/assets/95f33b87-0f67-4dba-98ae-33869336d6b8" />
+<img width="1343" height="737" alt="image" src="https://github.com/user-attachments/assets/b4ff156f-47d9-4e59-aa3e-4a365e13d771" />
+
 
 
 ---
@@ -287,6 +288,9 @@ Agree your project’s requirements ensuring you can deliver them successfully
 ## Task 3 - Psuedocode
 
 Use basic pseudo code to help define, establish and quickly test high-level in-game functions, actions and logic (depending on your preference you may prefer to complete step 4 before step 3)
+```
+DISPLAY text
+```
 
 ---
 
@@ -300,9 +304,18 @@ Use basic UML flowcharts to help plan, design and test game logic, interaction, 
 
 Establish game state management (start, win, lose, draw) – confirm how the state could be monitored, detected or changed?
 
-Win Conditions: All words have been found
-Lose Conditiion: If time ran out. You lose. (If time limit has been implemented)
+Check Word:
+Words: Sees if the word inputted matches the words set 
+Incorrect: If the inputted words doesn't match. Displays "Incorrect"
+Correct: If the inputted word matches then display "Correct" and put letters in the box
 
+Hints:
+If player presses a hint, it displays one single letter about of a word, only displaying 3 letters of each word.
+
+
+1 player game
+Win Conditions: All words have been found.
+Lose Conditiion: If time ran out. You lose. (If time limit has been implemented)
 
 2 player game: (IF time limit has been implemented and Multiplayer Implemented)
 Win condition: Get more words than the other opponent when time runs out.
