@@ -297,7 +297,27 @@ These refinements make the project **more achievable, user-friendly, and stable*
 
 ## Task 2 - agree project requirements and specifications
 
-Agree your project’s requirements ensuring you can deliver them successfully
+After refining our ideas, the team agreed on the final set of requirements that are realistic to deliver within the deadline.  
+The focus is on simplicity, functionality, and a smooth user experience.
+
+#### Final Functional Specifications
+1. Single-topic crossword with 6–8 words per puzzle.  
+2. Player inputs answers manually and clicks **Check** to validate.  
+3. **Hint** button reveals one letter and deducts points.  
+4. Simple scoring system (+10 for correct, −2 for hint).  
+5. Responsive UI with highlighted active word.  
+6. **You Win** message appears when all words are completed.  
+7. Local storage saves current progress.
+
+#### Final Non-Functional Specifications
+- Loads within 3 seconds.  
+- Works on desktop, tablet, and mobile.  
+- Clear visual feedback (green = correct, red = incorrect).  
+- High-contrast colours and readable fonts.  
+- Modular code using HTML, CSS, JavaScript, and JSON.  
+- Hosted on GitHub Pages for easy access and testing.
+
+These requirements ensure the game remains achievable while maintaining a polished and accessible user experience.
 
 ---
 
