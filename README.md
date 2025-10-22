@@ -279,20 +279,19 @@ Task 1 – Refining and Improving
 
 After reviewing our initial specifications from Activity 1, the team met to refine the scope and simplify certain elements to make sure the crossword game could be fully developed within the time limit.
 
-Changes and improvements made:
+Improvements and Adjustments
 
-Area	Original Idea	Issue Identified	Improvement Implemented
-Difficulty Levels	Planned multiple difficulty levels	Too time-consuming to implement & test within schedule	Reduced to one standard level for first release
-Timer Feature	Optional countdown and stopwatch	Non-essential, risked extra bugs	Removed timer for v1.0; may return in later update
-Scoring System	Combo/streak bonuses planned	Over-complex for MVP	Simplified to +points for correct answers, −points for hints
-Hint Mechanism	Reveal full word	Too generous, lowered challenge	Now reveals only one letter per click with score penalty
-UI Design	Plain black-white layout	Lacked clarity on selected cells	Added blue highlight on selected word + responsive font scaling
-Backend Logic	Dynamic puzzle generation API	Not achievable in timeframe	Using pre-defined word sets stored in JSON for stability
-Accessibility	Basic colour contrast only	Didn’t address font readability	Added larger text option & ensured 4.5:1 contrast ratio
-Testing Plan	Only 3 manual tests	Limited coverage	Added tests for hint button, win screen, and grid reset
+| Area | Original Idea | Issue Identified | Improvement Implemented |
+|------|----------------|------------------|--------------------------|
+| Difficulty Levels | Multiple difficulty levels (easy/medium/hard) | Too time-consuming to design and test within project timeline | Reduced to a single default level for the first release |
+| Timer Feature | Optional countdown and stopwatch | Not essential for gameplay; risked extra bugs | Removed timer for version 1.0, may add later |
+| Scoring System | Combo/streak bonuses and advanced logic | Over-complicated for MVP | Simplified to +10 points for correct answers and −2 for hints |
+| Hint Mechanism | Reveal entire word | Too generous; reduced challenge | Now reveals only one letter per click with a score penalty |
+| UI / UX Design | Basic black-and-white layout | Hard to identify selected cells | Added blue highlight for active word and responsive font scaling |
+| Backend Logic | Dynamic crossword generator via API | Not achievable in short timeframe | Using pre-defined word sets stored in JSON for reliability |
+| Accessibility | Minimal colour contrast only | Needed better readability and accessibility | Added larger-text option and ensured high contrast ratio |
+| Testing Plan | Only three manual tests | Limited coverage of key functions | Added more tests for hint button, win screen, and grid reset |
 
-These refinements make the design more achievable, user-friendly, and consistent with RAD’s iterative prototyping approach.
----
 
 ## Task 2 - agree project requirements and specifications
 
