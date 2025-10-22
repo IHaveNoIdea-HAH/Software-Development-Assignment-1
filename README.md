@@ -292,6 +292,8 @@ Improvements and Adjustments
 | Accessibility | Minimal colour contrast only | Needed better readability and accessibility | Added larger-text option and ensured high contrast ratio |
 | Testing Plan | Only three manual tests | Limited coverage of key functions | Added more tests for hint button, win screen, and grid reset |
 
+These refinements make the project **more achievable, user-friendly, and stable**, aligning with the RAD (Rapid Application Development) approach that emphasises quick prototyping, continuous testing, and iterative improvement.
+
 
 ## Task 2 - agree project requirements and specifications
 
