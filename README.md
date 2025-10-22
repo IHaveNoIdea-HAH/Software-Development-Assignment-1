@@ -275,8 +275,23 @@ python -m pytest tests/test_app.py
 
 ## Task 1 - Refining and improving 
 
-Refine and improve your overall specification and ideas by removing inappropriate or out-of-scope elements, simplify requirements, identify opportunities to improve and streamline HCI elements, game-play and game mechanics, etc.)
+Task 1 – Refining and Improving
 
+After reviewing our initial specifications from Activity 1, the team met to refine the scope and simplify certain elements to make sure the crossword game could be fully developed within the time limit.
+
+Changes and improvements made:
+
+Area	Original Idea	Issue Identified	Improvement Implemented
+Difficulty Levels	Planned multiple difficulty levels	Too time-consuming to implement & test within schedule	Reduced to one standard level for first release
+Timer Feature	Optional countdown and stopwatch	Non-essential, risked extra bugs	Removed timer for v1.0; may return in later update
+Scoring System	Combo/streak bonuses planned	Over-complex for MVP	Simplified to +points for correct answers, −points for hints
+Hint Mechanism	Reveal full word	Too generous, lowered challenge	Now reveals only one letter per click with score penalty
+UI Design	Plain black-white layout	Lacked clarity on selected cells	Added blue highlight on selected word + responsive font scaling
+Backend Logic	Dynamic puzzle generation API	Not achievable in timeframe	Using pre-defined word sets stored in JSON for stability
+Accessibility	Basic colour contrast only	Didn’t address font readability	Added larger text option & ensured 4.5:1 contrast ratio
+Testing Plan	Only 3 manual tests	Limited coverage	Added tests for hint button, win screen, and grid reset
+
+These refinements make the design more achievable, user-friendly, and consistent with RAD’s iterative prototyping approach.
 ---
 
 ## Task 2 - agree project requirements and specifications
