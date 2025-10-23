@@ -362,13 +362,14 @@ START GAME
   END IF
 
 END GAME
+```
+
 
 
 ## Task 4 - UML Flowchart
 
 Use basic UML flowcharts to help plan, design and test game logic, interaction, mechanics and flow
 
----
 
 ## Task 5 - Game State management
 
