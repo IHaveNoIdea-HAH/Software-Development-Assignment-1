@@ -448,7 +448,7 @@ It helps visualize how the game starts, how player input is processed, and how t
      ┌───────────────┐
      │    END GAME    │
      └───────────────┘
-
+```
 
 
  ## Task 5 - Game State management
