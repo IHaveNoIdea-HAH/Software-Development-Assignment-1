@@ -6,7 +6,7 @@ from .schemas.user_schema import UserSchema
 import os
 
 def create_app(current_folder):
-    app = Flask("crossword_backend")
+    app = Flask(__name__)#Used to be called 'crossword_backend' but due to it ruining the homepage. it's been renamed to __name__
     app.config.from_object('app.config.Config')
 
     # Define path to the data folder
