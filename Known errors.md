@@ -9,3 +9,17 @@ I have no idea why this happens. But sometimes when running the python file it c
 ### Temporary Fix:
 
 Running the program again and again until it works somehow fixes it. Not a permanent fix.
+
+
+##Homepage fail to load
+
+Probably something to do with the code
+see if app>__init__.py
+line 8 says
+
+```
+def create_app(current_folder):
+    app = Flask(__name__)
+    app.config.from_object('app.config.Config')
+```
+<img width="855" height="138" alt="image" src="https://github.com/user-attachments/assets/3fd8d812-6eff-4fc9-8b5e-34363fe8625d" />
