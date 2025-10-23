@@ -35,5 +35,9 @@ def create_app(current_folder):
     app.register_blueprint(user_bp, url_prefix='/api/user')
     print('Blueprints registered.')
     print('Flask app setup complete.')
+
+    @app.route('/')
+    def hello():
+        return render_template('homepage.html') #why did this part get deleted??
     return app
 
