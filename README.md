@@ -367,11 +367,91 @@ END GAME
 
 
 ## Task 4 - UML Flowchart
+The UML flowchart below represents the overall game logic and user interaction flow for the Crossword game.  
+It helps visualize how the game starts, how player input is processed, and how the program determines when the game is complete.
 
-Use basic UML flowcharts to help plan, design and test game logic, interaction, mechanics and flow
+#### Description of Flow
+
+1. The game starts and displays the **Main Menu**.  
+2. When the player clicks **Start**, the crossword grid and clues are loaded.  
+3. The player types an answer into the input box.  
+4. The program checks if the answer matches the correct word.  
+   - If correct → the word appears in the grid and the score increases.  
+   - If incorrect → an error message appears.  
+5. The player can click **Hint** to reveal one letter (with a score penalty).  
+6. The program checks whether all words are solved.  
+   - If yes → display **"You Win"** message and final score.  
+   - If no → continue playing.  
+7. The player’s progress is saved locally before the game ends.
+
+#### UML Flow (Text-Based Representation)
+
+```plaintext
+          ┌─────────────────────┐
+          │     START GAME      │
+          └─────────┬───────────┘
+                    │
+                    ▼
+        ┌──────────────────────┐
+        │ Display Main Menu    │
+        └─────────┬────────────┘
+                  │
+         ┌────────▼────────┐
+         │ User clicks     │
+         │ "Start"         │
+         └────────┬────────┘
+                  │
+        ┌─────────▼─────────┐
+        │ Load Crossword     │
+        │ & Display Clues    │
+        └─────────┬─────────┘
+                  │
+          ┌───────▼────────┐
+          │ Player Inputs   │
+          │ Answer          │
+          └───────┬────────┘
+                  │
+     ┌────────────▼────────────┐
+     │ Is Answer Correct?      │
+     ├────────────┬────────────┤
+     │ Yes        │ No         │
+     ├────────────┼────────────┤
+     │ Update Grid│ Display    │
+     │ +10 Points │ “Incorrect”│
+     └──────┬─────┴────────────┘
+            │
+  ┌─────────▼──────────┐
+  │ Player Clicks Hint?│
+  ├─────────┬──────────┤
+  │ Yes     │ No       │
+  ├─────────┼──────────┤
+  │ Reveal  │ Continue │
+  │ Letter  │ Game Loop│
+  │ -2 Pts  │          │
+  └─────────┴──────────┘
+            │
+    ┌───────▼──────────┐
+    │ All Words Solved?│
+    ├─────────┬────────┤
+    │ Yes     │ No     │
+    ├─────────┼────────┤
+    │ Display │ Wait for│
+    │ “You Win” │ Input │
+    └───────┬──────────┘
+            │
+    ┌───────▼─────────┐
+    │ Save Progress   │
+    │ Display Score   │
+    └───────┬─────────┘
+            │
+            ▼
+     ┌───────────────┐
+     │    END GAME    │
+     └───────────────┘
 
 
-## Task 5 - Game State management
+
+ ## Task 5 - Game State management
 
 Establish game state management (start, win, lose, draw) – confirm how the state could be monitored, detected or changed?
 
