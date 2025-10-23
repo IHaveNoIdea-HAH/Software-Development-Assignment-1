@@ -323,11 +323,13 @@ These requirements ensure the game remains achievable while maintaining a polish
 
 ## Task 3 - Psuedocode
 
-Below is the pseudocode outlining the main logic and actions for the Crossword game.  
-It defines how the player interacts with the game, how answers are checked, and how the score is updated.
+The pseudocode below outlines the main logic and gameplay flow for the Crossword Game.  
+It shows how the player interacts with the game, how answers are checked, and how the score is updated.
 
+```plaintext
 START GAME
   DISPLAY main menu
+
   IF user clicks "Start"
       LOAD crossword grid
       DISPLAY clues and input area
@@ -336,31 +338,31 @@ START GAME
 
       WHILE game not finished
           WAIT for player input
+
           IF input matches correct word
               UPDATE grid with correct letters
-              DISPLAY “Correct!”
+              DISPLAY "Correct!"
               INCREASE score by 10
               INCREASE wordsSolved by 1
           ELSE
-              DISPLAY “Incorrect!”
+              DISPLAY "Incorrect!"
 
-          IF player clicks “Hint”
+          IF player clicks "Hint"
               REVEAL one letter in selected word
               DECREASE score by 2
 
-          IF all wordsSolved = totalWords
-              DISPLAY “You Win!” message
-              END LOOP
+          IF wordsSolved == totalWords
+              DISPLAY "You Win!" message
+              EXIT LOOP
+          END IF
       END WHILE
+
+      SAVE progress locally
+      DISPLAY final score
   END IF
 
-SAVE progress locally
-DISPLAY final score
 END GAME
-```
 
-
----
 
 ## Task 4 - UML Flowchart
 
