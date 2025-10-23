@@ -323,10 +323,42 @@ These requirements ensure the game remains achievable while maintaining a polish
 
 ## Task 3 - Psuedocode
 
-Use basic pseudo code to help define, establish and quickly test high-level in-game functions, actions and logic (depending on your preference you may prefer to complete step 4 before step 3)
+Below is the pseudocode outlining the main logic and actions for the Crossword game.  
+It defines how the player interacts with the game, how answers are checked, and how the score is updated.
+
+START GAME
+  DISPLAY main menu
+  IF user clicks "Start"
+      LOAD crossword grid
+      DISPLAY clues and input area
+      SET score = 0
+      SET wordsSolved = 0
+
+      WHILE game not finished
+          WAIT for player input
+          IF input matches correct word
+              UPDATE grid with correct letters
+              DISPLAY “Correct!”
+              INCREASE score by 10
+              INCREASE wordsSolved by 1
+          ELSE
+              DISPLAY “Incorrect!”
+
+          IF player clicks “Hint”
+              REVEAL one letter in selected word
+              DECREASE score by 2
+
+          IF all wordsSolved = totalWords
+              DISPLAY “You Win!” message
+              END LOOP
+      END WHILE
+  END IF
+
+SAVE progress locally
+DISPLAY final score
+END GAME
 ```
-DISPLAY text
-```
+
 
 ---
 
