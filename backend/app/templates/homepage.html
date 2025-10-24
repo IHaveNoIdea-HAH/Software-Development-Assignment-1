@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/layout.css">
-  <link rel="stylesheet" href="styles/coloring.css">
+  
+  <!--LOCALHOST:5000 serves static files from the web server instead of your filesystem. This is for the css to not break-->
+  <!--Doing /static/styles/cssfile breaks its for some reason-->
+  <link rel="stylesheet" href="http://localhost:5000/static/styles/coloring.css">
+  <link rel="stylesheet" href="http://localhost:5000/static/styles/layout.css"> 
 </head>
 <body>
     <div class="container">
         <div class="title-box">
-           <img src="Crossword image.png" alt="Crossword">
+           <img src="http://localhost:5000/static/Crossword%20image.png" alt="Crossword">
         </div>
 
         <div class="button-container">
