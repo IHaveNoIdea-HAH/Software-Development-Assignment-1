@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://localhost:5000/static/styles/DisplayWords.css"> 
+</head>
+<body>
+    <div class="container">
+        <div id="chosenword">
+            <div id="wordDisplay" class="placeholder">Click the button to get a word</div>
+            <div id="clueDisplay"></div>
+        </div>
+        <button onclick="getRandomWord()">Get Random Word</button>
+    </div>
+
+    <script>
+        async function getRandomWord() {
+            try {
+                
+                const response = await fetch('/api/game/random-word');
+                const data = await response.json();
+                
+                if (data.error) { //Self explaination, if word could not be found or clue cannot be found. Display this
+                    document.getElementById('wordDisplay').textContent = 'Error: ' + data.error;
+                    document.getElementById('wordDisplay').className = 'error';
+                    document.getElementById('clueDisplay').textContent = '';
+                } else {
+                    document.getElementById('wordDisplay').textContent = data.word;
+                    document.getElementById('wordDisplay').className = '';
+                    document.getElementById('clueDisplay').textContent = data.clue;
+                }
+            } catch (error) { 
+                document.getElementById('wordDisplay').textContent = 'Error loading word';
+                document.getElementById('wordDisplay').className = 'error';
+                document.getElementById('clueDisplay').textContent = '';
+            }
+        }
+    </script>
+</body>
+</html>

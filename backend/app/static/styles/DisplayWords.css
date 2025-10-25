@@ -1,0 +1,77 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: white
+}
+
+.container {
+    text-align: center;
+    padding: 40px;
+}
+
+#chosenword {
+    background: white;
+    border-radius: 15px;
+    padding: 40px 60px;
+    min-width: 300px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin-bottom: 30px;
+}
+
+#wordDisplay {
+    font-size: 32px;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+#clueDisplay {
+    font-size: 18px;
+    color: #666;
+    font-style: italic;
+}
+
+.placeholder {
+    color: #ccc;
+    font-size: 20px;
+}
+
+button {
+    background-color: grey;
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.error {
+    color: #ff4444;
+}
