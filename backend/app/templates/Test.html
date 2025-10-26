@@ -11,31 +11,75 @@
             <div id="wordDisplay" class="placeholder">Click the button to get a word</div>
             <div id="clueDisplay"></div>
         </div>
+        
+        <div id="input">
+            <input type="text" id="userInput" placeholder="Enter the word here..." onkeypress="if(event.key === 'Enter') checkWord()">
+            <button onclick="checkWord()">Check Answer</button>
+            <div id="result"></div>
+        </div>
+        
         <button onclick="getRandomWord()">Get Random Word</button>
     </div>
 
     <script>
+        let currentWord = '';
+
         async function getRandomWord() {
             try {
-                
+                // Updated to use the blueprint route: /api/game/random-word
                 const response = await fetch('/api/game/random-word');
                 const data = await response.json();
                 
-                if (data.error) { //Self explaination, if word could not be found or clue cannot be found. Display this
+                if (data.error) {//Self explaination, if word could not be found or clue cannot be found. Display this
                     document.getElementById('wordDisplay').textContent = 'Error: ' + data.error;
                     document.getElementById('wordDisplay').className = 'error';
                     document.getElementById('clueDisplay').textContent = '';
+                    currentWord = '';
                 } else {
                     document.getElementById('wordDisplay').textContent = data.word;
                     document.getElementById('wordDisplay').className = '';
                     document.getElementById('clueDisplay').textContent = data.clue;
+                    currentWord = data.word.toLowerCase();
+                    
+                    // Clear input and results when getting a new word
+                    document.getElementById('userInput').value = '';
+                    document.getElementById('result').textContent = '';
+                    document.getElementById('result').className = '';
                 }
-            } catch (error) { 
+            } catch (error) {
                 document.getElementById('wordDisplay').textContent = 'Error loading word';
                 document.getElementById('wordDisplay').className = 'error';
                 document.getElementById('clueDisplay').textContent = '';
+                currentWord = '';
+            }
+        }
+
+        function checkWord() {
+            const userInput = document.getElementById('userInput').value.toLowerCase().trim();//Makes input have no case sensitive
+            const feedbackElement = document.getElementById('result');
+            
+            if (!currentWord) {
+                feedbackElement.textContent = 'Please get a word first!';
+                feedbackElement.className = 'incorrect';
+                return;
+            }
+            
+            if (!userInput) {
+                feedbackElement.textContent = 'Please enter a word!';
+                feedbackElement.className = 'incorrect';
+                return;
+            }
+            
+            if (userInput === currentWord) {
+                feedbackElement.textContent = 'Good job!';
+                feedbackElement.className = 'correct';
+            } else {
+                feedbackElement.textContent = 'Incorrect';
+                feedbackElement.className = 'incorrect';
             }
         }
     </script>
+
+
 </body>
 </html>
