@@ -34,59 +34,108 @@ class CrosswordService:
 
         return Crossword(grid, clues)
 
-
     @staticmethod
     def generate_crossword(target_count_of_words=10):
-        # Load (or reuse) the cached word list
+        # Fetch the loaded word list
         words_clues = current_app.config['CROSSWORDS_DATA']
-
-        # Shuffle and pick a subset
-        random.shuffle(words_clues)
-        selected = words_clues[:target_count_of_words]  # Adjust count as needed
 
         # Let's initialize the grid
         grid_size = current_app.config['GRID_SIZE']
-        grid = [['' for _ in range(grid_size)] for _ in range(grid_size)]
+        covered_grid = [['' for _ in range(grid_size)] for _ in range(grid_size)]
+        solved_grid = [['' for _ in range(grid_size)] for _ in range(grid_size)]
 
-        # Split into across/down words
-        half = len(selected) // 2
-        across_words = selected[:half]
-        down_words = selected[half:]
-
-        def place_across(word, row, col):
-            for i, letter in enumerate(word):
-                if col + i < grid_size:
-                    grid[row][col + i] = letter
-
-        def place_down(word, row, col):
-            for i, letter in enumerate(word):
-                if row + i < grid_size:
-                    grid[row + i][col] = letter
-
-        # Place words
-        for entry in across_words:
-            word = entry['word'].upper()
-            row = random.randint(0, grid_size - 1)
-            col = random.randint(0, grid_size - len(word))
-            place_across(word, row, col)
-
-        for entry in down_words:
-            word = entry['word'].upper()
-            row = random.randint(0, grid_size - len(word))
-            col = random.randint(0, grid_size - 1)
-            place_down(word, row, col)
-
-        # Generate clues
+        # List to hold the clues
         clues = []
-        num = 1
-        for entry in across_words:
-            clues.append(Clue(num, 'across', entry['clue'], entry['word']))
-            num += 1
-        for entry in down_words:
-            clues.append(Clue(num, 'down', entry['clue'], entry['word']))
-            num += 1
 
-        return Crossword(grid, clues)
+        # Numbering for clues
+        picked_words_count = 0
+
+        # this list is to check which words have already been picked to avoid duplicates
+        # it contains the indexes of the words_clues list
+        picked_words_indexes = []
+
+        # Offset to manage placement in grid
+        offset = 0
+
+        # Let's fill top left corner with word
+        # filling 1st word across
+        # let's get a random word not already picked
+        while True:
+            randowm_word_index = random.randint(0, len(words_clues) - 1)
+            if randowm_word_index not in picked_words_indexes and len(words_clues[randowm_word_index]['word']) < grid_size - 2 * offset:
+                picked_words_indexes.append(randowm_word_index)
+                picked_words_count = len(picked_words_indexes)
+                y_index = offset
+                for i, letter in enumerate(words_clues[randowm_word_index]['word'].upper()):
+                    solved_grid[y_index][offset + i] = letter
+                    if i == 0:
+                        covered_grid[y_index][offset] = str(picked_words_count)
+                    else:
+                        covered_grid[y_index][offset + i] = '[]'
+                clues.append(Clue(picked_words_count, 'across', words_clues[randowm_word_index]['clue'], words_clues[randowm_word_index]['word'].upper()))
+                break
+
+        # Let's fill bottom left corner with word
+        # filling 1st word across
+        # let's get a random word not already picked
+        while True:
+            randowm_word_index = random.randint(0, len(words_clues) - 1)
+            if randowm_word_index not in picked_words_indexes and len(words_clues[randowm_word_index]['word']) < grid_size - 2 * offset:
+                picked_words_indexes.append(randowm_word_index)
+                picked_words_count = len(picked_words_indexes)
+                y_index = grid_size - offset -1
+                for i, letter in enumerate(words_clues[randowm_word_index]['word'].upper()):
+                    solved_grid[y_index][offset + i] = letter
+                    if i == 0:
+                        covered_grid[y_index][offset] = str(picked_words_count)
+                    else:
+                        covered_grid[y_index][offset + i] = '[]'
+                clues.append(Clue(picked_words_count, 'across', words_clues[randowm_word_index]['clue'], words_clues[randowm_word_index]['word'].upper()))
+                break
+
+        # Let's fill top right corner with word
+        # filling word across
+        # let's get a random word not already picked
+        while True:
+            randowm_word_index = random.randint(0, len(words_clues) - 1)
+            if randowm_word_index not in picked_words_indexes and len(words_clues[randowm_word_index]['word']) < grid_size - 2 * offset:
+                picked_words_indexes.append(randowm_word_index)
+                picked_words_count = len(picked_words_indexes)
+                y_index = offset
+                x_index = grid_size - offset - len(words_clues[randowm_word_index]['word'])
+                for i, letter in enumerate(words_clues[randowm_word_index]['word'].upper()):
+                    solved_grid[y_index][x_index + i] = letter
+                    if i == 0:
+                        covered_grid[y_index][x_index] = str(picked_words_count)
+                    else:
+                        covered_grid[y_index][x_index + i] = '[]'
+                clues.append(Clue(picked_words_count, 'across', words_clues[randowm_word_index]['clue'], words_clues[randowm_word_index]['word'].upper()))
+                break
+
+
+        # Let's fill bottom right corner with word
+        # filling word across
+        # let's get a random word not already picked
+        while True:
+            randowm_word_index = random.randint(0, len(words_clues) - 1)
+            if randowm_word_index not in picked_words_indexes and len(words_clues[randowm_word_index]['word']) < grid_size - 2 * offset:
+                picked_words_indexes.append(randowm_word_index)
+                picked_words_count = len(picked_words_indexes)
+                y_index = grid_size - offset -1
+                x_index = grid_size - offset - len(words_clues[randowm_word_index]['word'])
+                for i, letter in enumerate(words_clues[randowm_word_index]['word'].upper()):
+                    solved_grid[y_index][x_index + i] = letter
+                    if i == 0:
+                        covered_grid[y_index][x_index] = str(picked_words_count)
+                    else:
+                        covered_grid[y_index][x_index + i] = '[]'
+                clues.append(Clue(picked_words_count, 'across', words_clues[randowm_word_index]['clue'], words_clues[randowm_word_index]['word'].upper()))
+                break
+
+        # ToDo: Continue filling the grid with more words until target_count_of_words is reached
+
+
+        return Crossword(solved_grid, covered_grid, clues)
 
 
     @staticmethod

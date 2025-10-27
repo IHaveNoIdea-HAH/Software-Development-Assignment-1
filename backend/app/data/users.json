@@ -2,49 +2,15 @@
     {
         "id": 1,
         "username": "alex",
-        "password": "123456",
-        "email": "alex@gmail.com"
+        "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+        "email": "alex@mail.com",
+        "security_token": "41c8fd33-f2c5-4406-a781-15328aa9dfb3"
     },
     {
         "id": 2,
-        "username": "john",
-        "password": "123456",
-        "email": "john@gmail.com"
-    },
-    {
-        "id": 3,
         "username": "testuser",
-        "password": "testpassword",
-        "email": "testuser@gmail.com"
-    },
-    {
-        "id": 4,
-        "username": "NFHVRE",
-        "password": "YOYAAR",
-        "email": "newuser@gmail.com"
-    },
-    {
-        "id": 5,
-        "username": "EKYYTN",
-        "password": "OVUIUX",
-        "email": "newuser@gmail.com"
-    },
-    {
-        "id": 6,
-        "username": "LQXMNG",
-        "password": "ROEXUL",
-        "email": "newuser@gmail.com"
-    },
-    {
-        "id": 7,
-        "username": "IDOWGJ",
-        "password": "YNBVDL",
-        "email": "newuser@gmail.com"
-    },
-    {
-        "id": 8,
-        "username": "EXZUUL",
-        "password": "LPIMHV",
-        "email": "newuser@gmail.com"
+        "password": "9f735e0df9a1ddc702bf0a1a7b83033f9f7153a00c29de82cedadc9957289b05",
+        "email": "testuser@mail.com",
+        "security_token": "a9b7f675-c8b9-4248-9a34-99d5b4afc6db"
     }
 ]

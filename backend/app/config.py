@@ -7,10 +7,19 @@ class Config:
     USERS = {} # In-memory users storage
     LAST_USER_ID = 0  # Counter for user IDs
     GAME_ID = 1  # Counter for game sessions
-    GRID_SIZE = 15  # Size of the crossword grid
+    GRID_SIZE = 20  # Size of the crossword grid
     GAME_DIFFICULTY_LEVEL = {
-        'normal': 10,  # Default game difficulty level
-        'hard': 15,  # More words for harder level
-        'easy': 5  # Fewer words for easier level
+        'normal': {
+            "words": 10,  # Default game difficulty level
+            "guess_limit": 20  # Default guess limit
+        },
+        'hard': {
+            "words": 15,  # More words for harder level
+            "guess_limit": 20  # Fewer guesses allowed
+        },
+        'easy': {
+            "words": 5, # Fewer words for easier level
+            "guess_limit": 30  # More guesses allowed
+        }
     }
     GAMES = {} # In-memory games storage

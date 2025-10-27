@@ -1,13 +1,21 @@
 class Crossword:
-    def __init__(self, grid, clues):
-        self.grid = grid  # 2D list
+    def __init__(self, solved_grid, covered_grid, clues):
+        self.solved_grid = solved_grid  # 2D list
+        self.covered_grid = covered_grid  # 2D list
         self.clues = clues  # List of Clue objects
 
-    def print_grid(self):
-        for row in self.grid:
+    def print_covered_grid(self):
+        print()
+        for row in self.covered_grid:
+            print(' '.join(letter if letter else '.' for letter in row))
+
+    def print_solved_grid(self):
+        print()
+        for row in self.solved_grid:
             print(' '.join(letter if letter else '.' for letter in row))
 
     def print_clues(self):
+        print()
         for clue in self.clues:
             print(f"{clue.number} {clue.direction}: {clue.text} (Answer: {clue.answer})")
 
