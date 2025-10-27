@@ -73,18 +73,18 @@ Ignore these task when creating the game, for now create the necessary stuff
 
 1. Game has to have main menu 
 2. Game has to have leaderboard with 10 best players and their scores and times (In the future perhaps)
-3. Game has to have Game Win screen.
-4. Game has to have Game Over screen. (How does one lose) (if we have time, multiplayer currently lose singleplayer)
+3. Game has to have Game Win screen. (When a player correctly guesses all words)
+4. Game has to have Game Over screen. (When a player runs out of guesses)
 5. Player must be able to play new game
 6. The game is going to use a set of random words from different topics.
-7. Player must be able to score points when correct letter or word are deduced. 
-8. Game should have in-built game time which measures how much time a player spent on the game. (For the future perhaps, for now it doesn't need a timer)
-9. Player can be asked whether timer should be enabled or not. (Its too much effort to add a timer currently, and isn't needed maybe future)
-10. There has to be a HUD in the game showing current score/time hints remaining.  (Crossword is an endless game)
+7. Player must be able to score points when correct word is guessed. 
+8. LOW: Game should have in-built game time which measures how much time a player spent on the game. (For the future perhaps, for now it doesn't need a timer)
+9. LOW: Player can be asked whether timer should be enabled or not. (Its too much effort to add a timer currently, and isn't needed maybe future)
+10. There has to be a HUD in the game showing current score, guesses made and hints remaining.  
 11. Gameboard should be rendered on screen with words hidden horizontally and vertically also numbered so a player knows what word they are guessing.
-12. Player has to be able to select a word on the gameboard and enter a letter or entire word and click ‘Check’ button to see if they guessed correctly. (We could just have a box where we input text but maybe)
+12. Player has to be able to select a word on the gameboard and enter an entire word and click ‘Check’ button to see if they guessed correctly. (We could just have a box where we input text but maybe)
 13. There has to be a clues display which contains all of the clues about words hidden on the crossword gameboard.
-14. Player has to be able to uncover a selected letter or an entire word hidden on the gameboard. But this gives a penalty to the score.
+14. Player has to be able to uncover an entire word hidden on the gameboard. But this gives a penalty to the score.
 15. Player has to be able to click a button to auto-solve the whole crossword but this resets all the scored points to zero. 
 16. Accessibility features!: high contrast color scheme, fonts, links etc. (ehh maybe in the futyre)
 17. LOW: More advanced scoring logic like combo-bonuses, power-ups, streak bonuses??? Nice to have, low priority. (Future)
@@ -153,16 +153,16 @@ ToDo: add functional requirements here together with acceptance criteria (Alex).
 It is important to consider non-functional specifications as part of the overall specification for the crossword game.
 We've identified the following non-functional specifications to be important for our game:
 
-| Category | Specification |
-|-----------|----------------|
-| **Aesthetic** | Clean grid layout, minimal colours, modern typography. |
-| **Usability** | Simple controls and clear instructions. |
-| **Responsiveness** | Works perfectly on desktop, tablet, and mobile. |
+| Category | Specification                                                 |
+|-----------|---------------------------------------------------------------|
+| **Aesthetic** | Clean grid layout, minimal colours, modern typography.        |
+| **Usability** | Simple controls and clear instructions.                       |
+| **Responsiveness** | Works perfectly on desktop, tablet, and mobile.               |
 | **Accessibility** | High contrast colours, large text option, keyboard navigation. |
-| **Feedback** | Real-time indicators: green for correct, red for wrong. |
-| **Performance** | Loads under 3 seconds, no noticeable lag. |
-| **Reliability** | Auto-saves progress locally. |
-| **Maintainability** | Code modular and well-commented for easy updates. |
+| **Feedback** | Real-time indicators: green for correct, red for wrong.       |
+| **Performance** | Loads under 3 seconds, no noticeable lag.                     |
+| **Reliability** | Auto-saves progress locally.                                  |
+| **Maintainability** | Code modular and well-commented for easy updates.             |
 
 ---
 
@@ -261,7 +261,7 @@ The manual tests will cover the following scenarios:
 
 #### Unit Tests
 
-Unit tests are done on the backend to test the game logic, scoring, timer etc.
+Unit tests are done on the backend to test the game logic, scoring etc.
 pytest framework is used for unit testing of the backend part.
 In the backend folder, run the following command to execute the unit tests:
 python -m pytest tests/test_app.py 
@@ -480,8 +480,8 @@ Draw condition: If both players is equal in the amount of words they found.
 Here goes the architecture design of the project (Alex).
 
 We are using a client-server architecture.
-We are going to have a backend server (controller) which will handle the game logic, scoring, timer, leaderboard etc.
-The backend will expose a RESTful API which the frontend (view) will call to get game state, submit guesses, get leaderboard etc.
+We are going to have a backend server (controller) which will handle the game logic, scoring, leaderboard etc.
+The backend will expose a RESTful API which the frontend (view) will call to start new game, get game state, submit guesses, get leaderboard etc.
 The frontend will be a web app which will render the gameboard, clues, HUD etc.
 The frontend will call the backend API to get game state, submit guesses etc.
 Initially the backend will use a set of json files to store the game data (words, clues etc.) but later we might move to a database if time permits.

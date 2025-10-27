@@ -7,7 +7,8 @@ class UserSchema:
             'id': user.id,
             'username': user.username,
             'password': user.password,
-            'email': user.email
+            'email': user.email,
+            'security_token': user.security_token
         }
 
     @staticmethod
@@ -21,5 +22,6 @@ class UserSchema:
             user_id=data.get('id'),
             username=data['username'],
             password=data['password'],
+            security_token=data['security_token'],
             email=email
         )

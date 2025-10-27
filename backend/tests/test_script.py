@@ -9,8 +9,9 @@ def test_game_start_post():
     print("Testing game start POST endpoint and successful outcome...")
     url = "http://localhost:5000/api/game/start"
     payload = {
-        "gameDifficultyLevel": "normal",
-        "userId": 1
+        "game_difficulty_level": "normal",
+        "user_id": 1,
+        "security_token": "41c8fd33-f2c5-4406-a781-15328aa9dfb3"
     }
     headers = {
         "Content-Type": "application/json"
@@ -30,8 +31,9 @@ def test_game_start_post_unknown_user():
     print("Testing game start POST endpoint with unknown user...")
     url = "http://localhost:5000/api/game/start"
     payload = {
-        "gameDifficultyLevel": "normal",
-        "userId": 9999  # Assuming this user ID does not exist
+        "game_difficulty_level": "normal",
+        "user_id": 9999,  # Assuming this user ID does not exist
+        "security_token": ""
     }
     headers = {
         "Content-Type": "application/json"
@@ -44,6 +46,30 @@ def test_game_start_post_unknown_user():
     assert "result" in data
     assert data["result"] == "failure"
     assert data["message"] == "Unknown user. Please log in to start a game."
+
+
+def test_game_start_post_invalid_token():
+    print("Testing game start POST endpoint with invalid security token...")
+    url = "http://localhost:5000/api/game/start"
+    payload = {
+        "game_difficulty_level": "normal",
+        "user_id": 1,
+        "security_token": "wrong_token"
+    }
+    headers = {
+        "Content-Type": "application/json"
+    }
+    response = requests.post(url, json=payload, headers=headers)
+    assert response.status_code == 403
+    data = response.json()
+    if print_debug_data:
+        print(data)
+    assert "result" in data
+    assert "message" in data
+    assert "error" in data
+    assert data["result"] == "failure"
+    assert data["message"] == "Invalid security token. Please log in again."
+    assert data["error"] == "Security token does not match."
 
 
 def test_login_post_invalid_credentials():
@@ -106,6 +132,7 @@ def test_login_post_success():
     assert data["message"] == "Login successful"
     assert "user_id" in data
     assert "username" in data
+    assert "security_token" in data
 
 def test_register_new_user_post_success():
     print("Testing user registration POST endpoint with valid data...")
@@ -133,6 +160,7 @@ def test_register_new_user_post_success():
     assert data["message"] == "User registered successfully"
     assert "user_id" in data
     assert "username" in data
+    assert "security_token" in data
 
 def test_register_new_user_post_missing_username():
     print("Testing user registration POST endpoint with missing username...")
@@ -188,12 +216,16 @@ if __name__ == "__main__":
     test_game_start_post()
     # Testing game start with unknown user
     test_game_start_post_unknown_user()
+    # Testing game start with invalid security token
+    test_game_start_post_invalid_token()
+
     # Testing login with invalid credentials
     test_login_post_invalid_credentials()
     # Testing login with missing credentials
     test_login_post_missing_credentials()
     # Testing login with valid credentials
     test_login_post_success()
+
     # Testing user registration with valid data
     test_register_new_user_post_success()
     # Validate presence of username and password
