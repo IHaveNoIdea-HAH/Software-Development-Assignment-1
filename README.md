@@ -171,7 +171,8 @@ We've identified the following non-functional specifications to be important for
 ToDo: add overall mockup here (Cedric).
 
 Main game:
-<img width="1362" height="768" alt="image" src="https://github.com/user-attachments/assets/95f33b87-0f67-4dba-98ae-33869336d6b8" />
+<img width="1343" height="737" alt="image" src="https://github.com/user-attachments/assets/b4ff156f-47d9-4e59-aa3e-4a365e13d771" />
+
 
 
 ---
@@ -274,34 +275,203 @@ python -m pytest tests/test_app.py
 
 ## Task 1 - Refining and improving 
 
-Refine and improve your overall specification and ideas by removing inappropriate or out-of-scope elements, simplify requirements, identify opportunities to improve and streamline HCI elements, game-play and game mechanics, etc.)
+Task 1 – Refining and Improving
 
----
+After reviewing our initial specifications from Activity 1, the team met to refine the scope and simplify certain elements to make sure the crossword game could be fully developed within the time limit.
+
+Improvements and Adjustments
+
+| Area | Original Idea | Issue Identified | Improvement Implemented |
+|------|----------------|------------------|--------------------------|
+| Difficulty Levels | Multiple difficulty levels (easy/medium/hard) | Too time-consuming to design and test within project timeline | Reduced to a single default level for the first release |
+| Timer Feature | Optional countdown and stopwatch | Not essential for gameplay; risked extra bugs | Removed timer for version 1.0, may add later |
+| Scoring System | Combo/streak bonuses and advanced logic | Over-complicated for MVP | Simplified to +10 points for correct answers and −2 for hints |
+| Hint Mechanism | Reveal entire word | Too generous; reduced challenge | Now reveals only one letter per click with a score penalty |
+| UI / UX Design | Basic black-and-white layout | Hard to identify selected cells | Added blue highlight for active word and responsive font scaling |
+| Backend Logic | Dynamic crossword generator via API | Not achievable in short timeframe | Using pre-defined word sets stored in JSON for reliability |
+| Accessibility | Minimal colour contrast only | Needed better readability and accessibility | Added larger-text option and ensured high contrast ratio |
+| Testing Plan | Only three manual tests | Limited coverage of key functions | Added more tests for hint button, win screen, and grid reset |
+
+These refinements make the project **more achievable, user-friendly, and stable**, aligning with the RAD (Rapid Application Development) approach that emphasises quick prototyping, continuous testing, and iterative improvement.
+
 
 ## Task 2 - agree project requirements and specifications
 
-Agree your project’s requirements ensuring you can deliver them successfully
+After refining our ideas, the team agreed on the final set of requirements that are realistic to deliver within the deadline.  
+The focus is on simplicity, functionality, and a smooth user experience.
+
+#### Final Functional Specifications
+1. Single-topic crossword with 6–8 words per puzzle.  
+2. Player inputs answers manually and clicks **Check** to validate.  
+3. **Hint** button reveals one letter and deducts points.  
+4. Simple scoring system (+10 for correct, −2 for hint).  
+5. Responsive UI with highlighted active word.  
+6. **You Win** message appears when all words are completed.  
+7. Local storage saves current progress.
+
+#### Final Non-Functional Specifications
+- Loads within 3 seconds.  
+- Works on desktop, tablet, and mobile.  
+- Clear visual feedback (green = correct, red = incorrect).  
+- High-contrast colours and readable fonts.  
+- Modular code using HTML, CSS, JavaScript, and JSON.  
+- Hosted on GitHub Pages for easy access and testing.
+
+These requirements ensure the game remains achievable while maintaining a polished and accessible user experience.
 
 ---
 
 ## Task 3 - Psuedocode
 
-Use basic pseudo code to help define, establish and quickly test high-level in-game functions, actions and logic (depending on your preference you may prefer to complete step 4 before step 3)
+The pseudocode below outlines the main logic and gameplay flow for the Crossword Game.  
+It shows how the player interacts with the game, how answers are checked, and how the score is updated.
 
----
+```plaintext
+START GAME
+  DISPLAY main menu
+
+  IF user clicks "Start"
+      LOAD crossword grid
+      DISPLAY clues and input area
+      SET score = 0
+      SET wordsSolved = 0
+
+      WHILE game not finished
+          WAIT for player input
+
+          IF input matches correct word
+              UPDATE grid with correct letters
+              DISPLAY "Correct!"
+              INCREASE score by 10
+              INCREASE wordsSolved by 1
+          ELSE
+              DISPLAY "Incorrect!"
+
+          IF player clicks "Hint"
+              REVEAL one letter in selected word
+              DECREASE score by 2
+
+          IF wordsSolved == totalWords
+              DISPLAY "You Win!" message
+              EXIT LOOP
+          END IF
+      END WHILE
+
+      SAVE progress locally
+      DISPLAY final score
+  END IF
+
+END GAME
+```
+
+
 
 ## Task 4 - UML Flowchart
+The UML flowchart below represents the overall game logic and user interaction flow for the Crossword game.  
+It helps visualize how the game starts, how player input is processed, and how the program determines when the game is complete.
 
-Use basic UML flowcharts to help plan, design and test game logic, interaction, mechanics and flow
+#### Description of Flow
 
----
+1. The game starts and displays the **Main Menu**.  
+2. When the player clicks **Start**, the crossword grid and clues are loaded.  
+3. The player types an answer into the input box.  
+4. The program checks if the answer matches the correct word.  
+   - If correct → the word appears in the grid and the score increases.  
+   - If incorrect → an error message appears.  
+5. The player can click **Hint** to reveal one letter (with a score penalty).  
+6. The program checks whether all words are solved.  
+   - If yes → display **"You Win"** message and final score.  
+   - If no → continue playing.  
+7. The player’s progress is saved locally before the game ends.
 
-## Task 5 - Game State management
+#### UML Flow (Text-Based Representation)
 
-Establish game state management (start, win, lose) – confirm how the state could be monitored, detected or changed?
+```plaintext
+          ┌─────────────────────┐
+          │     START GAME      │
+          └─────────┬───────────┘
+                    │
+                    ▼
+        ┌──────────────────────┐
+        │ Display Main Menu    │
+        └─────────┬────────────┘
+                  │
+         ┌────────▼────────┐
+         │ User clicks     │
+         │ "Start"         │
+         └────────┬────────┘
+                  │
+        ┌─────────▼─────────┐
+        │ Load Crossword     │
+        │ & Display Clues    │
+        └─────────┬─────────┘
+                  │
+          ┌───────▼────────┐
+          │ Player Inputs   │
+          │ Answer          │
+          └───────┬────────┘
+                  │
+     ┌────────────▼────────────┐
+     │ Is Answer Correct?      │
+     ├────────────┬────────────┤
+     │ Yes        │ No         │
+     ├────────────┼────────────┤
+     │ Update Grid│ Display    │
+     │ +10 Points │ “Incorrect”│
+     └──────┬─────┴────────────┘
+            │
+  ┌─────────▼──────────┐
+  │ Player Clicks Hint?│
+  ├─────────┬──────────┤
+  │ Yes     │ No       │
+  ├─────────┼──────────┤
+  │ Reveal  │ Continue │
+  │ Letter  │ Game Loop│
+  │ -2 Pts  │          │
+  └─────────┴──────────┘
+            │
+    ┌───────▼──────────┐
+    │ All Words Solved?│
+    ├─────────┬────────┤
+    │ Yes     │ No     │
+    ├─────────┼────────┤
+    │ Display │ Wait for│
+    │ “You Win” │ Input │
+    └───────┬──────────┘
+            │
+    ┌───────▼─────────┐
+    │ Save Progress   │
+    │ Display Score   │
+    └───────┬─────────┘
+            │
+            ▼
+     ┌───────────────┐
+     │    END GAME    │
+     └───────────────┘
+```
 
-Win Conditions: All words have been correctly guessed.
-Lose Conditiion: If a player runs out of guess attempts. You lose. 
+
+ ## Task 5 - Game State management
+
+Establish game state management (start, win, lose, draw) – confirm how the state could be monitored, detected or changed?
+
+Check Word:
+Words: Sees if the word inputted matches the words set 
+Incorrect: If the inputted words doesn't match. Displays "Incorrect"
+Correct: If the inputted word matches then display "Correct" and put letters in the box
+
+Hints:
+If player presses a hint, it displays one single letter about of a word, only displaying 3 letters of each word.
+
+
+1 player game
+Win Conditions: All words have been found.
+Lose Conditiion: If time ran out. You lose. (If time limit has been implemented)
+
+2 player game: (IF time limit has been implemented and Multiplayer Implemented)
+Win condition: Get more words than the other opponent when time runs out.
+Lose Condition: Get less words than the other opponent when time runs out.
+Draw condition: If both players is equal in the amount of words they found.
 
 ---
 

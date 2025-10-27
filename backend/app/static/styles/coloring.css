@@ -1,10 +1,15 @@
 /*The type of coloring they'll be, like styling or something
 i dunno. but this is for making things look good*/
 body {
-  background-color: #f0f8ff; 
+  background-color: #0979da; 
 }
 
 h1 {
   color: darkblue;
 }
 
+
+button{
+    border: 5px solid black;
+    background-color: white;
+}
