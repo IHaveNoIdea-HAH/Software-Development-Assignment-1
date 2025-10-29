@@ -133,16 +133,26 @@ any non-player characters interact, etc.)
 
 ToDo: add functional requirements here together with acceptance criteria (Alex).
 
-| Functional requirement      | Type | Specification                                                                                       | Acceptance Criteria                                                                                                         |
-|-----------------------------|------|-----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| Main menu when app starts   | UI   | The main menu is displayed with options to start a new game, view leaderboard, and access settings. | When the app starts, main menu is displayed with all options visible and clickable.                          |
-| Leaderboard shown to a user | UI   | Leaderboard displays the top 10 players with their scores and times.                                | When user clicks Leaderboard main menu item in the app the Leaderboard is shown and displays top 10 players sorted by score. |
-|                             |      |
-|                             |      |
-|                             |      |
-|                             |      |
-|                             |      |
-|                             |      |
+| Functional requirement             | Type | Specification                                                                                       | Acceptance Criteria                                                                                                          |
+|------------------------------------|------|-----------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| Main menu when app starts          | UI   | The main menu is displayed with options to start a new game, view leaderboard, and access settings. | When the app starts, main menu is displayed with all options visible and clickable.                                          |
+| Leaderboard shown to a user        | UI   | Leaderboard displays the top 10 players with their scores and times.                                | When user clicks Leaderboard main menu item in the app the Leaderboard is shown and displays top 10 players sorted by score. |
+| Game win screen when the user wins | UI   | When a player correctly guesses all words, a Game Win screen is displayed.                          | When all words are guessed correctly, the Game Win screen appears with final score and option to return to main menu.        |
+| Game over screen when user loses   | UI   | When a player runs out of guesses, a Game Over screen is displayed.                                 | When the player runs out of guesses, the Game Over screen appears with final score and option to return to main menu.        |
+| Start new game                     | UX   | Player can start a new game from the main menu.                                                     | When user clicks "New Game" button in main menu, a new crossword game starts with fresh grid and clues.                      |
+| Random words for crossword         | Sys  | The game uses a set of random words from different topics for the crossword.                        | Each new game generates a unique crossword puzzle using randomly selected words from predefined word list.                   |
+| Scoring system                     | Sys  | Player scores points when correct word is guessed.                                                  | When player guesses a word correctly, score increases by 10 points.                                                          |
+| Game time tracking (optional)      | Sys  | The game tracks how much time a player spends on the game. (If implemented)                         | If timer is enabled, the game displays elapsed time during gameplay.                                                         |
+| HUD display                        | UI   | HUD shows current score, guesses made, and hints remaining.                                         | During gameplay, HUD is visible and updates in real-time with score, guesses, and hints.                                     |
+| Gameboard rendering                | UI   | Gameboard is rendered on screen with words hidden horizontally and vertically, numbered for clues.  | When game starts, the crossword grid is displayed with numbered cells corresponding to clues.                                |
+| Word selection and input           | UX   | Player can select a word on the gameboard and enter an entire word to check.                        | When player selects a word and inputs answer, clicking "Check" validates the answer and updates grid accordingly.            |
+| Clue display                       | UI   | Clues for each word are displayed clearly alongside the gameboard.                                  | During gameplay, clues are visible and correspond to numbered words on the grid.                                             |
+| Reveal word with penalty           | UX   | Player can uncover an entire word hidden on the gameboard with a score penalty .                    | When player clicks "Reveal Word" button, one word is revealed on the grid and score decreases by 5 points.                   |
+| Auto-solve crossword               | UX   | Player can click a button to auto-solve the whole crossword, resetting score to zero.               | When player clicks "Auto-Solve" button, entire crossword is revealed and score resets to zero.                               |
+| Accessibility features             | UI   | High contrast color scheme, larger fonts, and keyboard navigation options are available.            | Accessibility options can be toggled in settings and apply immediately to the game interface.                                |
+| Responsive design                  | UI   | The game is optimized for various screen sizes and devices.                                         | The game layout adjusts correctly on desktop, tablet, and mobile devices without loss of functionality.                      |
+| Real-time feedback                 | UX   | Real-time feedback is provided on answers (correct/incorrect).                                      | When player submits an answer, immediate feedback is shown indicating correctness.                                           |
+| Progress saving                    | Sys  | Player’s progress and scores are saved locally to resume unfinished game.                           | When player exits the game, progress is saved and can be resumed from last state upon return                                 |
 
 
 ---
@@ -223,7 +233,16 @@ We compared three development strategies: Waterfall, Agile and Rapid Application
 
 ### Comparison of the three strategies
 
-ToDo: add a comparison table here with refs (Alex).
+| Criteria                 | Waterfall                        | Agile                               | Rapid Application Development (RAD)   |
+|--------------------------|----------------------------------|-------------------------------------|---------------------------------------|
+| Flexibility              | Low - rigid phases               | High - iterative and adaptive       | High - iterative protyping            |
+| Speed of Delivery        | Slow - sequential phases         | Fast - frequent releases            | Very Fast - rapid prototyping         |
+| User Involvement         | Low - mainly at start and end    | High - continuous feedback          | Very High - constant user feedback    |
+| Documentation            | Extensive upfront documentation  | Minimal - just enough               | Minimal - focus on working prototypes |
+| Risk Management          | High risk if requirements change | Low risk through constant feedback  | Low risk due to adaptability          |  
+| Team Size Suitability    | Large teams                      | Small to medium teams               | Small teams                           |
+| Project Size Suitability | Large projects                   | Medium projects                     | Small projects                        |
+| Outcome Focus            | Deliver complete product at end  | Deliver working software frequently | Deliver working prototypes quickly    |
 
 ### Reasons for choosing RAD for our project
 
