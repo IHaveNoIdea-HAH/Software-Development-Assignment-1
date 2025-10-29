@@ -453,27 +453,52 @@ It helps visualize how the game starts, how player input is processed, and how t
 
  ## Task 5 - Game State management
 
-Establish game state management (start, win, lose, draw) – confirm how the state could be monitored, detected or changed?
+This section defines how the game manages and tracks different states such as **Start**, **Win**, **Lose**, and **Draw**, as well as how these states are detected and updated during gameplay.
 
-Check Word:
-Words: Sees if the word inputted matches the words set 
-Incorrect: If the inputted words doesn't match. Displays "Incorrect"
-Correct: If the inputted word matches then display "Correct" and put letters in the box
+#### Game States
+1. **Start State** – The game begins when the player clicks the **Start** button on the main menu.  
+   - The crossword grid, score, and clue list are loaded.  
+   - Score and wordsSolved counters are set to zero.
 
-Hints:
-If player presses a hint, it displays one single letter about of a word, only displaying 3 letters of each word.
+2. **Active State** – The player is actively entering answers and interacting with the crossword grid.  
+   - Input is checked against the correct word list.  
+   - Hints can be requested at the cost of points.
 
+3. **Win State** – Triggered when all words are correctly solved.  
+   - A **“You Win!”** message is displayed.  
+   - The final score is shown and stored locally.
 
-1 player game
-Win Conditions: All words have been found.
-Lose Conditiion: If time ran out. You lose. (If time limit has been implemented)
+4. **Lose State** – (Optional) Activated if a time limit is implemented in later versions.  
+   - The player loses if the time runs out before solving all words.
 
-2 player game: (IF time limit has been implemented and Multiplayer Implemented)
-Win condition: Get more words than the other opponent when time runs out.
-Lose Condition: Get less words than the other opponent when time runs out.
-Draw condition: If both players is equal in the amount of words they found.
+5. **Draw State** – (For future multiplayer implementation)  
+   - Triggered if both players find the same number of words when time expires.
+
+#### Game Logic Overview
+- **Check Word Function:**  
+  - Compares the player’s input with the stored correct words.  
+  - If the word matches → display *“Correct!”*, reveal it in the grid, and award +10 points.  
+  - If the word does not match → display *“Incorrect!”* and no points are given.
+
+- **Hint Function:**  
+  - Reveals one random unrevealed letter from the selected word.  
+  - Deducts 2 points from the player’s score.  
+  - Hints limited to showing 3 letters per word.
+
+#### Win / Lose Conditions
+
+**Single Player Mode:**  
+- **Win:** All words are correctly solved.  
+- **Lose:** (If a timer is added) Time expires before all words are found.
+
+**Multiplayer Mode (Future):**  
+- **Win:** Player finds more words than opponent before the time runs out.  
+- **Lose:** Opponent finds more words before the timer ends.  
+- **Draw:** Both players solve an equal number of words.
 
 ---
+
+This design ensures that game states are **clearly defined, easily monitored, and scalable**, allowing smooth future integration of multiplayer and timed challenges.
 
 ## Architecture Design
 
