@@ -2,12 +2,14 @@ from flask import Flask, render_template
 from flask_cors import CORS
 from .routes.game import game_bp
 from .routes.user import user_bp
+from .web.routes import web_bp
 from .utils.helpers import load_json
 from .schemas.user_schema import UserSchema
 import os
 
 def create_app(current_folder):
     app = Flask(__name__)#Used to be called 'crossword_backend' but due to it ruining the homepage. it's been renamed to __name__
+
     # This is to enable CORS for all routes in the app (to allow frontend to call backend APIs)
     CORS(app)
     app.config.from_object('app.config.Config')
@@ -36,11 +38,9 @@ def create_app(current_folder):
     print('Registering blueprints...')
     app.register_blueprint(game_bp, url_prefix='/api/game')
     app.register_blueprint(user_bp, url_prefix='/api/user')
+    app.register_blueprint(web_bp, url_prefix='/')
     print('Blueprints registered.')
     print('Flask app setup complete.')
 
-    @app.route('/')
-    def hello():
-        return render_template('homepage.html') #why did this part get deleted??
     return app
 
