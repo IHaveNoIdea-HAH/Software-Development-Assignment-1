@@ -3,22 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crossword Game</title>
   
-  <!--LOCALHOST:5000 serves static files from the web server instead of your filesystem. This is for the css to not break-->
-  <!--Doing /static/styles/cssfile breaks its for some reason-->
-  <link rel="stylesheet" href="http://localhost:5000/static/styles/coloring.css">
-  <link rel="stylesheet" href="http://localhost:5000/static/styles/layout.css"> 
+  <link rel="stylesheet" href="http://localhost:5000/static/styles/layout.css">
 </head>
 <body>
+    <!-- main contain things -->
     <div class="container">
+        <!-- the title box picture -->
         <div class="title-box">
            <img src="http://localhost:5000/static/Crossword%20image.png" alt="Crossword">
         </div>
 
+        <!-- Main buttons -->
         <div class="button-container">
-            <button class="play" onclick="window.location.href='/api/game/test'">Play</button>
-            <button class="exit">Exit</button>
+            <button class="play" onclick="openDifficultyPopup()">Play</button>
+            <button class="instructions-btn" onclick="openInstructionsPopup()">How to play</button>
         </div>
     </div>
+
+    
+    <div class="overlay" id="overlay" onclick="closeAllPopups()"></div>
+
+    <!-- Instructions popup -->
+    <div class="instructions-popup" id="instructionsPopup">
+        <h2>how to play</h2>
+        <p>
+            Cross word is a game where you are given descriptions of words to guess. Guess the word correctly and fill 
+            the grid. Guess every word and you win
+        </p>
+        <div class="instructions-close">
+            <button onclick="closeAllPopups()">close</button>
+        </div>
+    </div>
+
+    <!-- Difficulty Selection popup -->
+    <div class="difficulty-popup" id="difficultyPopup">
+        <h2>Select Difficulty</h2>
+        <p>Choose a difficulty level to start playing:</p>
+        
+        <!-- Difficulty buttons -->
+        <div class="difficulty-buttons">
+            <button class="difficulty-btn" onclick="window.location.href='/api/game/easy'">easy</button>
+            <button class="difficulty-btn" onclick="window.location.href='/api/game/medium'">medium</button>
+            <button class="difficulty-btn" onclick="window.location.href='/api/game/difficult'">difficult</button>
+        </div>
+
+        <!-- Close button -->
+        <div class="close-container">
+            <button class="close-btn" onclick="closeAllPopups()">close</button>
+        </div>
+    </div>
+
+    <script src="http://localhost:5000/static/js/welcomepageJava.js"></script>
 </body>
 </html>
