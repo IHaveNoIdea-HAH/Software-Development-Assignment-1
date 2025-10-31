@@ -45,9 +45,10 @@ def start_game():
 
             # For debugging: print the grid and clues to console
             # That's what is going to be sent back to frontend
-            crossword.print_clues()
-            crossword.print_covered_grid()
-            crossword.print_solved_grid()
+            if current_app.config['DEBUG']:
+                crossword.print_clues()
+                crossword.print_covered_grid()
+                crossword.print_solved_grid()
 
             # Assign a unique game_id and increment the global GAME_ID counter in our config
             game_id = current_app.config['GAME_ID']
@@ -105,7 +106,7 @@ def guess_word():
             return jsonify({
                 'result': 'failure',
                 'message': 'Invalid game id. Please send valid game_id value.',
-                'error': 'Game id value does not exis.'
+                'error': 'Game id value does not exist.'
             }), 405
         elif current_app.config['GAMES'][game_id].is_status_completed():
             return jsonify({
@@ -203,7 +204,7 @@ def solve_clue():
             return jsonify({
                 'result': 'failure',
                 'message': 'Invalid game id. Please send valid game_id value.',
-                'error': 'Game id value does not exis.'
+                'error': 'Game id value does not exist.'
             }), 405
         elif current_app.config['GAMES'][game_id].is_status_completed():
             return jsonify({
@@ -240,7 +241,7 @@ def solve_clue():
                 if g.is_game_won():
                     message = 'Game Over! Congratulations, you have won the game!'
                 else:
-                    message = 'Game Over! You have used all your guesses.'
+                    message = 'Game Over! You have lost!'
             else:
                 message = 'Clue solved successfully.'
 
@@ -290,7 +291,7 @@ def auto_solve():
             return jsonify({
                 'result': 'failure',
                 'message': 'Invalid game id. Please send valid game_id value.',
-                'error': 'Game id value does not exis.'
+                'error': 'Game id value does not exist.'
             }), 405
         elif current_app.config['GAMES'][game_id].is_status_completed():
             return jsonify({
@@ -319,19 +320,31 @@ def auto_solve():
         }), 500
 
 
-@game_bp.route('/status/<int:game_id>', methods=['GET'])
+@game_bp.route('/game_status/<int:game_id>', methods=['GET'])
 def game_status(game_id):
-    # Placeholder: Return game status
-    return jsonify({'game_id': game_id, 'status': 'in_progress'})
+    try:
+        if game_id not in current_app.config['GAMES']:
+            # Invalid game_id so cannot fetch status
+            return jsonify({
+                'result': 'failure',
+                'message': 'Invalid game id. Please send valid game_id value.',
+                'error': 'Game id value does not exist.'
+            }), 405
+        else:
+            # Retrieve the game instance
+            g = current_app.config['GAMES'][game_id]
+            # Create response we are going to send back to frontend
+            return jsonify({
+                'game_id': game_id,
+                'game_state': GameSchema.dump_state(g),
+            }), 200
+    except Exception as e:
+        return jsonify({
+            'result': 'failure',
+            'message': 'Error fetching game status',
+            'error': str(e)
+        }), 500
 
-@game_bp.route('/welcome', methods=['GET'])
-def game_welcome():
-    # Placeholder: Returns welcome message
-    return jsonify({'welcome_message': 'Hello and welcome to our cool crossword game', 'status': 'running'})
-
-@game_bp.route('/test', methods=['GET'])
-def game_test():
-    return render_template('Test.html') #Remember to change the html to something else
 
 @game_bp.route('/random-word', methods=['GET']) #Gets a random word
 def random_word():

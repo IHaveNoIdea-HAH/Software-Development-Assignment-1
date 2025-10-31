@@ -1,3 +1,5 @@
+from app.services.crossword_service import CrosswordService
+
 class Game:
     def __init__(self, crossword, user_id, game_id, guess_limit):
         self.crossword = crossword
@@ -49,10 +51,11 @@ class Game:
         Automatically solve the crossword by filling in all answers.
         :return:
         '''
-        # if the score is positive, reset it to zero
-        # use case score is negative due to penalties for clues solving
-        if self.score > 0:
-            self.score = 0  # Reset score
+        # Solve all unsolved clues and mark the game as completed with a loss
+        for i in range(0, self.get_words_to_solve()):
+            clue_number = self.get_crossword().clues[i].number
+            if not self.check_clue_is_solved(clue_number):
+                self.solve_clue(clue_number)
 
         self.status = 'completed'
         self.result = 'loss'  # Auto-solve results in a loss
@@ -178,7 +181,7 @@ class Game:
         '''
 
         if self.check_clue_number_is_valid(clue_number):
-            if word_guess.upper() == self.crossword.clues[clue_number - 1].answer.upper():
+            if CrosswordService.check_guess(self.crossword, word_guess, clue_number):
                 # Correct guess so we mark the clue as solved
                 self.solved_clues.append(clue_number)
                 # Let's store the guess
