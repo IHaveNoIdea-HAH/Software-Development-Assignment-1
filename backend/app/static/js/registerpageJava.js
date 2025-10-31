@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const confirm  = (document.getElementById("confirm")?.value  || "");
 
     if (!email) return show("Email is required!", "error") //added this
+    if (!email.endsWith(".com")) return show("Email must end with .com", "error"); //added this
     if (username.length < 3)  return show("Username must be ≥ 3 characters.", "error");
     if (password.length < 6)  return show("Password must be ≥ 6 characters.", "error");
     if (password !== confirm) return show("Passwords do not match.", "error");
