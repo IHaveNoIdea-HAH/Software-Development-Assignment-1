@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crossword Puzzle</title>
+    <link rel="stylesheet" href="http://localhost:5000/static/styles/playPageLayout.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Title Box -->
+        <div class="title-box">
+            <h1>Crosswords</h1>
+        </div>
+
+        <!-- Difficulty Popup -->
+        <div class="overlay" id="overlay"></div>
+        <div class="difficulty-popup active" id="difficultyPopup">
+            <div class="difficulty-buttons-container">
+                <button class="difficulty-btn" onclick="selectDifficulty('easy')">Easy</button>
+                <button class="difficulty-btn" onclick="selectDifficulty('medium')">Medium</button>
+                <button class="difficulty-btn" onclick="selectDifficulty('hard')">Hard</button>
+            </div>
+        </div>
+
+        <!-- Ensure buttons are functional -->
+        <div class="button-box">
+            <button>Hint</button>
+            <button>Auto Solve</button>
+            <button>New Game</button>
+        </div>
+
+        <!--make this contain the crossword grid -->
+        <div class="grid-box">
+        </div>
+
+        <!--input-->
+        <div class="input-box">
+            <input type="text" id="userInput" placeholder="Type answer here...">
+        </div>
+
+        <!--description Box for the words chosen-->
+        <div class="description-box">
+            <div class="clue-section">
+                <h3>Across</h3>
+                <div class="clue-item">1. Word</div><!--Make this change depending on chosen words-->
+                <div class="clue-item">3. Word</div>
+                <div class="clue-item">4. Word</div>
+            </div>
+
+            <div class="clue-section">
+                <h3>Down</h3>
+                <div class="clue-item">2. Word</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="http://localhost:5000/static/js/playpageJava.js"></script>
+</body>
+</html>
