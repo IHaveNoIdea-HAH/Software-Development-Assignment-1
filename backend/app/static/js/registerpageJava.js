@@ -1,6 +1,7 @@
 // registerpageJava.js
 // HTML needed:
 // <form id="register-form" data-next="/login?next=/play">
+//   <input id="email" name="email">
 //   <input id="username" name="username">
 //   <input id="password" name="password" type="password">
 //   <input id="confirm"  name="confirm"  type="password">
@@ -31,10 +32,12 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
+    const email = (document.getElementById("email")?.value || "").trim();//added this made here
     const username = (document.getElementById("username")?.value || "").trim();
     const password = (document.getElementById("password")?.value || "");
     const confirm  = (document.getElementById("confirm")?.value  || "");
 
+    if (!email) return show("Email is required!", "error") //added this
     if (username.length < 3)  return show("Username must be ≥ 3 characters.", "error");
     if (password.length < 6)  return show("Password must be ≥ 6 characters.", "error");
     if (password !== confirm) return show("Passwords do not match.", "error");
@@ -46,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({email,  username, password }),
       });
 
       const data = await res.json().catch(() => ({}));
