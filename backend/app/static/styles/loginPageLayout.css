@@ -57,3 +57,18 @@ button {
 button:hover {
     background-color: #f0f0f0;
 }
+
+.register-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
