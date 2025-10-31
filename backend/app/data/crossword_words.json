@@ -170,5 +170,1601 @@
   {
     "word": "Dolphin",
     "clue": "Intelligent sea mammal"
+  },
+  {
+    "word": "Clock",
+    "clue": "Device for telling time"
+  },
+  {
+    "word": "Desert",
+    "clue": "Dry, sandy region"
+  },
+  {
+    "word": "Fire",
+    "clue": "Rapid oxidation producing heat and light"
+  },
+  {
+    "word": "Forest",
+    "clue": "Large area of trees"
+  },
+  {
+    "word": "Garden",
+    "clue": "Plot of land for growing flowers or vegetables"
+  },
+  {
+    "word": "Hammer",
+    "clue": "Tool for pounding nails"
+  },
+  {
+    "word": "Island",
+    "clue": "Land surrounded by water"
+  },
+  {
+    "word": "Jungle",
+    "clue": "Dense tropical forest"
+  },
+  {
+    "word": "King",
+    "clue": "Male monarch"
+  },
+  {
+    "word": "Library",
+    "clue": "Place to borrow books"
+  },
+  {
+    "word": "Map",
+    "clue": "Representation of an area"
+  },
+  {
+    "word": "Needle",
+    "clue": "Small tool for sewing"
+  },
+  {
+    "word": "Orange",
+    "clue": "Citrus fruit"
+  },
+  {
+    "word": "Pencil",
+    "clue": "Writing instrument with graphite"
+  },
+  {
+    "word": "Queen",
+    "clue": "Female monarch"
+  },
+  {
+    "word": "Road",
+    "clue": "Path for vehicles"
+  },
+  {
+    "word": "Sailboat",
+    "clue": "Boat propelled by wind"
+  },
+  {
+    "word": "Table",
+    "clue": "Furniture with a flat top"
+  },
+  {
+    "word": "Umbrella",
+    "clue": "Used for protection from rain or sun"
+  },
+  {
+    "word": "Violin",
+    "clue": "Four-stringed musical instrument"
+  },
+  {
+    "word": "Whale",
+    "clue": "Largest marine mammal"
+  },
+  {
+    "word": "Xylophone",
+    "clue": "Musical instrument with wooden bars"
+  },
+  {
+    "word": "Yacht",
+    "clue": "Luxury sailing boat"
+  },
+  {
+    "word": "Zebra",
+    "clue": "Striped African equine"
+  },
+  {
+    "word": "Anchor",
+    "clue": "Device to hold a ship in place"
+  },
+  {
+    "word": "Banana",
+    "clue": "Yellow curved fruit"
+  },
+  {
+    "word": "Carrot",
+    "clue": "Orange root vegetable"
+  },
+  {
+    "word": "Dragon",
+    "clue": "Mythical fire-breathing creature"
+  },
+  {
+    "word": "Engine",
+    "clue": "Machine that converts energy into motion"
+  },
+  {
+    "word": "Feather",
+    "clue": "Light, soft part of a bird's covering"
+  },
+  {
+    "word": "Glove",
+    "clue": "Hand covering"
+  },
+  {
+    "word": "Honey",
+    "clue": "Sweet fluid made by bees"
+  },
+  {
+    "word": "Igloo",
+    "clue": "Dome-shaped house made of snow"
+  },
+  {
+    "word": "Jacket",
+    "clue": "Outer garment for the upper body"
+  },
+  {
+    "word": "Kite",
+    "clue": "Toy that flies in the wind"
+  },
+  {
+    "word": "Lamp",
+    "clue": "Device for producing light"
+  },
+  {
+    "word": "Magnet",
+    "clue": "Object that produces a magnetic field"
+  },
+  {
+    "word": "Nest",
+    "clue": "Bird's home"
+  },
+  {
+    "word": "Octopus",
+    "clue": "Sea creature with eight arms"
+  },
+  {
+    "word": "Penguin",
+    "clue": "Flightless bird of the Southern Hemisphere"
+  },
+  {
+    "word": "Quilt",
+    "clue": "A warm bed covering"
+  },
+  {
+    "word": "Rocket",
+    "clue": "Vehicle for space travel"
+  },
+  {
+    "word": "Spoon",
+    "clue": "Utensil for eating liquid food"
+  },
+  {
+    "word": "Turtle",
+    "clue": "Reptile with a shell"
+  },
+  {
+    "word": "Unicorn",
+    "clue": "Mythical horse with a single horn"
+  },
+  {
+    "word": "Vase",
+    "clue": "Container for holding flowers"
+  },
+  {
+    "word": "Window",
+    "clue": "Opening in a wall to let in light"
+  },
+  {
+    "word": "Yarn",
+    "clue": "Spun thread used for knitting"
+  },
+  {
+    "word": "Zipper",
+    "clue": "Device for fastening clothes"
+  },
+  {
+    "word": "Backpack",
+    "clue": "Bag carried on the back"
+  },
+  {
+    "word": "Satellite",
+    "clue": "Object orbiting a planet"
+  },
+  {
+    "word": "Waterfall",
+    "clue": "Steep fall of water"
+  },
+  {
+    "word": "Compass",
+    "clue": "Tool for navigation"
+  },
+  {
+    "word": "Calculator",
+    "clue": "Device for arithmetic"
+  },
+  {
+    "word": "Opera",
+    "clue": "Dramatic work set to music"
+  },
+  {
+    "word": "Aquarium",
+    "clue": "Tank for aquatic life"
+  },
+  {
+    "word": "Microscope",
+    "clue": "Instrument to see tiny objects"
+  },
+  {
+    "word": "Orchestra",
+    "clue": "Large group of musicians"
+  },
+  {
+    "word": "Bakery",
+    "clue": "Place where bread is made"
+  },
+  {
+    "word": "Stadium",
+    "clue": "Large sports arena"
+  },
+  {
+    "word": "Theater",
+    "clue": "Place for plays or films"
+  },
+  {
+    "word": "Airport",
+    "clue": "Facility for airplanes"
+  },
+  {
+    "word": "Headphones",
+    "clue": "Audio device worn on head"
+  },
+  {
+    "word": "Smartphone",
+    "clue": "Mobile communication device"
+  },
+  {
+    "word": "Laptop",
+    "clue": "Portable computer"
+  },
+  {
+    "word": "Printer",
+    "clue": "Device that produces paper copies"
+  },
+  {
+    "word": "Router",
+    "clue": "Device that directs network traffic"
+  },
+  {
+    "word": "Battery",
+    "clue": "Stores electrical energy"
+  },
+  {
+    "word": "Circuit",
+    "clue": "Path for electric current"
+  },
+  {
+    "word": "Oxygen",
+    "clue": "Gas essential for breathing"
+  },
+  {
+    "word": "Gravity",
+    "clue": "Force that attracts objects"
+  },
+  {
+    "word": "Galaxy",
+    "clue": "System of stars and planets"
+  },
+  {
+    "word": "Comet",
+    "clue": "Icy body orbiting the sun"
+  },
+  {
+    "word": "Meteor",
+    "clue": "Space rock entering atmosphere"
+  },
+  {
+    "word": "Nebula",
+    "clue": "Cloud of gas in space"
+  },
+  {
+    "word": "Fossil",
+    "clue": "Preserved remains of ancient life"
+  },
+  {
+    "word": "Canyon",
+    "clue": "Deep valley with steep sides"
+  },
+  {
+    "word": "Glacier",
+    "clue": "Large mass of moving ice"
+  },
+  {
+    "word": "Prairie",
+    "clue": "Large open grassland"
+  },
+  {
+    "word": "Savanna",
+    "clue": "Tropical grassland with trees"
+  },
+  {
+    "word": "Peninsula",
+    "clue": "Land surrounded by water on three sides"
+  },
+  {
+    "word": "Archipelago",
+    "clue": "Group of islands"
+  },
+  {
+    "word": "Delta",
+    "clue": "River mouth landform"
+  },
+  {
+    "word": "Oasis",
+    "clue": "Fertile spot in a desert"
+  },
+  {
+    "word": "Thunder",
+    "clue": "Sound after lightning"
+  },
+  {
+    "word": "Lightning",
+    "clue": "Flash of electricity in a storm"
+  },
+  {
+    "word": "Tornado",
+    "clue": "Violent rotating column of air"
+  },
+  {
+    "word": "Hurricane",
+    "clue": "Powerful tropical storm"
+  },
+  {
+    "word": "Blizzard",
+    "clue": "Severe snowstorm"
+  },
+  {
+    "word": "Eclipse",
+    "clue": "One celestial body blocking another"
+  },
+  {
+    "word": "Orbit",
+    "clue": "Curved path around a body"
+  },
+  {
+    "word": "Atom",
+    "clue": "Basic unit of matter"
+  },
+  {
+    "word": "Molecule",
+    "clue": "Group of bonded atoms"
+  },
+  {
+    "word": "Proton",
+    "clue": "Positively charged particle"
+  },
+  {
+    "word": "Electron",
+    "clue": "Negatively charged particle"
+  },
+  {
+    "word": "Neutron",
+    "clue": "Neutral subatomic particle"
+  },
+  {
+    "word": "Enzyme",
+    "clue": "Protein that speeds reactions"
+  },
+  {
+    "word": "Vitamin",
+    "clue": "Essential nutrient"
+  },
+  {
+    "word": "Bacteria",
+    "clue": "Single-celled microorganisms"
+  },
+  {
+    "word": "Virus",
+    "clue": "Tiny infectious agent"
+  },
+  {
+    "word": "Coral",
+    "clue": "Marine animals forming reefs"
+  },
+  {
+    "word": "Seahorse",
+    "clue": "Fish with curled tail"
+  },
+  {
+    "word": "Jellyfish",
+    "clue": "Gelatinous sea creature"
+  },
+  {
+    "word": "Seagull",
+    "clue": "Coastal bird with loud call"
+  },
+  {
+    "word": "Pelican",
+    "clue": "Large water bird with pouch"
+  },
+  {
+    "word": "Flamingo",
+    "clue": "Pink wading bird"
+  },
+  {
+    "word": "Cheetah",
+    "clue": "Fastest land animal"
+  },
+  {
+    "word": "Rhinoceros",
+    "clue": "Large horned mammal"
+  },
+  {
+    "word": "Hippopotamus",
+    "clue": "Large river-dwelling mammal"
+  },
+  {
+    "word": "Gorilla",
+    "clue": "Large primate"
+  },
+  {
+    "word": "Chameleon",
+    "clue": "Lizard that changes color"
+  },
+  {
+    "word": "Peacock",
+    "clue": "Bird with colorful tail"
+  },
+  {
+    "word": "Sparrow",
+    "clue": "Small common bird"
+  },
+  {
+    "word": "Squirrel",
+    "clue": "Bushy-tailed rodent"
+  },
+  {
+    "word": "Chipmunk",
+    "clue": "Striped small rodent"
+  },
+  {
+    "word": "Beaver",
+    "clue": "Dam-building rodent"
+  },
+  {
+    "word": "Otter",
+    "clue": "Playful aquatic mammal"
+  },
+  {
+    "word": "Hedgehog",
+    "clue": "Spiny small mammal"
+  },
+  {
+    "word": "Koala",
+    "clue": "Australian tree-dwelling marsupial"
+  },
+  {
+    "word": "Sloth",
+    "clue": "Slow-moving tree mammal"
+  },
+  {
+    "word": "Panda",
+    "clue": "Black and white bear"
+  },
+  {
+    "word": "Giraffe",
+    "clue": "Tall African mammal"
+  },
+  {
+    "word": "Camel",
+    "clue": "Desert animal with humps"
+  },
+  {
+    "word": "Llama",
+    "clue": "Pack animal from Andes"
+  },
+  {
+    "word": "Alpaca",
+    "clue": "Woolly relative of the llama"
+  },
+  {
+    "word": "Donkey",
+    "clue": "Domesticated pack animal"
+  },
+  {
+    "word": "Falcon",
+    "clue": "Swift bird of prey"
+  },
+  {
+    "word": "Owl",
+    "clue": "Nocturnal bird with big eyes"
+  },
+  {
+    "word": "Parrot",
+    "clue": "Colorful talking bird"
+  },
+  {
+    "word": "Swan",
+    "clue": "Graceful white water bird"
+  },
+  {
+    "word": "Goose",
+    "clue": "Waterfowl related to ducks"
+  },
+  {
+    "word": "Duck",
+    "clue": "Web-footed waterfowl"
+  },
+  {
+    "word": "Bee",
+    "clue": "Pollinating insect"
+  },
+  {
+    "word": "Ant",
+    "clue": "Small industrious insect"
+  },
+  {
+    "word": "Beetle",
+    "clue": "Insect with hard wing cases"
+  },
+  {
+    "word": "Mantis",
+    "clue": "Insect known for prayer pose"
+  },
+  {
+    "word": "Dragonfly",
+    "clue": "Fast flying insect"
+  },
+  {
+    "word": "Grasshopper",
+    "clue": "Leaping green insect"
+  },
+  {
+    "word": "Ladybug",
+    "clue": "Red beetle with spots"
+  },
+  {
+    "word": "Caterpillar",
+    "clue": "Larval stage of a butterfly"
+  },
+  {
+    "word": "Cocoon",
+    "clue": "Protective covering for pupae"
+  },
+  {
+    "word": "Chrysalis",
+    "clue": "Pupa stage of butterflies"
+  },
+  {
+    "word": "Acorn",
+    "clue": "Nut of an oak tree"
+  },
+  {
+    "word": "Oak",
+    "clue": "Large hardwood tree"
+  },
+  {
+    "word": "Pine",
+    "clue": "Evergreen conifer tree"
+  },
+  {
+    "word": "Maple",
+    "clue": "Tree known for syrup"
+  },
+  {
+    "word": "Willow",
+    "clue": "Tree with drooping branches"
+  },
+  {
+    "word": "Birch",
+    "clue": "Tree with white bark"
+  },
+  {
+    "word": "Cedar",
+    "clue": "Aromatic evergreen tree"
+  },
+  {
+    "word": "Cypress",
+    "clue": "Coniferous tree"
+  },
+  {
+    "word": "Bamboo",
+    "clue": "Fast-growing grass plant"
+  },
+  {
+    "word": "Cactus",
+    "clue": "Spiny desert plant"
+  },
+  {
+    "word": "Orchid",
+    "clue": "Exotic flowering plant"
+  },
+  {
+    "word": "Tulip",
+    "clue": "Spring-blooming flower"
+  },
+  {
+    "word": "Daffodil",
+    "clue": "Yellow spring flower"
+  },
+  {
+    "word": "Rose",
+    "clue": "Flower with thorns"
+  },
+  {
+    "word": "Lily",
+    "clue": "Elegant blooming flower"
+  },
+  {
+    "word": "Jasmine",
+    "clue": "Fragrant white flower"
+  },
+  {
+    "word": "Lavender",
+    "clue": "Purple aromatic herb"
+  },
+  {
+    "word": "Basil",
+    "clue": "Herb used in cooking"
+  },
+  {
+    "word": "Cinnamon",
+    "clue": "Spice from tree bark"
+  },
+  {
+    "word": "Pepper",
+    "clue": "Spicy vegetable and seasoning"
+  },
+  {
+    "word": "Tomato",
+    "clue": "Red fruit used as vegetable"
+  },
+  {
+    "word": "Potato",
+    "clue": "Starchy root vegetable"
+  },
+  {
+    "word": "Broccoli",
+    "clue": "Green cruciferous vegetable"
+  },
+  {
+    "word": "Cauliflower",
+    "clue": "White cruciferous vegetable"
+  },
+  {
+    "word": "Spinach",
+    "clue": "Leafy green vegetable"
+  },
+  {
+    "word": "Lettuce",
+    "clue": "Leafy salad green"
+  },
+  {
+    "word": "Cucumber",
+    "clue": "Green salad vegetable"
+  },
+  {
+    "word": "Pumpkin",
+    "clue": "Large orange gourd"
+  },
+  {
+    "word": "Walnut",
+    "clue": "Edible tree nut"
+  },
+  {
+    "word": "Almond",
+    "clue": "Nut with hard shell"
+  },
+  {
+    "word": "Pistachio",
+    "clue": "Greenish edible nut"
+  },
+  {
+    "word": "Peanut",
+    "clue": "Legume often called a nut"
+  },
+  {
+    "word": "Cashew",
+    "clue": "Curved kidney-shaped nut"
+  },
+  {
+    "word": "Bread",
+    "clue": "Staple food made from dough"
+  },
+  {
+    "word": "Butter",
+    "clue": "Dairy product from milk"
+  },
+  {
+    "word": "Cheese",
+    "clue": "Dairy product from curds"
+  },
+  {
+    "word": "Yogurt",
+    "clue": "Fermented milk product"
+  },
+  {
+    "word": "Icecream",
+    "clue": "Frozen sweet dessert"
+  },
+  {
+    "word": "Pancake",
+    "clue": "Flat cake cooked on griddle"
+  },
+  {
+    "word": "Waffle",
+    "clue": "Batter cake with grid pattern"
+  },
+  {
+    "word": "Sandwich",
+    "clue": "Food with fillings between bread"
+  },
+  {
+    "word": "Salad",
+    "clue": "Mixture of raw vegetables"
+  },
+  {
+    "word": "Soup",
+    "clue": "Liquid food usually warm"
+  },
+  {
+    "word": "Steak",
+    "clue": "Slice of beef meat"
+  },
+  {
+    "word": "Sausage",
+    "clue": "Ground meat in casing"
+  },
+  {
+    "word": "Noodle",
+    "clue": "Long thin strip of dough"
+  },
+  {
+    "word": "Sushi",
+    "clue": "Japanese rice and fish dish"
+  },
+  {
+    "word": "Curry",
+    "clue": "Spiced dish often with sauce"
+  },
+  {
+    "word": "Pasta",
+    "clue": "Italian dish of noodles"
+  },
+  {
+    "word": "Tacos",
+    "clue": "Mexican folded tortillas"
+  },
+  {
+    "word": "Burrito",
+    "clue": "Mexican wrapped tortilla dish"
+  },
+  {
+    "word": "Kebab",
+    "clue": "Skewered grilled meat"
+  },
+  {
+    "word": "Hummus",
+    "clue": "Chickpea spread from Middle East"
+  },
+  {
+    "word": "Falafel",
+    "clue": "Fried chickpea balls"
+  },
+  {
+    "word": "Couscous",
+    "clue": "North African semolina dish"
+  },
+  {
+    "word": "Paella",
+    "clue": "Spanish rice dish"
+  },
+  {
+    "word": "Risotto",
+    "clue": "Italian creamy rice dish"
+  },
+  {
+    "word": "Airplane",
+    "clue": "Powered fixed-wing aircraft"
+  },
+  {
+    "word": "Helicopter",
+    "clue": "Rotary-wing aircraft"
+  },
+  {
+    "word": "Bus",
+    "clue": "Large road vehicle for passengers"
+  },
+  {
+    "word": "Car",
+    "clue": "Four-wheeled motor vehicle"
+  },
+  {
+    "word": "Truck",
+    "clue": "Motor vehicle for transporting goods"
+  },
+  {
+    "word": "Taxi",
+    "clue": "Hired car for transport"
+  },
+  {
+    "word": "Tram",
+    "clue": "Streetcar running on tracks"
+  },
+  {
+    "word": "Ferry",
+    "clue": "Boat for carrying people or vehicles"
+  },
+  {
+    "word": "Ship",
+    "clue": "Large seagoing vessel"
+  },
+  {
+    "word": "Scooter",
+    "clue": "Small two-wheeled motor vehicle"
+  },
+  {
+    "word": "Skateboard",
+    "clue": "Board with wheels for riding"
+  },
+  {
+    "word": "Skyscraper",
+    "clue": "Very tall city building"
+  },
+  {
+    "word": "Bridge",
+    "clue": "Structure spanning a gap"
+  },
+  {
+    "word": "Tunnel",
+    "clue": "Underground or underwater passage"
+  },
+  {
+    "word": "Harbor",
+    "clue": "Sheltered port for ships"
+  },
+  {
+    "word": "Boulevard",
+    "clue": "Wide city street"
+  },
+  {
+    "word": "Avenue",
+    "clue": "Road typically lined with trees"
+  },
+  {
+    "word": "Village",
+    "clue": "Small settlement"
+  },
+  {
+    "word": "Metropolis",
+    "clue": "Very large city"
+  },
+  {
+    "word": "Temple",
+    "clue": "Place of worship"
+  },
+  {
+    "word": "Cathedral",
+    "clue": "Principal church of a diocese"
+  },
+  {
+    "word": "Mosque",
+    "clue": "Islamic place of worship"
+  },
+  {
+    "word": "Church",
+    "clue": "Christian place of worship"
+  },
+  {
+    "word": "Monastery",
+    "clue": "Residence for monks"
+  },
+  {
+    "word": "Palace",
+    "clue": "Grand residence of royalty"
+  },
+  {
+    "word": "Fort",
+    "clue": "Military stronghold"
+  },
+  {
+    "word": "Museum",
+    "clue": "Place that displays artifacts"
+  },
+  {
+    "word": "Gallery",
+    "clue": "Room or building for art exhibits"
+  },
+  {
+    "word": "Painting",
+    "clue": "Artwork made with paint"
+  },
+  {
+    "word": "Sculpture",
+    "clue": "Three-dimensional artwork"
+  },
+  {
+    "word": "Ballet",
+    "clue": "Classical dance form"
+  },
+  {
+    "word": "Piano",
+    "clue": "Keyboard musical instrument"
+  },
+  {
+    "word": "Drums",
+    "clue": "Percussion instruments"
+  },
+  {
+    "word": "Trumpet",
+    "clue": "Brass instrument with valves"
+  },
+  {
+    "word": "Flute",
+    "clue": "Woodwind instrument played sideways"
+  },
+  {
+    "word": "Clarinet",
+    "clue": "Single-reed woodwind instrument"
+  },
+  {
+    "word": "Saxophone",
+    "clue": "Woodwind instrument often used in jazz"
+  },
+  {
+    "word": "Cello",
+    "clue": "Large string instrument played seated"
+  },
+  {
+    "word": "Harp",
+    "clue": "Large triangular string instrument"
+  },
+  {
+    "word": "Oboe",
+    "clue": "Double-reed woodwind instrument"
+  },
+  {
+    "word": "Tuba",
+    "clue": "Largest brass instrument"
+  },
+  {
+    "word": "Trombone",
+    "clue": "Brass instrument with a slide"
+  },
+  {
+    "word": "Mandolin",
+    "clue": "Small lute-like string instrument"
+  },
+  {
+    "word": "Banjo",
+    "clue": "String instrument with a round body"
+  },
+  {
+    "word": "Ukulele",
+    "clue": "Small four-stringed instrument"
+  },
+  {
+    "word": "Algorithm",
+    "clue": "Step-by-step procedure for solving a problem"
+  },
+  {
+    "word": "Database",
+    "clue": "Organized collection of data"
+  },
+  {
+    "word": "Network",
+    "clue": "Connected system of computers"
+  },
+  {
+    "word": "Server",
+    "clue": "Computer that provides resources to others"
+  },
+  {
+    "word": "Client",
+    "clue": "Computer that uses services from a server"
+  },
+  {
+    "word": "Browser",
+    "clue": "Software to view web pages"
+  },
+  {
+    "word": "Website",
+    "clue": "Collection of related web pages"
+  },
+  {
+    "word": "Password",
+    "clue": "Secret string used for access"
+  },
+  {
+    "word": "Username",
+    "clue": "Account identifier"
+  },
+  {
+    "word": "Mouse",
+    "clue": "Pointing device for a computer"
+  },
+  {
+    "word": "Monitor",
+    "clue": "Computer display screen"
+  },
+  {
+    "word": "Scanner",
+    "clue": "Device that digitizes documents"
+  },
+  {
+    "word": "Speakers",
+    "clue": "Devices that output sound"
+  },
+  {
+    "word": "Microphone",
+    "clue": "Device that captures sound"
+  },
+  {
+    "word": "Tripod",
+    "clue": "Three-legged stand"
+  },
+  {
+    "word": "Drone",
+    "clue": "Unmanned aerial vehicle"
+  },
+  {
+    "word": "Sensor",
+    "clue": "Device that detects a physical property"
+  },
+  {
+    "word": "Charger",
+    "clue": "Device used to refill a battery"
+  },
+  {
+    "word": "Cable",
+    "clue": "Insulated bundle of wires"
+  },
+  {
+    "word": "Socket",
+    "clue": "Receptacle for a plug"
+  },
+  {
+    "word": "Switch",
+    "clue": "Device that opens or closes circuits"
+  },
+  {
+    "word": "Lightbulb",
+    "clue": "Glass device that emits light"
+  },
+  {
+    "word": "Thermometer",
+    "clue": "Instrument that measures temperature"
+  },
+  {
+    "word": "Barometer",
+    "clue": "Instrument that measures air pressure"
+  },
+  {
+    "word": "Binoculars",
+    "clue": "Handheld device for viewing distant objects"
+  },
+  {
+    "word": "Magnifier",
+    "clue": "Lens that enlarges small objects"
+  },
+  {
+    "word": "Abacus",
+    "clue": "Ancient counting frame"
+  },
+  {
+    "word": "Kettle",
+    "clue": "Container for boiling water"
+  },
+  {
+    "word": "Toaster",
+    "clue": "Appliance that browns bread"
+  },
+  {
+    "word": "Blender",
+    "clue": "Appliance for mixing or pureeing"
+  },
+  {
+    "word": "Mixer",
+    "clue": "Kitchen tool for combining ingredients"
+  },
+  {
+    "word": "Refrigerator",
+    "clue": "Appliance that keeps food cold"
+  },
+  {
+    "word": "Freezer",
+    "clue": "Appliance that keeps food frozen"
+  },
+  {
+    "word": "Oven",
+    "clue": "Appliance for baking or roasting"
+  },
+  {
+    "word": "Microwave",
+    "clue": "Appliance that heats food quickly"
+  },
+  {
+    "word": "Dishwasher",
+    "clue": "Machine for cleaning dishes"
+  },
+  {
+    "word": "WashingMachine",
+    "clue": "Appliance for cleaning clothes"
+  },
+  {
+    "word": "Hairdryer",
+    "clue": "Appliance that dries hair"
+  },
+  {
+    "word": "Toothbrush",
+    "clue": "Tool for cleaning teeth"
+  },
+  {
+    "word": "Shampoo",
+    "clue": "Liquid soap for hair"
+  },
+  {
+    "word": "Soap",
+    "clue": "Substance used for washing"
+  },
+  {
+    "word": "Towel",
+    "clue": "Fabric for drying"
+  },
+  {
+    "word": "Pillow",
+    "clue": "Cushion for the head"
+  },
+  {
+    "word": "Blanket",
+    "clue": "Warm bed covering"
+  },
+  {
+    "word": "Mattress",
+    "clue": "Cushioned support for sleeping"
+  },
+  {
+    "word": "Curtain",
+    "clue": "Hanging fabric for windows"
+  },
+  {
+    "word": "Carpet",
+    "clue": "Textile floor covering"
+  },
+  {
+    "word": "Sofa",
+    "clue": "Comfortable seating furniture"
+  },
+  {
+    "word": "Chair",
+    "clue": "Seat for one person"
+  },
+  {
+    "word": "Desk",
+    "clue": "Table used for working"
+  },
+  {
+    "word": "Drawer",
+    "clue": "Sliding storage compartment"
+  },
+  {
+    "word": "Cupboard",
+    "clue": "Cabinet for storage"
+  },
+  {
+    "word": "Bookshelf",
+    "clue": "Furniture for holding books"
+  },
+  {
+    "word": "Doormat",
+    "clue": "Mat placed at an entrance"
+  },
+  {
+    "word": "Ceiling",
+    "clue": "Upper interior surface of a room"
+  },
+  {
+    "word": "Floor",
+    "clue": "Lower surface of a room"
+  },
+  {
+    "word": "Roof",
+    "clue": "Top covering of a building"
+  },
+  {
+    "word": "Chimney",
+    "clue": "Vertical structure that vents smoke"
+  },
+  {
+    "word": "Stairs",
+    "clue": "Series of steps for going up or down"
+  },
+  {
+    "word": "Balcony",
+    "clue": "Platform projecting from a wall"
+  },
+  {
+    "word": "Garage",
+    "clue": "Building for housing vehicles"
+  },
+  {
+    "word": "Kitchen",
+    "clue": "Room where food is prepared"
+  },
+  {
+    "word": "Bathroom",
+    "clue": "Room with a bath or shower"
+  },
+  {
+    "word": "Bedroom",
+    "clue": "Room used for sleeping"
+  },
+  {
+    "word": "Hallway",
+    "clue": "Passage in a building"
+  },
+  {
+    "word": "Door",
+    "clue": "Hinged or sliding barrier at an entrance"
+  },
+  {
+    "word": "Doorknob",
+    "clue": "Handle used to open a door"
+  },
+  {
+    "word": "Key",
+    "clue": "Small instrument for opening a lock"
+  },
+  {
+    "word": "Lock",
+    "clue": "Device that secures a door or container"
+  },
+  {
+    "word": "Wallet",
+    "clue": "Flat case for carrying money"
+  },
+  {
+    "word": "Purse",
+    "clue": "Small bag for money and personal items"
+  },
+  {
+    "word": "Suitcase",
+    "clue": "Portable case for travel belongings"
+  },
+  {
+    "word": "Ticket",
+    "clue": "Proof of purchase for entry or travel"
+  },
+  {
+    "word": "Passport",
+    "clue": "Official travel document"
+  },
+  {
+    "word": "Calendar",
+    "clue": "Chart showing days and months"
+  },
+  {
+    "word": "Hourglass",
+    "clue": "Timer using falling sand"
+  },
+  {
+    "word": "Minute",
+    "clue": "Sixty seconds of time"
+  },
+  {
+    "word": "Second",
+    "clue": "Base unit of time"
+  },
+  {
+    "word": "Sunrise",
+    "clue": "Time when the sun appears"
+  },
+  {
+    "word": "Sunset",
+    "clue": "Time when the sun disappears"
+  },
+  {
+    "word": "Morning",
+    "clue": "Early part of the day"
+  },
+  {
+    "word": "Evening",
+    "clue": "Later part of the day"
+  },
+  {
+    "word": "Midnight",
+    "clue": "Twelve o'clock at night"
+  },
+  {
+    "word": "Monday",
+    "clue": "First weekday in many calendars"
+  },
+  {
+    "word": "Tuesday",
+    "clue": "Day after Monday"
+  },
+  {
+    "word": "Wednesday",
+    "clue": "Middle of the workweek"
+  },
+  {
+    "word": "Thursday",
+    "clue": "Day before Friday"
+  },
+  {
+    "word": "Friday",
+    "clue": "Last workday for many"
+  },
+  {
+    "word": "Saturday",
+    "clue": "Weekend day often for rest"
+  },
+  {
+    "word": "Sunday",
+    "clue": "Weekend day often for worship or rest"
+  },
+  {
+    "word": "Spring",
+    "clue": "Season of new growth"
+  },
+  {
+    "word": "Summer",
+    "clue": "Warmest season"
+  },
+  {
+    "word": "Autumn",
+    "clue": "Season when leaves fall"
+  },
+  {
+    "word": "Winter",
+    "clue": "Coldest season"
+  },
+  {
+    "word": "Thunderstorm",
+    "clue": "Storm with thunder and lightning"
+  },
+  {
+    "word": "Drizzle",
+    "clue": "Light rain"
+  },
+  {
+    "word": "Downpour",
+    "clue": "Heavy rain"
+  },
+  {
+    "word": "Mist",
+    "clue": "Very fine spray or haze"
+  },
+  {
+    "word": "Fog",
+    "clue": "Thick low-lying cloud"
+  },
+  {
+    "word": "Hail",
+    "clue": "Frozen pellets of rain"
+  },
+  {
+    "word": "Frost",
+    "clue": "Ice crystals on cold surfaces"
+  },
+  {
+    "word": "Drought",
+    "clue": "Long period without rain"
+  },
+  {
+    "word": "Monsoon",
+    "clue": "Seasonal wind bringing heavy rains"
+  },
+  {
+    "word": "Earthquake",
+    "clue": "Sudden shaking of the ground"
+  },
+  {
+    "word": "Avalanche",
+    "clue": "Mass of snow sliding down a slope"
+  },
+  {
+    "word": "Tsunami",
+    "clue": "Large sea wave caused by disturbance"
+  },
+  {
+    "word": "Wildfire",
+    "clue": "Uncontrolled fire in vegetation"
+  },
+  {
+    "word": "Supernova",
+    "clue": "Exploding star"
+  },
+  {
+    "word": "Blackhole",
+    "clue": "Region of space with extreme gravity"
+  },
+  {
+    "word": "Quasar",
+    "clue": "Extremely luminous active galactic nucleus"
+  },
+  {
+    "word": "Pulsar",
+    "clue": "Rapidly rotating neutron star"
+  },
+  {
+    "word": "Asteroid",
+    "clue": "Small rocky body orbiting the sun"
+  },
+  {
+    "word": "Exoplanet",
+    "clue": "Planet outside our solar system"
+  },
+  {
+    "word": "MilkyWay",
+    "clue": "Galaxy that contains our solar system"
+  },
+  {
+    "word": "Jupiter",
+    "clue": "Largest planet in the solar system"
+  },
+  {
+    "word": "Saturn",
+    "clue": "Planet known for its rings"
+  },
+  {
+    "word": "Neptune",
+    "clue": "Farthest known giant planet"
+  },
+  {
+    "word": "Uranus",
+    "clue": "Ice giant with tilted axis"
+  },
+  {
+    "word": "Venus",
+    "clue": "Second planet from the sun"
+  },
+  {
+    "word": "Mars",
+    "clue": "Red planet"
+  },
+  {
+    "word": "Earth",
+    "clue": "Our home planet"
+  },
+  {
+    "word": "Sun",
+    "clue": "Star at the center of our solar system"
+  },
+  {
+    "word": "Pluto",
+    "clue": "Dwarf planet in the Kuiper Belt"
+  },
+  {
+    "word": "Apogee",
+    "clue": "Point farthest from Earth in an orbit"
+  },
+  {
+    "word": "Perigee",
+    "clue": "Point closest to Earth in an orbit"
+  },
+  {
+    "word": "Meteorite",
+    "clue": "Space rock that reaches the ground"
+  },
+  {
+    "word": "KuiperBelt",
+    "clue": "Region of icy bodies beyond Neptune"
+  },
+  {
+    "word": "Astrolabe",
+    "clue": "Ancient instrument for solving astronomical problems"
+  },
+  {
+    "word": "Sundial",
+    "clue": "Device that tells time using shadows"
+  },
+  {
+    "word": "Gyroscope",
+    "clue": "Device for measuring or maintaining orientation"
+  },
+  {
+    "word": "Pendulum",
+    "clue": "Weight that swings from a pivot"
+  },
+  {
+    "word": "Triangle",
+    "clue": "Three-sided polygon"
+  },
+  {
+    "word": "Square",
+    "clue": "Four equal sides and right angles"
+  },
+  {
+    "word": "Circle",
+    "clue": "Set of points equidistant from a center"
+  },
+  {
+    "word": "Rectangle",
+    "clue": "Four-sided shape with right angles"
+  },
+  {
+    "word": "Polygon",
+    "clue": "Closed shape with straight sides"
+  },
+  {
+    "word": "Cylinder",
+    "clue": "3D shape with circular bases"
+  },
+  {
+    "word": "Sphere",
+    "clue": "Perfectly round 3D shape"
+  },
+  {
+    "word": "Cone",
+    "clue": "3D shape with a circular base and a point"
+  },
+  {
+    "word": "Prism",
+    "clue": "Solid with two identical polygonal ends"
+  },
+  {
+    "word": "Hydrogen",
+    "clue": "Lightest chemical element"
+  },
+  {
+    "word": "Nitrogen",
+    "clue": "Gas that makes up most of Earth's air"
+  },
+  {
+    "word": "Carbon",
+    "clue": "Element essential to organic life"
+  },
+  {
+    "word": "Helium",
+    "clue": "Inert gas used in balloons"
+  },
+  {
+    "word": "Neon",
+    "clue": "Gas that glows in advertising signs"
+  },
+  {
+    "word": "Sodium",
+    "clue": "Soft reactive metal"
+  },
+  {
+    "word": "Chlorine",
+    "clue": "Greenish gas used to disinfect water"
+  },
+  {
+    "word": "Sulfur",
+    "clue": "Yellow nonmetal element"
+  },
+  {
+    "word": "Phosphorus",
+    "clue": "Element that glows in the dark"
+  },
+  {
+    "word": "Calcium",
+    "clue": "Element important for bones"
+  },
+  {
+    "word": "Iron",
+    "clue": "Common metal used in construction"
+  },
+  {
+    "word": "Copper",
+    "clue": "Reddish metal that conducts electricity"
+  },
+  {
+    "word": "Silver",
+    "clue": "Shiny precious metal"
+  },
+  {
+    "word": "Gold",
+    "clue": "Valuable yellow precious metal"
+  },
+  {
+    "word": "Platinum",
+    "clue": "Dense silver-white precious metal"
   }
 ]

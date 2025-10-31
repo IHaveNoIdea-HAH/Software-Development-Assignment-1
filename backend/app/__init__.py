@@ -21,6 +21,7 @@ def create_app(current_folder):
     # Let's load data for crosswords generation into app config
     print('Loading crossword data from JSON...')
     app.config['CROSSWORDS_DATA'] = load_json(data_folder, 'crossword_words.json')
+    print(f"Loaded {len(app.config['CROSSWORDS_DATA'])} words for crossword generation.")
 
     # Let's load info about users of our crossword game into app config
     print('Loading users data from JSON...')

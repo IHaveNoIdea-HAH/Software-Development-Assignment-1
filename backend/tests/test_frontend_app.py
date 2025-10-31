@@ -7,7 +7,7 @@ st.title("Crossword Game App")
 st.set_page_config(layout="wide") # Use wide layout for better grid display
 
 # Create a sidebar menu
-menu = st.sidebar.radio("Menu", ["Register", "Login", "New Game", "Guess Word", "Auto Solve", "Solve Clue"])
+menu = st.sidebar.radio("Menu", ["Register", "Login", "New Game", "Guess Word", "Auto Solve", "Solve Clue", "Game State"])
 host = st.text_input("Enter the host", value="http://localhost:5000")
 
 # Define the behavior for each menu item
@@ -205,3 +205,20 @@ elif menu == "Solve Clue":
 
         else:
             st.error(f"{response.status_code}: Failed to solve clue. Error: {response.text}")
+
+elif menu == "Game State":
+    st.header("Game State")
+
+    game_id = st.text_input("Enter Game ID", value=st.session_state.get("game_id", ""))
+
+    if st.button("Get Game State"):
+        url = f"{host}/api/game/game_status/" + str(game_id)
+        response = requests.get(url)
+        data = response.json()
+        st.write("Response:", data)
+
+        if response.status_code == 200:
+            st.success("Game state retrieved successfully!")
+            st.json(data["game_state"])
+        else:
+            st.error(f"{response.status_code}: Failed to retrieve game state. Error: {response.text}")
