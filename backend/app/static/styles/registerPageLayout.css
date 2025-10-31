@@ -57,3 +57,44 @@ button {
 button:hover {
     background-color: #f0f0f0;
 }
+
+.msg {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.msg.error {
+    background-color: #ffe0e0;
+    color: #c00;
+    border: 1px solid #c00;
+}
+
+.msg.success {
+    background-color: #e0ffe0;
+    color: #060;
+    border: 1px solid #060;
+}
+
+.msg.info {
+    background-color: #e0f0ff;
+    color: #006;
+    border: 1px solid #006;
+}
+
+.login-link-container {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.login-link-container a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.login-link-container a:hover {
+    text-decoration: underline;
+}
