@@ -10,47 +10,44 @@
     <div class="container">
         <!-- Title Box -->
         <div class="title-box">
-            <h1>Crosswords</h1>
-        </div>
-
-        <!-- Difficulty Popup -->
-        <div class="overlay" id="overlay"></div>
-        <div class="difficulty-popup active" id="difficultyPopup">
-            <div class="difficulty-buttons-container">
-                <button class="difficulty-btn" onclick="selectDifficulty('easy')">Easy</button>
-                <button class="difficulty-btn" onclick="selectDifficulty('medium')">Medium</button>
-                <button class="difficulty-btn" onclick="selectDifficulty('hard')">Hard</button>
-            </div>
+            <h1>Crosswords Game</h1>
         </div>
 
         <!-- Ensure buttons are functional -->
         <div class="button-box">
-            <button>Hint</button>
-            <button>Auto Solve</button>
-            <button>New Game</button>
+            <button id="new_game_btn">New Game</button>
+            <button>Auto solve a clue</button>
+            <button>Auto solve the crossword</button>
         </div>
 
-        <!--make this contain the crossword grid -->
-        <div class="grid-box">
-        </div>
-
-        <!--input-->
-        <div class="input-box">
-            <input type="text" id="userInput" placeholder="Type answer here...">
-        </div>
-
-        <!--description Box for the words chosen-->
-        <div class="description-box">
-            <div class="clue-section">
-                <h3>Across</h3>
-                <div class="clue-item">1. Word</div><!--Make this change depending on chosen words-->
-                <div class="clue-item">3. Word</div>
-                <div class="clue-item">4. Word</div>
+        <div class="hud-box">
+            <div id="game_state">
             </div>
+        </div>
 
-            <div class="clue-section">
-                <h3>Down</h3>
-                <div class="clue-item">2. Word</div>
+        <div class="status-box">
+            <span id="statusMessage">Welcome to the Crossword Puzzle!</span>
+        </div>
+
+        <!--this is the container to render the crossword grid -->
+        <div class="crossword-box">
+            <div id="crossword_grid">
+            </div>
+        </div>
+
+        <!--input for the guess word functionality so that player can select a clue and type a guess word and submit -->
+        <div class="inputs-box">
+            <!-- adding another dropdown for selecting the clue number -->
+            <select id="clue_number_select">
+                <option value="" disabled selected>Select Clue Number</option>
+            </select>
+            <input type="text" id="userInput" placeholder="Type guess word here...">
+            <button id="submitGuessWordBtn">Submit guess word</button>
+        </div>
+
+        <!--here we go with the clues and render them for the player to see-->
+        <div class="clues-box">
+            <div id="clues_container">
             </div>
         </div>
     </div>
