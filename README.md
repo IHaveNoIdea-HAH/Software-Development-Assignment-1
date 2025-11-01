@@ -561,3 +561,14 @@ Initially the backend will use a set of json files to store the game data (words
 
 ToDo: add a block diagram here (Alex).
 
+# Activity 4 - Testing
+
+| What's being tested | Testing type | What it should do | What it actually done | Comments |
+|-----------|-----------|-----------|-----------|-----------|
+| Login/Register | Manual | Store data in crossword_session | Stores user id, username and security token <img width="1375" height="58" alt="image" src="https://github.com/user-attachments/assets/b632e42a-d65f-49ee-a09a-e30a85f53aa1" /> <img width="1384" height="59" alt="image" src="https://github.com/user-attachments/assets/58744c38-466b-4e1e-9eb5-3e56efb15095" /> | Data has been stored after login |
+| Play button | Manual | Takes user to the login page | Successfully took user to login page <img width="756" height="422" alt="image" src="https://github.com/user-attachments/assets/b010440b-76ee-403e-aea9-8690a313b2d3" />  | Button does take to login page | 
+| Register storing data and encrypting password | Manual | When registering. It should store in the json file | Stored without issue <img width="824" height="664" alt="image" src="https://github.com/user-attachments/assets/6c78fd84-7259-4c6f-8747-54935cb8baa7" /> <img width="832" height="181" alt="image" src="https://github.com/user-attachments/assets/c4f189d8-746a-4274-95dd-13b4091ba799" /> | Stored in json file |
+| How to play button | Manual | Show pop up of how to play | Showed pop up <img width="997" height="1008" alt="image" src="https://github.com/user-attachments/assets/f194bb09-a658-4649-882f-b83a2bafea27" /> | Showed pop up without issue |
+| placeholder | Manual | placeholder | placeholder  | placeholder |
+| placeholder | Manual | placeholder | placeholder  | placeholder |
+
