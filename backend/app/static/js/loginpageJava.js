@@ -12,9 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const msg  = document.getElementById("login-message");
   if (!form) return;
 
+  // Load existing session 'crossword-session' from localStorage (if any)
+  let session = loadSession() || {};
+
   // If already logged in, send straight to play (nice UX).
-  const existing = safeJSON(localStorage.getItem("crossword_session"));
-  if (existing?.userId) {
+  if (session?.user_id) {
     window.location.href = getNext(form) || "/play";
     return;
   }
@@ -25,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const username = (document.getElementById("username")?.value || "").trim();
     const password = (document.getElementById("password")?.value || "");
 
+    // --- Validate the inputs and throw errors if invalid
     if (username.length < 3 || password.length < 6) {
       return show("Username must be ≥ 3 and password ≥ 6.", "error");
     }
@@ -42,15 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.message || data.error || "Login failed.");
 
-      // Store minimal session for later pages (no secrets)
-      localStorage.setItem(
-        "crossword_session",
-        JSON.stringify({
-          userId: data.user?.id,
-          username: data.user?.username || username,
-          at: Date.now(),
-        })
-      );
+      session.security_token = data.security_token;
+      session.user_id        = data.user_id;
+      session.username       = data.username;
+      saveSession(session);
 
       show("Success! Redirecting…", "success");
       window.location.href = getNext(form) || "/play";
@@ -58,6 +56,17 @@ document.addEventListener("DOMContentLoaded", () => {
       show(String(err.message || err), "error");
     }
   });
+
+  // Save session data to localStorage
+  function saveSession(s) {
+    localStorage.setItem('crossword_session', JSON.stringify(s));
+  }
+
+  // Load session data from localStorage
+  function loadSession() {
+    try { return JSON.parse(localStorage.getItem('crossword_session')); }
+    catch { return null; }
+  }
 
   function show(text, type = "info") {
     if (!msg) return;

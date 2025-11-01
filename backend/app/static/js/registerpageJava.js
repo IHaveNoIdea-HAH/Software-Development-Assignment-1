@@ -18,16 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginLink = document.getElementById("login-link");
   if (!form) return;
 
-  // --- Keep the login link smart: /login?next=/play (or preserved ?next=)
-  const desiredNext = new URLSearchParams(window.location.search).get("next") || "/play";
-  if (loginLink) {
-    const target = `/login?next=${encodeURIComponent(desiredNext)}`;
-    loginLink.setAttribute("href", target);
-    loginLink.addEventListener("click", (e) => {
-      e.preventDefault();
-      window.location.href = target;
-    });
-  }
+  // Load existing session 'crossword-session' from localStorage (if any)
+  let session = loadSession() || {};
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -37,6 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = (document.getElementById("password")?.value || "");
     const confirm  = (document.getElementById("confirm")?.value  || "");
 
+    // --- Validate the inputs and throw errors if invalid
     if (!email) return show("Email is required!", "error") //added this
     if (!email.endsWith(".com")) return show("Email must end with .com", "error"); //added this
     if (username.length < 3)  return show("Username must be ≥ 3 characters.", "error");
@@ -56,14 +49,31 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(data.message || data.error || "Registration failed.");
 
-      show("Account created! Redirecting to login…", "success");
-      window.location.href = getNext(form) || `/login?next=${encodeURIComponent(desiredNext)}`;
+      // We prefer auto-login, let's store session here
+      session.security_token = data.security_token;
+      session.user_id        = data.user_id;
+      session.username       = data.username;
+      saveSession(session);
 
-      // If you prefer auto-login, you can store session here and go to /play instead.
+      // Now we are good to go straightaway to /play and avoid extra login step, so better user experience overall
+      show("Account created! Redirecting to play…", "success");
+      window.location.href = getNext(form) || "/play";
+
     } catch (err) {
       show(String(err.message || err), "error");
     }
   });
+
+  // Save session data to localStorage
+  function saveSession(s) {
+    localStorage.setItem('crossword_session', JSON.stringify(s));
+  }
+
+  // Load session data from localStorage
+  function loadSession() {
+    try { return JSON.parse(localStorage.getItem('crossword_session')); }
+    catch { return null; }
+  }
 
   function show(text, type = "info") {
     if (!msg) return;
@@ -75,4 +85,5 @@ document.addEventListener("DOMContentLoaded", () => {
     const urlNext = new URLSearchParams(window.location.search).get("next");
     return urlNext || formEl?.dataset?.next || null;
   }
+
 });
