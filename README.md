@@ -561,3 +561,9 @@ Initially the backend will use a set of json files to store the game data (words
 
 ToDo: add a block diagram here (Alex).
 
+# Activity 4 - Testing
+
+| What's being tested | Testing type | What it should do | What it actually done | Comments |
+|-----------|-----------|-----------|-----------|-----------|
+| Login/Register | Manual | Store data in crossword_session | Stores user id, username and security token <img width="1375" height="58" alt="image" src="https://github.com/user-attachments/assets/b632e42a-d65f-49ee-a09a-e30a85f53aa1" /> <img width="1384" height="59" alt="image" src="https://github.com/user-attachments/assets/58744c38-466b-4e1e-9eb5-3e56efb15095" /> | Data has been stored after login |
+
