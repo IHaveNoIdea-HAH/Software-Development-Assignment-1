@@ -47,12 +47,16 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const data = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(data.message || data.error || "Registration failed.");
+      if (!res.ok) throw new Error(data.message || data.error || " New user registration failed.");
 
       // We prefer auto-login, let's store session here
       session.security_token = data.security_token;
       session.user_id        = data.user_id;
       session.username       = data.username;
+      session.last_result    = data.result;
+      session.last_message   = data.message;
+
+      // Save session to localStorage for future use in /play etc.
       saveSession(session);
 
       // Now we are good to go straightaway to /play and avoid extra login step, so better user experience overall
