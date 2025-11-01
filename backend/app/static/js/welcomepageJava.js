@@ -1,7 +1,7 @@
 // welcomepageJava.js (compact)
 const $ = (id) => document.getElementById(id);
 const overlay = $('overlay');
-const POPUPS = ['instructionsPopup', 'difficultyPopup'];
+const POPUPS = ['instructionsPopup'];
 
 function open(id) {
   const p = $(id);
@@ -16,17 +16,10 @@ function closeAll() {
 
 // keep your original API names
 window.openInstructionsPopup = () => open('instructionsPopup');
-window.openDifficultyPopup  = () => open('difficultyPopup');
-window.closeAllPopups       = closeAll;
+window.goToLogin = () => window.location.href = '/login';
+window.closeAllPopups = closeAll;
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Play goes to login (and hides any leftover popups)
-  $('play-btn')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    closeAll();
-    window.location.href = '/login';
-  });
-
   // click outside to close
   overlay?.addEventListener('click', closeAll);
 });

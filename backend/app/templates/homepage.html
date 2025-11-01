@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="http://localhost:5000/static/styles/layout.css">
 </head>
 <body>
-    <!-- main contain things -->
-    <div class="container">
+     <!-- main contain things -->
+     <div class="container">
         <!-- the title box picture -->
         <div class="title-box">
            <img src="http://localhost:5000/static/Crossword%20image.png" alt="Crossword">
@@ -17,7 +17,7 @@
 
         <!-- Main buttons -->
         <div class="button-container">
-            <button class="play" onclick="openDifficultyPopup()">Play</button>
+            <button class="play" onclick="goToLogin()">Play</button>
             <button class="instructions-btn" onclick="openInstructionsPopup()">How to play</button>
         </div>
     </div>
@@ -37,24 +37,6 @@
         </p>
         <div class="instructions-close">
             <button onclick="closeAllPopups()">close</button>
-        </div>
-    </div>
-
-    <!-- Difficulty Selection popup -->
-    <div class="difficulty-popup" id="difficultyPopup">
-        <h2>Select Difficulty</h2>
-        <p>Choose a difficulty level to start playing:</p>
-        
-        <!-- Difficulty buttons -->
-        <div class="difficulty-buttons">
-            <button class="difficulty-btn" onclick="window.location.href='/api/game/easy'">easy</button>
-            <button class="difficulty-btn" onclick="window.location.href='/api/game/medium'">medium</button>
-            <button class="difficulty-btn" onclick="window.location.href='/api/game/difficult'">difficult</button>
-        </div>
-
-        <!-- Close button -->
-        <div class="close-container">
-            <button class="close-btn" onclick="closeAllPopups()">close</button>
         </div>
     </div>
 
