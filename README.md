@@ -31,6 +31,18 @@ We've decided to re-arrange the tasks stated in the assignment brief for the Act
 
 ## Task 1 – Review all available projects before deciding which to develop
 
+Project: Match.
+Description: Match is where you are shown a set of items and must relate them into the related Categories
+The core requirements are: Displaying items or clues. Drag and Drop system. Tracking score. 
+
+Project: Jigsaw.
+Description: Assemble pieces to make an image.
+Core requirements: Image silcing into jigsaw. drag and drop system. Snap to place
+
+Project: Crossword (Chosen)
+Description: Solve a crossword grid by answering clues
+Core requirements: Generating crossword grids. Generating clues. Filling letters and checking if they match
+
 We've reviewed all 3 available projects to chose from and during the initial brainstorming session we've decided to go with the crossword game project.
 We felt that the crossword game would be a good fit for our team as it combines word puzzles with a simple yet engaging gameplay mechanic.
 
@@ -196,6 +208,7 @@ We've identified the following non-functional specifications to be important for
 
 The following image represents the overall mockup of the crossword game application.
 
+Main game:
 <img width="1343" height="737" alt="image" src="https://github.com/user-attachments/assets/b4ff156f-47d9-4e59-aa3e-4a365e13d771" />
 
 ---
