@@ -43,61 +43,34 @@ Project: Crossword (Chosen)
 Description: Solve a crossword grid by answering clues
 Core requirements: Generating crossword grids. Generating clues. Filling letters and checking if they match
 
+We've reviewed all 3 available projects to chose from and during the initial brainstorming session we've decided to go with the crossword game project.
+We felt that the crossword game would be a good fit for our team as it combines word puzzles with a simple yet engaging gameplay mechanic.
+
 ---
 
 ## Task 2 – Primary Target Audience
 
 During the brainstorming session we've agreed that our crossword game targets **young adults aged 15–30**, mainly students and young professionals who enjoy short, word-based puzzles during study or work breaks.  
-They prefer something quick, clean, and rewarding that helps improve vocabulary while relaxing.
+They prefer something quick, clean, and rewarding that helps improve vocabulary and overall erudition while relaxing.
+This choice was made because this demographic is likely to appreciate the cognitive challenge of crosswords while also valuing a polished user experience that fits into their busy lifestyles.
 
 ---
-
-## Task 3 - Create an overall specification 
-
-Create an overall specification based on user and system requirements (including HCI, game/application-rules and the 
-game/application-mechanics (e.g. what are the rules for the game, how will the game be controlled, how will 
-any non-player characters interact, etc.) 
-
-ToDo: add functional requirements here together with acceptance criteria (Alex).
-
-| Functional requirement             | Type | Specification                                                                                       | Acceptance Criteria                                                                                                          |
-|------------------------------------|------|-----------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
-| Main menu when app starts          | UI   | The main menu is displayed with options to start a new game, view leaderboard, and access settings. | When the app starts, main menu is displayed with all options visible and clickable.                                          |
-| Leaderboard shown to a user        | UI   | Leaderboard displays the top 10 players with their scores and times.                                | When user clicks Leaderboard main menu item in the app the Leaderboard is shown and displays top 10 players sorted by score. |
-| Game win screen when the user wins | UI   | When a player correctly guesses all words, a Game Win screen is displayed.                          | When all words are guessed correctly, the Game Win screen appears with final score and option to return to main menu.        |
-| Game over screen when user loses   | UI   | When a player runs out of guesses, a Game Over screen is displayed.                                 | When the player runs out of guesses, the Game Over screen appears with final score and option to return to main menu.        |
-| Start new game                     | UX   | Player can start a new game from the main menu.                                                     | When user clicks "New Game" button in main menu, a new crossword game starts with fresh grid and clues.                      |
-| Random words for crossword         | Sys  | The game uses a set of random words from different topics for the crossword.                        | Each new game generates a unique crossword puzzle using randomly selected words from predefined word list.                   |
-| Scoring system                     | Sys  | Player scores points when correct word is guessed.                                                  | When player guesses a word correctly, score increases by 10 points.                                                          |
-| Game time tracking (optional)      | Sys  | The game tracks how much time a player spends on the game. (If implemented)                         | If timer is enabled, the game displays elapsed time during gameplay.                                                         |
-| HUD display                        | UI   | HUD shows current score, guesses made, and hints remaining.                                         | During gameplay, HUD is visible and updates in real-time with score, guesses, and hints.                                     |
-| Gameboard rendering                | UI   | Gameboard is rendered on screen with words hidden horizontally and vertically, numbered for clues.  | When game starts, the crossword grid is displayed with numbered cells corresponding to clues.                                |
-| Word selection and input           | UX   | Player can select a word on the gameboard and enter an entire word to check.                        | When player selects a word and inputs answer, clicking "Check" validates the answer and updates grid accordingly.            |
-| Clue display                       | UI   | Clues for each word are displayed clearly alongside the gameboard.                                  | During gameplay, clues are visible and correspond to numbered words on the grid.                                             |
-| Reveal word with penalty           | UX   | Player can uncover an entire word hidden on the gameboard with a score penalty .                    | When player clicks "Reveal Word" button, one word is revealed on the grid and score decreases by 5 points.                   |
-| Auto-solve crossword               | UX   | Player can click a button to auto-solve the whole crossword, resetting score to zero.               | When player clicks "Auto-Solve" button, entire crossword is revealed and score resets to zero.                               |
-| Accessibility features             | UI   | High contrast color scheme, larger fonts, and keyboard navigation options are available.            | Accessibility options can be toggled in settings and apply immediately to the game interface.                                |
-| Responsive design                  | UI   | The game is optimized for various screen sizes and devices.                                         | The game layout adjusts correctly on desktop, tablet, and mobile devices without loss of functionality.                      |
-| Real-time feedback                 | UX   | Real-time feedback is provided on answers (correct/incorrect).                                      | When player submits an answer, immediate feedback is shown indicating correctness.                                           |
-| Progress saving                    | Sys  | Player’s progress and scores are saved locally to resume unfinished game.                           | When player exits the game, progress is saved and can be resumed from last state upon return                                 |
-
-
----
-
-
 
 ## Task 4 – User Profiles
 
 We've created two user profiles representing our primary target audience:
 
 ### 👩‍💼 Sophie (21)
-- University student (Business & Marketing)  
-- Plays puzzle games to take breaks from studying.  
-- **Needs:** Fast-loading crossword, clear design, instant feedback.  
+- University student (Business & Marketing)
+- Plays puzzle games to take breaks from studying.
+- **Wants:** quick, engaging puzzles that fit into short breaks.
+- **Needs:** fast-loading crossword, clear design, instant feedback.  
 - **Frustrations:** Cluttered interface or slow response.
 
 ### 👨‍💻 Aaron (27)
-- Software technician; plays games on lunch breaks.  
+- Software technician; plays games on lunch breaks.
+- Enjoys word games that challenge vocabulary.
+- **Wants:** challenging yet accessible puzzles.
 - **Needs:** Responsive design (desktop & mobile), ability to resume game.  
 - **Frustrations:** Laggy inputs or confusing controls.
 
@@ -108,36 +81,47 @@ We've created two user profiles representing our primary target audience:
 ### High level user requirements
 Based on target audience and user profiles, we've come up with the following preliminary high-level user requirements for our crossword game.
 Depending on time available, some of these may be deprioritised to ensure we meet the deadline for our assignment.
-
+The strict deadline means we have to focus on the core gameplay features first and polish those before adding any additional features.
+Therefore, we identified some of the features to be the core ones and to comprise our minimum viable product (MVP) while the others are nice-to-have features that we may add if time permits and to generally represent Phase 2 features.
 
 NOTE: Delete the things in the bracket in the future. For now do not delete it so we don't confuse ourselves.
 If we have time, task to do:
 2,4,6 (for now just random generated words), 8, 9, 10, 16, 17, 18
 Ignore these task when creating the game, for now create the necessary stuff
 
+MVP features (Must have):
 1. Game has to have main menu 
-2. Game has to have leaderboard with 10 best players and their scores and times (In the future perhaps)
-3. Game has to have Game Win screen. (When a player correctly guesses all words)
-4. Game has to have Game Over screen. (When a player runs out of guesses)
-5. Player must be able to play new game
-6. The game is going to use a set of random words from different topics.
-7. Player must be able to score points when correct word is guessed. 
-8. LOW: Game should have in-built game time which measures how much time a player spent on the game. (For the future perhaps, for now it doesn't need a timer)
-9. LOW: Player can be asked whether timer should be enabled or not. (Its too much effort to add a timer currently, and isn't needed maybe future)
-10. There has to be a HUD in the game showing current score, guesses made and hints remaining.  
-11. Gameboard should be rendered on screen with words hidden horizontally and vertically also numbered so a player knows what word they are guessing.
-12. Player has to be able to select a word on the gameboard and enter an entire word and click ‘Check’ button to see if they guessed correctly. (We could just have a box where we input text but maybe)
-13. There has to be a clues display which contains all of the clues about words hidden on the crossword gameboard.
-14. Player has to be able to uncover an entire word hidden on the gameboard. But this gives a penalty to the score.
-15. Player has to be able to click a button to auto-solve the whole crossword but this resets all the scored points to zero. 
-16. Accessibility features!: high contrast color scheme, fonts, links etc. (ehh maybe in the futyre)
-17. LOW: More advanced scoring logic like combo-bonuses, power-ups, streak bonuses??? Nice to have, low priority. (Future)
-18. LOW: Difficulty levels??? Only we manage to deliver this in time. Low priority and nice to have. (Future)
+2. Game has to have Game Win screen. (When a player correctly guesses all words)
+3. Game has to have Game Over screen. (When a player runs out of guesses)
+4. Player must be able to play new game.
+5. Each new crossword game is going to use a set of random words from different topics.
+6. Player must be able to score points when correct word is guessed. 
+7. There has to be a HUD in the game showing current score, words guessed, words remaining to be guessed, guesses made etc.  
+8. Gameboard should be rendered on screen with words hidden horizontally and vertically also numbered so a player knows what word they are guessing.
+9. Player has to be able to select a word or a clue number corresponding to a word on the gameboard and enter an entire guess word and click ‘Check’ button to see if they guessed correctly.
+10. There has to be a numbered list of clues displayed which contains all of the clues about words hidden on the crossword gameboard plus the their directions being across or down.
+11. Player has to be able to uncover an entire word hidden on the gameboard. But this gives a penalty to the score.
+12. Player has to be able to click a button to auto-solve the whole crossword but this gives penalty points for any unsolved clues.
+13. Player has to be able to create an account and log in to the game so that their scores and progress can be saved.
+14. Game has to have an intuitive user interface for navigating menus, starting new games, viewing scores etc.
+15. Game has to have a simple scoring system where points are awarded for correct answers and penalties for hints or auto-solve.
+16. The crossword puzzles should be dynamically generated using some sort of crossword generation algorithm.
+
+Nice to have features (If time permits) so our Phase 2 features:
+1. Difficulty levels. User can select from easy, medium, hard difficulty levels.
+2. More advanced scoring logic like combo-bonuses, power-ups, streak bonuses??? Nice to have, low priority.
+3. Accessibility features!: high contrast color scheme, fonts, links etc.
+4. Game has to have leaderboard with 10 best players and their scores and times.
+5. Game should have in-built game time which measures how much time a player spent on the game.
+6. Player can be asked whether timer should be enabled or not.
+7. Game has to be optimized for various screen sizes and devices (responsive design).
+8. Progress saving: Player’s progress and scores are saved locally so that they can resume unfinished game later.
 
 ### Hardware Requirements
 
 Players of our crossword game will need a device capable of running a web browser, such as a desktop computer, laptop, tablet, or smartphone. 
 The device should have a minimum of 2GB RAM and a modern processor to ensure smooth gameplay.
+No fancy hardware such as GPU is required as the game is not graphically intensive.
 
 ### Operating System Requirements
 
@@ -145,27 +129,60 @@ The crossword game will be web-based and compatible with major operating systems
 
 ### Key application functions
 
-Below list of key application functions that the crossword game must support to meet high level user requirements.
+Below list of key application functions that the crossword game must support to meet high level MVP version user requirements.
 This is preliminary list as per our brainstorming session and may be refined further.
 
-| Functionality               | Description                                                                     |
-|-----------------------------|---------------------------------------------------------------------------------|
-| User Authentication         | Players can create accounts and log in to save progress and access leaderboards |
-| Game Interface              | Intuitive UI for navigating menus, starting games, and viewing scores           |
-| Crossword Generation        | Dynamic generation of crossword puzzles based on selected difficulty levels     |
-| Scoring System              | Points awarded for correct answers, with penalties for hints or auto-solve      |
-| Clue Display                | Clear presentation of clues for each word in the crossword                      |
-| Accessibility Features     | Options for high contrast mode, larger fonts, and keyboard navigation           |
-| Responsive Design          | Optimized for various screen sizes and devices                                  |
-| Feedback Mechanism         | Real-time feedback on answers (correct/incorrect)                               |
-| Progress Saving            | Saving of game progress and scores in order player can resume unfinished game   |
+| Functionality           | Description                                                                                                                                                                  |
+|-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| User authentication     | Players can create accounts and log in to save progress and access leaderboards                                                                                              |
+| Game interface          | Intuitive UI for navigating menus, starting games, and viewing scores                                                                                                        |
+| Crossword generation    | Dynamic generation of crossword puzzles using a vocabulary of clues                                                                                                          |
+| Game state management   | Scoring system so that points awarded for correct answers, with penalties for hints or auto-solve. Counting of guesses made, guesses left etc. Game over and game win logic. |
+| Clue display            | Clear presentation of clues for each word in the crossword with number and direction                                                                                         |
+| Accessibility features  | Options for high contrast mode, larger fonts, and keyboard navigation                                                                                                        |
+| Responsive design       | Optimized for various screen sizes and devices                                                                                                                               |
+| Feedback mechanism      | Real-time feedback on answers (correct/incorrect)                                                                                                                            |
+| Game play HUD           | Display of current score, guesses made, words remaining etc.                                                                                                                 |
+| Core game play features | Ability to select clue and guess word, auto solve a clue and auto-solve the entire crossword.                                                                                |
+
 
 ### AI in the game
 
 In our game we are not planning to use AI features as part of the core gameplay experience.
-The only kind of 'AI' feature we are going to use is using a simple algorithm to generate random words for the crossword puzzles our players will be solving.
+The only kind of 'AI' feature we are going to use is using an algorithm to generate crossword for a new game started by a user using random words from the vocabulary of clues.
 For this we will use a predefined list of words and clues, and the algorithm would randomly select words from this list to create unique crossword puzzles for each game session played by a user.
 So, this is going to be a basic implementation and does not involve advanced AI techniques.
+
+---
+
+## Task 3 - Create an overall specification 
+
+Create an overall specification based on user and system requirements (including HCI, game/application-rules and the 
+game/application-mechanics (e.g. what are the rules for the game, how will the game be controlled, how will 
+any non-player characters interact, etc.) 
+
+The following list of functional requirements has been produced to cover the high-level user requirements from task 5 above.
+It has to be mentioned the list also has the acceptance criteria for each functional requirement to ensure that the requirement is testable and verifiable.
+
+| Functional requirement             | Type | Specification                                                                                                                                                                                          | Acceptance Criteria                                                                                                                                                                                                                                                                                                                            |
+|------------------------------------|------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Main menu when app starts          | UI   | The main menu is displayed with options to play a new game or check rules of the game how to play it.                                                                                                  | When the app starts, main menu is displayed with "Play" and "How to play" options visible and clickable.                                                                                                                                                                                                                                       |
+| Game win screen when the user wins | UI   | When a player correctly guesses all words, a Game Win screen is displayed.                                                                                                                             | When all words are guessed correctly, the Game Win screen appears with final game state e.g. score, count of guesses made etc. and option to return to main menu.                                                                                                                                                                              |
+| Game over screen when user loses   | UI   | When a player runs out of guesses or crossword is auto-solved, a Game Over screen is displayed.                                                                                                        | When the player runs out of guesses or auto-solves the crossword, the Game Over screen appears with final game state and option to return to main menu.                                                                                                                                                                                        |
+| Start new game                     | UX   | Player can start a new game from the main menu.                                                                                                                                                        | When user clicks "New Game" button in main menu, a new crossword game starts with fresh grid being rendered on screen and clues being displayed.                                                                                                                                                                                               |
+| Random words for crossword         | Sys  | The game uses a set of random words from different topics for the crossword generation.                                                                                                                | Each new game generates a unique crossword puzzle using randomly selected words from predefined word list.                                                                                                                                                                                                                                     |
+| Scoring system                     | Sys  | Player scores points when correct word is guessed. The number of points scored equals to the count of letters in a correctly guessed word multiplied by 10.                                            | When player guesses a word correctly, score increases by number of points which equals the count of letters in the guesses word multiplied by 10. Example: guess word is TRAIN so player's score is bumped by 50 points.                                                                                                                       |
+| Scoring system                     | Sys  | Player scores penalty points when auto-solves a clue. The number of points subtracted equals to the count of letters in a correctly guessed word multiplied by 10.                                     | When player auto-solves a clue, score is decreased by number of points which equals the count of letters in the word multiplied by 10. Example: guess word is APPLE so player's score is reduced by 50 points.                                                                                                                                 |
+| Scoring system                     | Sys  | Player scores penalty points when auto-solves the entire crossword. The number of points subtracted equals to the count of letters in all unsolved words which have been auto-solved multiplied by 10. | When player auto-solves the entire crossword, score is decreased by number of points which equals to the total count of letters in all auto-solved words multiplied by 10. Example: user had two words 'GOLD' and 'IRON' still hidden and clicked 'Auto-solve' button so player's total score for the game is reduced by (4+4)*10 = 80 points. |
+| HUD display                        | UI   | HUD shows current game state details like current score, guesses made, guesses remaining, overall guesses limit, words guessed, total words to be guessed.                                             | During gameplay, HUD is visible and is updated with the latest game state with current score, guesses made, guesses remaining, total guesses limit, words guessed and total words to be guessed.                                                                                                                                               |
+| Gameboard rendering                | UI   | Gameboard is rendered on screen with words hidden horizontally and vertically, numbered for clues.                                                                                                     | When game starts, the crossword grid is displayed with numbered cells corresponding to clues.                                                                                                                                                                                                                                                  |
+| Clue selection and word guessing   | UX   | Player can select a clue number and enter a word guess and then submit this word guess and get response whether the word was guessed correctly or not.                                                 | When player selects a clue number and inputs word guess, clicking "Check" validates the answer and provides response whether guess was correct or not. If a user guess a word correctly it is rendered onto the gameboard and player's score is updated as per the scroing logic.                                                              |
+| Clue display                       | UI   | Clues for each word are displayed clearly alongside the gameboard.                                                                                                                                     | During gameplay, clues are visible and correspond to numbered words on the grid.                                                                                                                                                                                                                                                               |
+| Auto-solve a clue with penalty     | UX   | Player can uncover an entire word hidden on the gameboard with a score penalty.                                                                                                                        | When player selects a clue number and clicks "Reveal Word" button, one word is revealed on the grid and score decreases according to the scroting logic.                                                                                                                                                                                       |
+| Auto-solve crossword               | UX   | Player can click a button to auto-solve the whole crossword and getting penalty points for each word remaining hidden on the gameboard. This trigger Game Over state.                                  | When player clicks "Auto-Solve" button, entire crossword is revealed and score is decreased as per the scoring logic and Game Over screen is rendered.                                                                                                                                                                                         |
+| Responsive design                  | UI   | The game is optimized for various screen sizes and devices.                                                                                                                                            | The game layout adjusts correctly on desktop, tablet, and mobile devices without loss of functionality.                                                                                                                                                                                                                                        |
+| User management                   | Sys  | Player can create an account so that their scores and progress can be saved.                                                                                                   | Players can register with a username and password and optional email address.                                                                                                                                                                                                                                                                  |
+| User management                   | Sys  | Player can log in to the game so that their scores and progress can be saved.                                                                                                   | Players log in with their previously registered username and password.                                                                                                                                                                                                         |
 
 ---
 
@@ -175,34 +192,31 @@ So, this is going to be a basic implementation and does not involve advanced AI 
 It is important to consider non-functional specifications as part of the overall specification for the crossword game.
 We've identified the following non-functional specifications to be important for our game:
 
-| Category | Specification                                                 |
-|-----------|---------------------------------------------------------------|
-| **Aesthetic** | Clean grid layout, minimal colours, modern typography.        |
-| **Usability** | Simple controls and clear instructions.                       |
-| **Responsiveness** | Works perfectly on desktop, tablet, and mobile.               |
-| **Accessibility** | High contrast colours, large text option, keyboard navigation. |
-| **Feedback** | Real-time indicators: green for correct, red for wrong.       |
-| **Performance** | Loads under 3 seconds, no noticeable lag.                     |
-| **Reliability** | Auto-saves progress locally.                                  |
-| **Maintainability** | Code modular and well-commented for easy updates.             |
+| Category | Specification                                           |
+|-----------|---------------------------------------------------------|
+| **Aesthetic** | Clean grid layout, minimal colours, modern typography.  |
+| **Usability** | Simple controls and clear instructions.                 |
+| **Responsiveness** | Works perfectly on desktop, tablet, and mobile.         |
+| **Feedback** | Real-time indicators: green for correct, red for wrong. |
+| **Performance** | Loads under 3 seconds, no noticeable lag.               |
+| **Reliability** | Auto-saves progress locally in memory.                  |
+| **Maintainability** | Code modular and well-commented for easy updates.       |
 
 ---
 
 ## Task 7 - Overall mockup
 
-ToDo: add overall mockup here (Cedric).
+The following image represents the overall mockup of the crossword game application.
 
 Main game:
 <img width="1343" height="737" alt="image" src="https://github.com/user-attachments/assets/b4ff156f-47d9-4e59-aa3e-4a365e13d771" />
-
-
 
 ---
 
 ## Task 8 - Construct basic storyboards associated with the game-play/app use
 
-The storyboard on how it functions.
-This is not what the final product will look like.
+The storyboard on how the application is going to function.
+These are the preliminary storyboards and may be refined further as we progress with the project.
 
 ### Start Screen
 
@@ -222,26 +236,25 @@ When the all the words have been found
 
 <img width="1472" height="806" alt="image" src="https://github.com/user-attachments/assets/39253ee9-a178-4f77-ac15-d32e052e46be" />
 
-
 ---
 
 ## Task 9 - Identify and rank potential risks to the project’s success 
 
 During the brainstorming session, we identified the following potential risks to the project's success along with their mitigation strategies:
 
-| Category                                      | Description                                                    | Mitigtion Strategy                                                                       |
-|-----------------------------------------------|----------------------------------------------------------------|------------------------------------------------------------------------------------------|
-| Lack of Coding Knowledge                      | Some people in this project may have different coding experience | Pair programming, online tutorials, team knowledge sharing.                              |
-| Dependencies on libraries                     | The project requires API for making the game more unique and random. If not, then it will be set values. Which may cause the user to become bored. | Create backend which will offer wider set of words to be used for crosswords generation. |
-| Presence of bugs which affect user experience | No amount of testing can make sure the final product will be bug free. Some things might be overlooked. | Thorough testing, user feedback loops, quick bug fixing cycles.                        |
-| Scope creep                             | The project may become too big to handle for the three of us if we keep adding more and more features to the scope. | Mitigation: The scope should be frozen to ensure it can be delievered by the deadline.    |
+| Category                                      | Description                                                    | Mitigtion Strategy                                                                                                                                            |
+|-----------------------------------------------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Lack of Coding Knowledge                      | Some people in this project may have different coding experience | Pair programming, online tutorials, team knowledge sharing.                                                                                                   |
+| Dependencies on libraries                     | The project requires API for making the game more unique and random. If not, then it will be set values. Which may cause the user to become bored. | Create backend which will offer REST API and perform the overall heavy lifting of the game maintining game states, handling users, generating crosswords etc. |
+| Presence of bugs which affect user experience | No amount of testing can make sure the final product will be bug free. Some things might be overlooked. | Thorough testing, user feedback loops, quick bug fixing cycles.                                                                                               |
+| Scope creep                             | The project may become too big to handle for the three of us if we keep adding more and more features to the scope. | Mitigation: The scope should be frozen to MVP features only to ensure it can be delievered by the deadline.                                                   |
 
 
 ---
 
 ## Task 10 - Software development strategy 
 
-We compared three development strategies: Waterfall, Agile and Rapid Application Development (RAD).
+We compared three software development strategies Waterfall, Agile and Rapid Application Development (RAD) as the main three candidates to select from a software development strategy for our project.
 
 ### Comparison of the three strategies
 
@@ -258,17 +271,17 @@ We compared three development strategies: Waterfall, Agile and Rapid Application
 
 ### Reasons for choosing RAD for our project
 
-We go with RAD because your project:
-1. Time sensitive as the delivery has to happen by 3rd of Nov.
-2. Requires speed of delivery and flexibility.
+After careful consideration we've decided to go with RAD software development strategy for our project because of the following reasons:
+1. Time sensitivity as the delivery has to happen by 3rd of Nov so the turnaround should be really fast to deliver the project.
+2. Requires speed of delivery and flexibility which RAD perfectly provides.
 3. Minimise upfront planning so we don’t need waterfall with its rigid planning and significant planning overhead.
-4. Process-wise: we aim to hit the ground running by prototyping features, testing them by users, getting feedback and iterating.
-5. In the first half of the project minimal documentation while fast prototyping. In the second half when things start to settle, spend time on documenting them.
+4. Process-wise: we aim to hit the ground running by prototyping features, testing them by users, getting feedback and iterating fast.
+5. In the first half of the project minimal documentation while fast prototyping. In the second half when things start to settle, spend time on documenting them to have everything documented by the submission deadline.
 6. Risks are reduced through the constant user feedback so that pivoting can happen after each prototype. 
 7. RAD works great for small teams and our team is small so RAD fits very well.
 8. RAD also works well for teams with mixed experience levels as the more experienced members can help the less experienced ones.
-9. RAD is good for small projects and our project is small in scope.
-10. Outcome focus: deliver working prototype quickly and then iterate fast so that the game crystalises into its final version.
+9. RAD is good for small projects and our project is small in scope and also has to happen within a short span of time.
+10. Outcome focus: deliver working prototype quickly and then iterate fast to implement all MVP features so that the game crystalises into its final version to be submitted.
 
 ---
 
@@ -282,17 +295,21 @@ Such combination of manual functional testing and unit tests covering the code a
 #### Manual Testing
 
 Manual tests are going to be done on the frontend to test the user interface and user experience.
-The manual tests will cover the following scenarios:
+For the manual testing a range of test cases will be created to cover all the main user flows and edge cases.
+The manual tests will cover the following areas:
+1. Game start and main menu navigation.
+2. Crossword grid rendering and clue display.
+3. Word guessing and answer validation.
+4. Scoring system and HUD updates.
+5. Hint and auto-solve functionality.
+6. Game win and game over screens.
+7. User account creation and login.
 
-| Test | Input | Expected | Actual | Comment |
-| :--- | :---: | :---: | :---: | ---: |
-| Inputting the right answer | The actual Word | It fills the grid with the correct letter and words | N/A | N/A |
-| Inputting the wrong answer | "ASJF" | Says text saying "Incorrect" | N/A | N/A |
-| Inputting random number | 123 | Says text saying "Incorrect | N/A | N/A |
+The detailed manual test cases will be documented as part of the Activity 4 below.
 
 #### Unit Tests
 
-Unit tests are done on the backend to test the game logic, scoring etc.
+Unit tests are done on the backend to test the REST API endpoints, game logic, scoring etc.
 pytest framework is used for unit testing of the backend part.
 In the backend folder, run the following command to execute the unit tests:
 python -m pytest tests/test_app.py 

@@ -12,6 +12,11 @@ def play():
     # Render the main game interface template
     return render_template('play.html')
 
+@web_bp.route('/play_new')
+def play_new():
+    # Render the main game interface template
+    return render_template('play_new.html')
+
 @web_bp.route('/login')
 def login_page():
     # Render the login page template

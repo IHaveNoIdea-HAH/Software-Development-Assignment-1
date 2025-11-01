@@ -12,5 +12,19 @@
         "password": "9f735e0df9a1ddc702bf0a1a7b83033f9f7153a00c29de82cedadc9957289b05",
         "email": "testuser@mail.com",
         "security_token": "a9b7f675-c8b9-4248-9a34-99d5b4afc6db"
+    },
+    {
+        "id": 3,
+        "username": "Jamie",
+        "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+        "email": "jamie2@gmail.com",
+        "security_token": "220e170a-58aa-4f68-97e3-eb57e5a957da"
+    },
+    {
+        "id": 4,
+        "username": "cedric",
+        "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+        "email": "hello@gmail.com",
+        "security_token": "f4b2a1de-b23d-48ec-8d38-09e1547933d4"
     }
 ]

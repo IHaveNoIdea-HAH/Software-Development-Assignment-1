@@ -103,3 +103,14 @@ button:hover {
 .register-link a:hover {
     text-decoration: underline;
 }
+
+/* Center headings on the login page */
+.login-container h2,
+.login-container h3 {
+    text-align: center;
+}
+
+.login-container h3 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}

@@ -1,13 +1,28 @@
-// rest_api_test.js (refined)
-// A tiny manual tester for your REST API with safer fetch, persistent session, and defensive rendering.
+// Manual tester for REST API to test various end points using JavaScript code.
 
 let session = loadSession() || {};
 
 // ---- helpers ----
 function getHost() {
-  // Allow http://localhost:5000 or just /backend if you host behind a prefix
-  const val = document.getElementById('host')?.value?.trim() || '';
-  return val.replace(/\/+$/, ''); // trim trailing slashes
+  // Prefer same-origin during local dev to avoid CORS
+  const input = document.getElementById('host')?.value?.trim() || '';
+  if (!input) return ''; // use relative paths => same-origin
+
+  try {
+    const target = new URL(input);
+    const cur = new URL(window.location.origin);
+
+    // If both are loopback and only differ in hostname, use same-origin
+    const loopbacks = new Set(['localhost', '127.0.0.1']);
+    const samePort = (target.port || (target.protocol === 'https:' ? '443' : '80')) === (cur.port || (cur.protocol === 'https:' ? '443' : '80'));
+    if (loopbacks.has(target.hostname) && loopbacks.has(cur.hostname) && samePort && target.protocol === cur.protocol) {
+      return ''; // same-origin avoids CORS with credentials
+    }
+
+    return target.origin.replace(/\/+$/, '');
+  } catch {
+    return input.replace(/\/+$/, '');
+  }
 }
 
 function saveSession() {
