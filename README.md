@@ -571,4 +571,10 @@ ToDo: add a block diagram here (Alex).
 | How to play button | Manual | Show pop up of how to play | Showed pop up <img width="997" height="1008" alt="image" src="https://github.com/user-attachments/assets/f194bb09-a658-4649-882f-b83a2bafea27" /> | Showed pop up without issue |
 | Register Invalidation | Manual | Error shows up saying fields must be filled out. email must have @ and end with .com | <img width="786" height="661" alt="image" src="https://github.com/user-attachments/assets/e48fac73-1982-47bd-bbcd-cbb1b4fb7a6d" /> | N/A |
 | Register Invalidation 2 | Manual | Password must be longer than 6 letters and user name must be longer than 3 letters | <img width="731" height="579" alt="image" src="https://github.com/user-attachments/assets/59c244f6-f494-434e-bfe9-11aaafc662a6" /><img width="769" height="690" alt="image" src="https://github.com/user-attachments/assets/ae254987-3e75-4c73-8983-47aa9a5b9bf3" /> | No changes needed |
+| Login takes you to play page | Manual | Takes you to play page | Took to play page when pressing play and login <img width="1083" height="768" alt="image" src="https://github.com/user-attachments/assets/a61ce486-26bf-4fe5-958a-aecee2e1561b" /> | Bug: When running the program for the first time. it takes you to the play page instantly. When starting new game bug occurs. |
+| New game | Manual | Pressing new game | error <img width="993" height="773" alt="image" src="https://github.com/user-attachments/assets/8cf838f2-ea7b-41b8-88d3-0da16f8c6b8f" /> | When pressing new game and not going to /register to go to /login. This error occurs. To fix this temporarily. Going to /register then login fixes it |
+| New game generation | Manual | Generates the words and grid when choosing difficulty | placeholder | N/A |
+| Placeholder | Manual | placeholder | placeholder | N/A |
+
+
 
