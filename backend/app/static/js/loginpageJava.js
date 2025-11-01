@@ -48,6 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
       session.security_token = data.security_token;
       session.user_id        = data.user_id;
       session.username       = data.username;
+      session.last_result    = data.result;
+      session.last_message   = data.message;
+
+      // Save session to localStorage for future use in /play etc.
       saveSession(session);
 
       show("Success! Redirecting…", "success");

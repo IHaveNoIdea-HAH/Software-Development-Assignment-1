@@ -16,6 +16,9 @@ def start_game():
         # Let's retrieve the JSON payload from the request body of the POST request
         data = request.get_json()
 
+        if current_app.config['DEBUG']:
+            print("Received data for starting game:", data)
+
         # Let's check if frontend sent a game difficulty level
         game_level = data.get('game_difficulty_level', 'normal')
         user_id = data.get('user_id', -1)

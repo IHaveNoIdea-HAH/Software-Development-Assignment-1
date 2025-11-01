@@ -20,34 +20,34 @@
             <button>Auto solve the crossword</button>
         </div>
 
-        <!--make this contain the crossword grid -->
-        <div id="crossword_grid">
-        </div>
-
-        <!--input-->
-        <div class="input-box">
-            <!-- adding another dropdown for selecting the clue number -->
-            <select id="clueNumberSelect">
-                <option value="" disabled selected>Select Clue Number</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            <input type="text" id="userInput" placeholder="Type answer here...">
-        </div>
-
-        <!--description Box for the words chosen-->
-        <div class="description-box">
-            <div class="clue-section">
-                <h3>Across</h3>
-                <div class="clue-item">1. Word</div><!--Make this change depending on chosen words-->
-                <div class="clue-item">3. Word</div>
-                <div class="clue-item">4. Word</div>
+        <div class="hud-box">
+            <div id="game_state">
             </div>
+        </div>
 
-            <div class="clue-section">
-                <h3>Down</h3>
-                <div class="clue-item">2. Word</div>
+        <div class="status-box">
+            <span id="statusMessage">Welcome to the Crossword Puzzle!</span>
+        </div>
+
+        <!--this is the container to render the crossword grid -->
+        <div class="crossword-box">
+            <div id="crossword_grid">
+            </div>
+        </div>
+
+        <!--input for the guess word functionality so that player can select a clue and type a guess word and submit -->
+        <div class="inputs-box">
+            <!-- adding another dropdown for selecting the clue number -->
+            <select id="clue_number_select">
+                <option value="" disabled selected>Select Clue Number</option>
+            </select>
+            <input type="text" id="userInput" placeholder="Type guess word here...">
+            <button id="submitGuessWordBtn">Submit guess word</button>
+        </div>
+
+        <!--here we go with the clues and render them for the player to see-->
+        <div class="clues-box">
+            <div id="clues_container">
             </div>
         </div>
     </div>

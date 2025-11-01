@@ -112,6 +112,55 @@ body {
     flex-wrap: wrap;
 }
 
+/* Inputs Box */
+.inputs-box {
+    background-color: white;
+    border: 3px solid #333;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Crossword Box */
+.crossword-box {
+    background-color: white;
+    border: 3px solid #333;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* HUD Box */
+.hud-box {
+    background-color: white;
+    border: 3px solid #333;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+/* Clues Box */
+.clues-box {
+    background-color: white;
+    border: 3px solid #333;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 button { /* the 3 buttons */
     padding: 12px 28px;
     font-size: 14px;
