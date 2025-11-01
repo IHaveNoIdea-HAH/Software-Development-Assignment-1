@@ -569,6 +569,6 @@ ToDo: add a block diagram here (Alex).
 | Play button | Manual | Takes user to the login page | Successfully took user to login page <img width="756" height="422" alt="image" src="https://github.com/user-attachments/assets/b010440b-76ee-403e-aea9-8690a313b2d3" />  | Button does take to login page | 
 | Register storing data and encrypting password | Manual | When registering. It should store in the json file | Stored without issue <img width="824" height="664" alt="image" src="https://github.com/user-attachments/assets/6c78fd84-7259-4c6f-8747-54935cb8baa7" /> <img width="832" height="181" alt="image" src="https://github.com/user-attachments/assets/c4f189d8-746a-4274-95dd-13b4091ba799" /> | Stored in json file |
 | How to play button | Manual | Show pop up of how to play | Showed pop up <img width="997" height="1008" alt="image" src="https://github.com/user-attachments/assets/f194bb09-a658-4649-882f-b83a2bafea27" /> | Showed pop up without issue |
-| placeholder | Manual | placeholder | placeholder  | placeholder |
-| placeholder | Manual | placeholder | placeholder  | placeholder |
+| Register Invalidation | Manual | Error shows up saying fields must be filled out. email must have @ and end with .com | <img width="786" height="661" alt="image" src="https://github.com/user-attachments/assets/e48fac73-1982-47bd-bbcd-cbb1b4fb7a6d" /> | N/A |
+| Register Invalidation 2 | Manual | Password must be longer than 6 letters and user name must be longer than 3 letters | <img width="731" height="579" alt="image" src="https://github.com/user-attachments/assets/59c244f6-f494-434e-bfe9-11aaafc662a6" /><img width="769" height="690" alt="image" src="https://github.com/user-attachments/assets/ae254987-3e75-4c73-8983-47aa9a5b9bf3" /> | placeholder |
 
