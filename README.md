@@ -677,13 +677,13 @@ ToDo: add a block diagram here (Alex).
 
 ## References
 
-1. Willard, W., 2013. HTML: A Beginner’s Guide (5th ed.). New York: McGraw-Hill. Available at: HTML: A Beginner's Guide, Fifth Edition, 5th Edition
-2. Wolf, Jürgen 2025. HTML and CSS: The Comprehensive Guide. Rheinwerk Publishing (via O’Reilly). Available at: HTML and CSS
-3. Preuitt, Sheela, 2019, Mission HTML. Lerner Publishing Group. Available at: ProQuest Ebook Central - Book Details
-4. Jephson, B., Coulson, L. & Silveira, A. C. (2024) Practical HTML and CSS: Second Edition. Birmingham: Packt Publishing. Available at: Practical HTML and CSS - Second Edition
-5. McFedries, P., 2023. HTML, CSS & JavaScript All-in-One For Dummies. Hoboken, NJ: Wiley. Available at: HTML, CSS, & JavaScript All-in-One For Dummies
-6. Coulson, L., Jephson, B., Park, M., Zburlea, M., Ford, T., O’Brien, T., Rosson, A. & Kurri, S. (2019) The HTML and CSS Workshop. Birmingham: Packt Publishing. Available at: The HTML and CSS Workshop
-7. McGrath, Mike, 2020, HTML in Easy Steps, 9th Edition : An Indispensible Guide for HTML Newbies!, In Easy Steps Limited, Available at: ProQuest Ebook Central - Book Details
-8. Malakar, Sudipta, 2021, Agile Methodologies In-Depth, BPB Publications, Available at: ProQuest Ebook Central - Book Details
-9. Flewelling, P., 2018. The Agile Developer’s Handbook. Birmingham: Packt Publishing. Available at: The Agile Developer's Handbook
-
+1. Willard, W., 2013. HTML: A Beginner’s Guide (5th ed.). New York: McGraw-Hill. Available at: HTML: https://learning.oreilly.com/library/view/html-a-beginners/9780071809276/?sso_link=yes&sso_link_from=UnivofHerts
+2. Wolf, Jürgen 2025. HTML and CSS: The Comprehensive Guide. Rheinwerk Publishing (via O’Reilly). Available at: https://learning.oreilly.com/library/view/html-and-css/9781806111831/?sso_link=yes&sso_link_from=UnivofHerts
+3. Preuitt, Sheela, 2019, Mission HTML. Lerner Publishing Group. Available at: https://ebookcentral.proquest.com/lib/herts/detail.action?docID=5831122
+4. Jephson, B., Coulson, L. & Silveira, A. C. (2024) Practical HTML and CSS: Second Edition. Birmingham: Packt Publishing. Available at: https://learning.oreilly.com/library/view/practical-html-and/9781835080917/?sso_link=yes&sso_link_from=UnivofHerts
+5. McFedries, P., 2023. HTML, CSS & JavaScript All-in-One For Dummies. Hoboken, NJ: Wiley. Available at: https://learning.oreilly.com/library/view/html-css/9781394164684/?sso_link=yes&sso_link_from=UnivofHerts
+6. Coulson, L., Jephson, B., Park, M., Zburlea, M., Ford, T., O’Brien, T., Rosson, A. & Kurri, S. (2019) The HTML and CSS Workshop. Birmingham: Packt Publishing. Available at: https://learning.oreilly.com/library/view/the-html-and/9781838824532/?sso_link=yes&sso_link_from=UnivofHerts
+7. McGrath, Mike, 2020, HTML in Easy Steps, 9th Edition : An Indispensible Guide for HTML Newbies!, In Easy Steps Limited, Available at: https://ebookcentral.proquest.com/lib/herts/detail.action?docID=7075470&pq-origsite=summon
+8. Malakar, Sudipta, 2021, Agile Methodologies In-Depth, BPB Publications, Available at: https://ebookcentral.proquest.com/lib/herts/detail.action?docID=6891862
+9. Flewelling, P., 2018. The Agile Developer’s Handbook. Birmingham: Packt Publishing. Available at: https://learning.oreilly.com/library/view/the-agile-developers/9781787280205/?sso_link=yes&sso_link_from=UnivofHerts
+10. Grinberg, M. (2020) Flask. Helion. Available at: https://learning.oreilly.com/library/view/flask/9788328363830/?sso_link=yes&sso_link_from=UnivofHerts
