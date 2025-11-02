@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from flask_cors import CORS
 from .routes.game import game_bp
 from .routes.user import user_bp
+from .schemas.game_schema import GameSchema
 from .web.routes import web_bp
 from .utils.helpers import load_json
 from .schemas.user_schema import UserSchema
@@ -30,6 +31,17 @@ def create_app(current_folder):
     # and also deserialize using UserSchema
     for user in users:
         app.config['USERS'][user['id']] = UserSchema.load(user)
+
+    # Let's load info about ongoing games into app config
+    print('Loading games data from JSON...')
+    games = load_json(data_folder, 'games.json')
+    # Convert list of games into a dictionary for easy access
+    # and also deserialize using GameSchema
+    for game in games:
+        app.config['GAMES'][game['game_id']] = GameSchema.load(game)
+        # Here we also assign latest GAME_ID based on loaded games so that new games get unique IDs
+        if game['game_id'] >= app.config['GAME_ID']:
+            app.config['GAME_ID'] = game['game_id'] + 1
 
     # Set the LAST_USER_ID based on loaded users
     app.config['LAST_USER_ID'] = len(app.config['USERS'])

@@ -3,6 +3,7 @@ import uuid
 import os
 from flask import current_app
 from app.schemas.user_schema import UserSchema
+from app.schemas.game_schema import GameSchema
 import hashlib
 
 def hash_password(password):
@@ -75,3 +76,26 @@ def generate_guid():
     """Generates a unique GUID."""
     return str(uuid.uuid4())
 
+def save_games_to_json():
+    """Saves only active games (where game.state == 'started') as dictionary to JSON file for recovery after restart"""
+    try:
+        # Filter games where game.state is 'started'
+        started_games = [game for game in current_app.config['GAMES'].values() if game.is_status_started()]
+        # Convert games dictionary to list for serialization
+        games_list = [GameSchema.dump_full(game) for game in started_games]
+        with open(os.path.join(current_app.config['DATA_FOLDER_PATH'], 'games.json'), 'w') as f:
+            json.dump(games_list, f, indent=4)
+        print(f"Games data has been saved to JSON.")
+    except Exception as e:
+        print(f"Error saving games to JSON file: {e}")
+
+def check_started_game_exists_for_user(user_id):
+    """
+    Checks if there is an active game with status 'started' for the given user_id
+    :param user_id: The user ID to check for active games.
+    :return: True if an active game exists for the user, False otherwise.
+    """
+    for game in current_app.config['GAMES'].values():
+        if game.user_id == user_id and game.is_status_started():
+            return game
+    return None

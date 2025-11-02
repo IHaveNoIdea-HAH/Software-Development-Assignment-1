@@ -4,6 +4,7 @@ from app.schemas.crossword_schema import CrosswordSchema
 from app.schemas.game_schema import GameSchema
 from app.models.game import Game
 from app.models.crossword import Crossword
+from app.utils.helpers import save_games_to_json
 import json
 import random
 import os
@@ -60,6 +61,9 @@ def start_game():
             # Create a new Game instance and store it in the GAMES dictionary
             g = Game(crossword, user_id, game_id, guess_limit)
             current_app.config['GAMES'][game_id] = g
+
+            # Save active games to JSON file for recovery after restart
+            save_games_to_json()
 
             # Create response we are going to send back to frontend
             # Serialize crossword using CrosswordSchema
@@ -161,6 +165,9 @@ def guess_word():
                 else:
                     message = 'Incorrect guess.'
 
+            # Save active games to JSON file for recovery after restart
+            save_games_to_json()
+
             # Create response we are going to send back to frontend
             return jsonify({
                 'result': 'success',
@@ -250,6 +257,9 @@ def solve_clue():
             else:
                 message = 'Clue solved successfully.'
 
+            # Save active games to JSON file for recovery after restart
+            save_games_to_json()
+
             # Create response we are going to send back to frontend
             return jsonify({
                 'result': 'success',
@@ -309,6 +319,9 @@ def auto_solve():
             # Retrieve the game instance
             g = current_app.config['GAMES'][game_id]
             penalty_points = g.auto_solve()
+
+            # Save active games to JSON file for recovery after restart
+            save_games_to_json()
 
             # Create response we are going to send back to frontend
             # Serialize crossword using CrosswordSchema
