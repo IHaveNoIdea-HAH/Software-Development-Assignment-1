@@ -250,3 +250,28 @@ button:hover {
 }
 
 
+/* Crossword grid styles */
+.crossword-table {
+  border-collapse: collapse;
+  margin: 0 auto;
+}
+.crossword-table td {
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  vertical-align: top;
+  position: relative;
+  padding: 0;
+}
+.crossword-black-cell {
+  background: #222 !important;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #fff;
+}
+.crossword-white-cell {
+  background: #fff !important;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #222;
+}

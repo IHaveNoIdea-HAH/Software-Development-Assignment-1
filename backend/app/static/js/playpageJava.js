@@ -33,18 +33,164 @@ function renderGrid(containerId, grid) {
   container.innerHTML = '';
   const table = document.createElement('table');
   table.className = 'crossword-table';
-  for (const row of grid) {
+
+  // Get clues from session if available
+  const clues = session.crossword?.clues || [];
+  // Build a map of clue start positions to clue numbers
+  const clueStarts = {};
+  clues.forEach(clue => {
+    if (clue && clue.row != null && clue.col != null) {
+      clueStarts[`${clue.row},${clue.col}`] = clue.number;
+    }
+  });
+
+  for (let r = 0; r < grid.length; r++) {
+    const row = grid[r];
     const tr = document.createElement('tr');
-    for (const cell of row) {
+    for (let c = 0; c < row.length; c++) {
+      const cell = row[c];
       const td = document.createElement('td');
-      td.textContent = cell === null ? '' : cell;
-      td.className = cell === null ? 'empty-cell' : 'filled-cell';
+      // Black square if cell is null
+      if (typeof cell === 'string' && cell === "") {
+        td.className = 'crossword-black-cell';
+      } else {
+        td.className = 'crossword-white-cell';
+        td.style.position = 'relative';
+        // Show clue number if this is a clue start
+        const clueNum = clueStarts[`${r},${c}`];
+        if (clueNum) {
+          const numDiv = document.createElement('div');
+          numDiv.textContent = clueNum;
+          numDiv.style.position = 'absolute';
+          numDiv.style.top = '2px';
+          numDiv.style.left = '2px';
+          numDiv.style.fontSize = '12px';
+          numDiv.style.color = '#333';
+          td.appendChild(numDiv);
+        }
+        // Show letter if solved or hidden
+        if (cell === '[]') {
+          const letterDiv = document.createElement('div');
+          letterDiv.textContent = "";
+          letterDiv.style.fontSize = '12px';
+          letterDiv.style.textAlign = 'center';
+          letterDiv.style.marginTop = '8px';
+          td.appendChild(letterDiv);
+        }
+        else {
+          const letterDiv = document.createElement('div');
+          letterDiv.textContent = cell.toUpperCase();
+          letterDiv.style.fontSize = '12px';
+          letterDiv.style.textAlign = 'center';
+          letterDiv.style.marginTop = '8px';
+          td.appendChild(letterDiv);
+        }
+      }
       tr.appendChild(td);
     }
     table.appendChild(tr);
   }
   container.appendChild(table);
 }
+
+
+function gameOverDialog() {
+  const session = loadSession() || {};
+
+  // Show dialog based on correctness of the guess made by the player
+  if (session.game_id && session.game_status === 'completed') {
+    const dialog = document.createElement('div');
+    dialog.id = 'game-over-dialog';
+    dialog.style.position = 'fixed';
+    dialog.style.top = '0';
+    dialog.style.left = '0';
+    dialog.style.width = '100vw';
+    dialog.style.height = '100vh';
+    dialog.style.background = 'rgba(0,0,0,0.4)';
+    dialog.style.display = 'flex';
+    dialog.style.alignItems = 'center';
+    dialog.style.justifyContent = 'center';
+    dialog.style.zIndex = '10000';
+    let msg = '';
+//    let last_message = session.last_message || '';
+    let total_score = session.game_state?.current_score || 0;
+
+    // here I am going to check if session.game_state.game_result is 'lost' or 'won' to show different messages
+    if (session.game_state?.game_result === 'loss') {
+        last_message = '<span style="color:red">Unfortunately, you have lost the game. Better luck next time!</span>';
+    }
+    else
+    {
+        last_message = '<span style="color:green">Well done! You have successfully completed the crossword.</span>';
+    }
+
+    msg = `<h1><span style='color:green'>Congratulations!</span></h1><h2>You have completed the crossword!</h2><p>${last_message}</p><p>Your total score is ${total_score} points!</p>`;
+    dialog.innerHTML = `<div style='background:white;padding:32px 24px;border-radius:8px;box-shadow:0 2px 16px #0003;min-width:320px;text-align:center;'>${msg}<br><button id='game-over-dialog'>OK</button></div>`;
+    document.body.appendChild(dialog);
+    document.getElementById('game-over-dialog').onclick = function() {
+      dialog.remove();
+    };
+    // Optionally auto-close after 10 seconds
+    setTimeout(() => { dialog.remove(); }, 10000);
+  }
+
+
+}
+
+function checkGameIsInProgress() {
+  const session = loadSession() || {};
+  // Check if a game is in progress
+  if (!session.game_id || session.game_status !== 'started') {
+    const dialog = document.createElement('div');
+    dialog.id = 'no-game-in-progress-dialog';
+    dialog.style.position = 'fixed';
+    dialog.style.top = '0';
+    dialog.style.left = '0';
+    dialog.style.width = '100vw';
+    dialog.style.height = '100vh';
+    dialog.style.background = 'rgba(0,0,0,0.4)';
+    dialog.style.display = 'flex';
+    dialog.style.alignItems = 'center';
+    dialog.style.justifyContent = 'center';
+    dialog.style.zIndex = '10000';
+    let msg = '';
+    msg = `<h2>No game is in progress, please start a new game first!</h2>`;
+    dialog.innerHTML = `<div style='background:white;padding:32px 24px;border-radius:8px;box-shadow:0 2px 16px #0003;min-width:320px;text-align:center;'>${msg}<br><button id='close-no-game-dialog'>OK</button></div>`;
+    document.body.appendChild(dialog);
+    document.getElementById('close-no-game-dialog').onclick = function() {
+      dialog.remove();
+    };
+    // Optionally auto-close after 10 seconds
+    setTimeout(() => { dialog.remove(); }, 10000);
+    return true;
+  }
+    return false;
+}
+
+function showMessage(messageToShow) {
+    const dialog = document.createElement('div');
+    dialog.id = 'show-message-dialog';
+    dialog.style.position = 'fixed';
+    dialog.style.top = '0';
+    dialog.style.left = '0';
+    dialog.style.width = '100vw';
+    dialog.style.height = '100vh';
+    dialog.style.background = 'rgba(0,0,0,0.4)';
+    dialog.style.display = 'flex';
+    dialog.style.alignItems = 'center';
+    dialog.style.justifyContent = 'center';
+    dialog.style.zIndex = '10000';
+    let msg = '';
+    msg = `<h2>${messageToShow}</h2>`;
+    dialog.innerHTML = `<div style='background:white;padding:32px 24px;border-radius:8px;box-shadow:0 2px 16px #0003;min-width:320px;text-align:center;'>${msg}<br><button id='show-message-dialog'>OK</button></div>`;
+    document.body.appendChild(dialog);
+    document.getElementById('show-message-dialog').onclick = function() {
+      dialog.remove();
+    };
+    // Optionally auto-close after 10 seconds
+    setTimeout(() => { dialog.remove(); }, 10000);
+}
+
 
 // Render crossword clues into the clues_container
 function renderClues(clues) {
@@ -176,7 +322,6 @@ function renderGameState(state) {
 // Main function to start a new game
 async function startNewGame(difficulty) {
   difficulty = (difficulty || 'normal').toLowerCase();
-  const out = document.getElementById('status_message');
   try {
    const res = await fetch("/api/game/start", {
      method: "POST",
@@ -192,13 +337,14 @@ async function startNewGame(difficulty) {
    const data = await res.json().catch(() => ({}));
    if (!res.ok) throw new Error(data.message || data.error || "Starting new game failed.");
 
-
-    out.textContent = data.message;
-
     // Store game ID in session
     session.game_id = data.game_state?.game_id;
     session.last_result    = data.result;
     session.last_message   = data.message;
+    session.game_difficulty = difficulty;
+    session.game_state    = data.game_state;
+    session.game_status   = data.game_state?.game_status;
+    session.crossword     = data.crossword;
 
     // Update session data
     saveSession(session);
@@ -215,14 +361,14 @@ async function startNewGame(difficulty) {
     renderGameState(data.game_state);
     // render the game state onto the HUD
   } catch (err) {
-    out.textContent = `Error: ${err.message}`;
+    showMessage(`Error: ${err.message}`);
   }
 }
 
 // Check if a game is in progress and confirm before starting a new one
 function checkAndStartNewGame() {
   const session = loadSession() || {};
-  if (session.game_id) {
+  if (session.game_id && session.game_status === 'started') {
     // Show confirmation dialog
     const dialog = document.createElement('div');
     dialog.id = 'confirm-new-game-dialog';
@@ -291,31 +437,45 @@ function checkUserLoggedIn() {
     }, 10000);
     return false;
   }
+  // If logged in, then we check for the game state if there is a game in progress we go and render it
+  if (session.game_id && session.game_status === 'started' && session.crossword) {
+    // Render crossword grid
+    if (session.crossword.grid) renderGrid('crossword_grid', session.crossword.grid);
+    // Render clues
+    if (session.crossword.clues) renderClues(session.crossword.clues);
+    // Render game state
+    if (session.game_state) renderGameState(session.game_state);
+    // Fill clue dropdown
+    if (session.crossword.clues) fillClueDropdown(session.crossword.clues);
+  }
   return true;
 }
 
 
 // Handle guess word submission
 async function submitGuessWord() {
+  // First check if a game is in progress and if not give a warning and return
+  if (checkGameIsInProgress())
+    return;
+
   const session = loadSession() || {};
   const userId = session.user_id;
   const token = session.security_token;
   const gameId = session.game_id;
   const wordGuess = document.getElementById('word_guess_user_input')?.value?.trim();
   const clueNumber = document.getElementById('clue_number_select')?.value;
-  const statusMsg = document.getElementById('status_message');
 
   // Basic inputs validation to ensure we send good info to backend
   if (!userId || !token || !gameId) {
-    statusMsg.textContent = 'Session missing. Please login and start a game.';
+    showMessage('Session missing. Please login and start a game.');
     return;
   }
   if (!wordGuess) {
-    statusMsg.textContent = 'Please enter a guess word.';
+    showMessage('Please enter a guess word.');
     return;
   }
   if (!clueNumber) {
-    statusMsg.textContent = 'Please select a clue number.';
+    showMessage('Please select a clue number.');
     return;
   }
 
@@ -336,10 +496,8 @@ async function submitGuessWord() {
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw new Error(data.message || data.error || 'Word guessing failed.');
 
-    statusMsg.textContent = data.message || 'Guess submitted!';
-
-    // Show dialog based on correctness of the guess made by the player
-    if (typeof data.is_correct !== 'undefined') {
+    // Show dialog based on correctness of the guess made by the player only when the game is still running and not completed
+    if (data.result == 'success' && data.game_state.game_status === 'started') {
       const dialog = document.createElement('div');
       dialog.id = 'guess-result-dialog';
       dialog.style.position = 'fixed';
@@ -354,7 +512,7 @@ async function submitGuessWord() {
       dialog.style.zIndex = '10000';
       let msg = '';
       if (data.is_correct) {
-        msg = `<h2>Correct Guess for word <span style='color:green'>${data.answer}</span></h2><p>${data.points_scored} points scored</p>`;
+        msg = `<h2>Correct guess for word <span style='color:green'>${data.answer}</span></h2><p>${data.points_scored} points scored</p>`;
       } else {
         msg = `<h2>Ooops, your guess was wrong, try again!</h2>`;
       }
@@ -373,31 +531,47 @@ async function submitGuessWord() {
     // here we render the crossword grid again to show any updates sent by backend
     if (data.crossword?.grid) renderGrid('crossword_grid', data.crossword.grid);
 
+    // Update session data with latest game state
+    session.last_result    = data.result;
+    session.last_message   = data.message;
+    session.game_state    = data.game_state;
+    session.game_status   = data.game_state?.game_status;
+    session.crossword     = data.crossword;
+
+    // Update session data
+    saveSession(session);
+
     // Clear the inputs after word guess has been submitted
     document.getElementById('word_guess_user_input').value = '';
     document.getElementById('clue_number_select').value = '';
+
+    // If game is completed after guess a last word, show game over dialog
+    gameOverDialog()
   } catch (err) {
-    statusMsg.textContent = `Error: ${err.message}`;
+    showMessage(`Error: ${err.message}`);
   }
 }
 
 
 // Handle solve clue submission
 async function submitSolveClue() {
+  // First check if a game is in progress and if not give a warning and return
+  if (checkGameIsInProgress())
+    return;
+
   const session = loadSession() || {};
   const userId = session.user_id;
   const token = session.security_token;
   const gameId = session.game_id;
   const clueNumber = document.getElementById('clue_number_select')?.value;
-  const statusMsg = document.getElementById('status_message');
 
   // Basic inputs validation to ensure we send good info to backend
   if (!userId || !token || !gameId) {
-    statusMsg.textContent = 'Session missing. Please login and start a game.';
+    showMessage('Session missing. Please login and start a game.');
     return;
   }
   if (!clueNumber) {
-    statusMsg.textContent = 'Please select a clue number.';
+    showMessage('Please select a clue number.');
     return;
   }
 
@@ -417,12 +591,10 @@ async function submitSolveClue() {
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw new Error(data.message || data.error || 'Solving clue failed.');
 
-    statusMsg.textContent = data.message || 'Solve clue submitted!';
-
-    // Show dialog based on correctness of the guess made by the player
-    if (data.result == 'success') {
+    // Show dialog based on correctness of the guess made by the player only when the game is still running and not completed
+    if (data.result == 'success' && data.game_state.game_status === 'started') {
       const dialog = document.createElement('div');
-      dialog.id = 'guess-result-dialog';
+      dialog.id = 'solve-clue-result-dialog';
       dialog.style.position = 'fixed';
       dialog.style.top = '0';
       dialog.style.left = '0';
@@ -435,9 +607,9 @@ async function submitSolveClue() {
       dialog.style.zIndex = '10000';
       let msg = '';
       msg = `<h2>Clue solved, answer is <span style='color:red'>${data.answer}</span></h2><p>${data.penalty_points} penalty points scored</p>`;
-      dialog.innerHTML = `<div style='background:white;padding:32px 24px;border-radius:8px;box-shadow:0 2px 16px #0003;min-width:320px;text-align:center;'>${msg}<br><button id='close-guess-dialog'>OK</button></div>`;
+      dialog.innerHTML = `<div style='background:white;padding:32px 24px;border-radius:8px;box-shadow:0 2px 16px #0003;min-width:320px;text-align:center;'>${msg}<br><button id='close-solve-clue-dialog'>OK</button></div>`;
       document.body.appendChild(dialog);
-      document.getElementById('close-guess-dialog').onclick = function() {
+      document.getElementById('close-solve-clue-dialog').onclick = function() {
         dialog.remove();
       };
       // Optionally auto-close after 10 seconds
@@ -450,16 +622,149 @@ async function submitSolveClue() {
     // here we render the crossword grid again to show any updates sent by backend
     if (data.crossword?.grid) renderGrid('crossword_grid', data.crossword.grid);
 
+    // Update session data with latest game state
+    session.last_result    = data.result;
+    session.last_message   = data.message;
+    session.game_state    = data.game_state;
+    session.game_status   = data.game_state?.game_status;
+    session.crossword     = data.crossword;
+
+    // Update session data
+    saveSession(session);
+
     // Clear the inputs after word guess has been submitted
     document.getElementById('word_guess_user_input').value = '';
     document.getElementById('clue_number_select').value = '';
+
+    // If game is completed after solving the clue, show game over dialog
+    gameOverDialog()
   } catch (err) {
-    statusMsg.textContent = `Error: ${err.message}`;
+    showMessage(`Error: ${err.message}`);
   }
 }
 
 
-// Attach event listener to 'New Game' button
+// Handle auto solve crossword submission
+async function submitAutoSolveCrossword() {
+  // First check if a game is in progress and if not give a warning and return
+  if (checkGameIsInProgress())
+    return;
+
+  // Show confirmation dialog before proceeding
+  const confirmDialog = document.createElement('div');
+  confirmDialog.style.position = 'fixed';
+  confirmDialog.style.top = '0';
+  confirmDialog.style.left = '0';
+  confirmDialog.style.width = '100vw';
+  confirmDialog.style.height = '100vh';
+  confirmDialog.style.background = 'rgba(0,0,0,0.5)';
+  confirmDialog.style.display = 'flex';
+  confirmDialog.style.alignItems = 'center';
+  confirmDialog.style.justifyContent = 'center';
+  confirmDialog.style.zIndex = '1000';
+
+  const dialogBox = document.createElement('div');
+  dialogBox.style.background = '#fff';
+  dialogBox.style.padding = '24px';
+  dialogBox.style.borderRadius = '8px';
+  dialogBox.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+  dialogBox.style.textAlign = 'center';
+
+  const message = document.createElement('p');
+  message.textContent = 'Are you sure you want to auto solve the crossword and score penalty points?';
+  dialogBox.appendChild(message);
+
+  const yesBtn = document.createElement('button');
+  yesBtn.textContent = 'Yes';
+  yesBtn.style.margin = '0 10px';
+  const noBtn = document.createElement('button');
+  noBtn.textContent = 'No';
+  noBtn.style.margin = '0 10px';
+
+  dialogBox.appendChild(yesBtn);
+  dialogBox.appendChild(noBtn);
+  confirmDialog.appendChild(dialogBox);
+  document.body.appendChild(confirmDialog);
+
+  yesBtn.onclick = async function() {
+    document.body.removeChild(confirmDialog);
+    const userId = session.user_id;
+    const token = session.security_token;
+    const gameId = session.game_id;
+    if (!userId || !token || !gameId) {
+      showMessage('Session missing. Please login and start a game.');
+      return;
+    }
+    try {
+      const res = await fetch('/api/game/auto_solve', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({
+          user_id: userId,
+          security_token: token,
+          game_id: gameId
+        })
+      });
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.message || data.error || 'Auto solving crossword failed.');
+
+      // Show dialog based on correctness of the guess made by the player
+      if (data.result == 'success') {
+        const dialog = document.createElement('div');
+        dialog.id = 'auto-solve-result-dialog';
+        dialog.style.position = 'fixed';
+        dialog.style.top = '0';
+        dialog.style.left = '0';
+        dialog.style.width = '100vw';
+        dialog.style.height = '100vh';
+        dialog.style.background = 'rgba(0,0,0,0.4)';
+        dialog.style.display = 'flex';
+        dialog.style.alignItems = 'center';
+        dialog.style.justifyContent = 'center';
+        dialog.style.zIndex = '10000';
+        let msg = '';
+        msg = `<h2>Crossword has been auto-solved!</h2><p><span style='color:red'>${data.penalty_points} penalty points have been applied!</span></p><h1><span style='color:red'>Game Over!</span></h1>`;
+        dialog.innerHTML = `<div style='background:white;padding:32px 24px;border-radius:8px;box-shadow:0 2px 16px #0003;min-width:320px;text-align:center;'>${msg}<br><button id='auto-solve-result-dialog'>OK</button></div>`;
+        document.body.appendChild(dialog);
+        document.getElementById('auto-solve-result-dialog').onclick = function() {
+          dialog.remove();
+        };
+        // Optionally auto-close after 10 seconds
+        setTimeout(() => { dialog.remove(); }, 10000);
+      }
+
+      // Let's update the game state to show the latest info
+      if (data.game_state) renderGameState(data.game_state);
+
+      // here we render the crossword grid again to show the full solved crossword grid sent by backend
+      if (data.crossword?.grid) renderGrid('crossword_grid', data.crossword.grid);
+
+      // Update session data with latest game state
+      session.last_result    = data.result;
+      session.last_message   = data.message;
+      session.game_state    = data.game_state;
+      session.game_status   = data.game_state?.game_status;
+      session.crossword     = data.crossword;
+
+      // Update session data
+      saveSession(session);
+
+
+    } catch (err) {
+      showMessage(`Error: ${err.message}`);
+    }
+  };
+
+  noBtn.onclick = function() {
+    document.body.removeChild(confirmDialog);
+    // Do nothing, just close dialog
+  };
+}
+
+
+// Attach event listeners to our buttons in the play page so that they work when clicked
 window.addEventListener('DOMContentLoaded', function() {
   if (!checkUserLoggedIn()) return;
   const btn = document.getElementById('new_game_btn');
@@ -468,4 +773,6 @@ window.addEventListener('DOMContentLoaded', function() {
   if (guessBtn) guessBtn.addEventListener('click', submitGuessWord);
   const solveClueBtn = document.getElementById('submit_solve_clue_btn');
   if (solveClueBtn) solveClueBtn.addEventListener('click', submitSolveClue);
+  const autoSolveCrosswordBtn = document.getElementById('auto_solve_crossword_btn');
+  if (autoSolveCrosswordBtn) autoSolveCrosswordBtn.addEventListener('click', submitAutoSolveCrossword);
 });
