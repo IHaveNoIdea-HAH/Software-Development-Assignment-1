@@ -1,6 +1,5 @@
 class Config:
-    SECRET_KEY = 'your-secret-key'
-    DEBUG = True
+    DEBUG = False
     # Here we have our variables to store the state of our app
     DATA_FOLDER_PATH = ''  # Path to the JSON file with crossword words
     CROSSWORDS_DATA = {} # This will hold our loaded JSON data to generate crosswords

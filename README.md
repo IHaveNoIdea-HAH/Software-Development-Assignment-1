@@ -20,6 +20,53 @@ Interface of the website using HTML and CSS. Activity 1 Mockup, Storyboard, Iden
 
 ## Contribution from Alex
 
+### Activity 1 – Requirements and Creative Session
+1. Created overall specification based on user and system requirements
+2. Determined the project’s high-level ‘functional specifications’
+3. Identified and established our software development strategy by comparing Agile , Waterfall and RAD methodologies
+4. Created an overall test strategy for the project to include both manual and automated testing approaches this way ensuring high quality of the software being developed
+
+### Activity 2 - Design Analysis Session
+
+1. Contributed to the refinement and improvement of the initial specifications from Activity 1 to ensure the project scope is achievable within the time constraints and helped splitting the scope into MVP and nice-to-have Phase 2 features.
+2. Created the overall architecture design for the crossword game application to be comprised from backend and frontend parts communicating via REST API.
+3. Contributed to the definition of game state management, game logic and scoring system designs for the crossword game application.
+4. Contributed to the definition of the core gameplay features such as new game, clue selection, word guessing, auto-solve etc.
+5. Identified the key technical must-haves such as user authentication, dynamic crossword generation, REST API endpoints, serialisation/de-serialisation of games and users, persistent storage of user data and in-progress games for recovery when backend app restarts.
+6. Generated the vocabulary of 442 clues and words to be used in the crossword generation algorithm.
+
+### Activity 3 - Coding
+
+1. Implemented the backend part of the crossword game application using Flask framework, including backend app startup sequence, user authentication, game logic, scoring system and all REST API endpoints
+2. Developed all backend components including data models (models folder), schemas (schemas folder), services (services folder), REST API endpoints (routes folder), helper functions (utils folder).
+3. Developed game state management logic to track current score, guesses made, guesses remaining, words guessed and total words to be guessed.
+4. Implemented core gameplay features in the backend such as starting a new game, selecting a clue, entering a word guess, checking the guess, auto-solving a clue and auto-solving the entire crossword.
+5. Implemented the game over and game win logic to determine when the game ends.
+6. Implemented scoring system where points are awarded for correct answers and penalties for hints or auto-solve.
+7. Created error handling mechanisms to handle invalid inputs, incorrect guesses and other edge cases and either throw exceptions or return proper errors back to frontend.
+8. Documented the codebase with comments and docstrings to ensure maintainability and ease of understanding for future developers.
+9. Implemented user authentication system allowing players to create accounts, log in and have their scores and progress saved.
+10. Created persistent storage using JSON files to store user accounts and all in-progress games so that recovery of previous state can be done when backend app is restarted and players can proceed from the last known game state.
+11. Developed the crossword generation algorithm to dynamically generate crossword puzzles using random words from predefined vocabulary of clues.
+12. To help the frontend development, created frontend template (templates/rest_api_test.html) and JavaScript code (static/js/rest_api_test.js) to demonstrate how frontend can interact with the backend REST API endpoints.
+
+### Activity 4 - Testing
+
+1. Created a set of automated tests (tests/test_script.py) to test the backend part of the crossword game application
+2. Executed the automated tests to verify the correctness of the backend part of the crossword game application to ensure all REST API endpoints work as expected together with error handling and edge cases
+3. To manually test REST API endpoints developed Streamlit based API testing tool (tests/test_frontend_app.py) to perform manual testing of the backend part of the crossword game application
+4. Fixed bugs found during automated testing of the backend part of the crossword game application
+5. Fixed bugs found during manual testing of the frontend part of the crossword game application
+6. Documented the test results of the automated and manual tests performed on the backend part of the crossword game application
+
+### Activity 5 – Activity Group Guidance – Project Design, Development, Deployment (Part A)
+
+1. Contributed with the gathering and documentation of evidence from ALL of our project’s activities and outcomes
+2. Produced many screenshots and code snippets to illustrate the key parts of our project
+3. Contributed lots of content into the README.md file to document the project comprehensively
+4. Produced a cited review of the development strategy used to include advantages and disadvantages
+5. Produced References section citing all external sources used during the project
+6. Contributed to an evaluation of how well our project met each of the requirements together with a statement of the project’s overall success
 
 ---
 
@@ -84,11 +131,6 @@ Depending on time available, some of these may be deprioritised to ensure we mee
 The strict deadline means we have to focus on the core gameplay features first and polish those before adding any additional features.
 Therefore, we identified some of the features to be the core ones and to comprise our minimum viable product (MVP) while the others are nice-to-have features that we may add if time permits and to generally represent Phase 2 features.
 
-NOTE: Delete the things in the bracket in the future. For now do not delete it so we don't confuse ourselves.
-If we have time, task to do:
-2,4,6 (for now just random generated words), 8, 9, 10, 16, 17, 18
-Ignore these task when creating the game, for now create the necessary stuff
-
 MVP features (Must have):
 1. Game has to have main menu 
 2. Game has to have Game Win screen. (When a player correctly guesses all words)
@@ -108,14 +150,14 @@ MVP features (Must have):
 16. The crossword puzzles should be dynamically generated using some sort of crossword generation algorithm.
 
 Nice to have features (If time permits) so our Phase 2 features:
-1. Difficulty levels. User can select from easy, medium, hard difficulty levels.
+1. Difficulty levels. User can select from easy, medium, hard difficulty levels. **- actually was DONE in Phase 1!**
 2. More advanced scoring logic like combo-bonuses, power-ups, streak bonuses??? Nice to have, low priority.
 3. Accessibility features!: high contrast color scheme, fonts, links etc.
 4. Game has to have leaderboard with 10 best players and their scores and times.
-5. Game should have in-built game time which measures how much time a player spent on the game.
+5. Game should have in-built game timer which measures how much time a player spent on the game.
 6. Player can be asked whether timer should be enabled or not.
 7. Game has to be optimized for various screen sizes and devices (responsive design).
-8. Progress saving: Player’s progress and scores are saved locally so that they can resume unfinished game later.
+8. Progress saving: Player’s progress and scores are saved locally so that they can resume unfinished game later. **- actually was DONE in Phase 1!**
 
 ### Hardware Requirements
 
@@ -218,8 +260,7 @@ Main game:
 The storyboard on how the application is going to function.
 These are the preliminary storyboards and may be refined further as we progress with the project.
 
-### Start Screen
-
+When the user opens the app, they're met with the main menu.
 <img width="753" height="650" alt="image" src="https://github.com/user-attachments/assets/990d4a10-7e1e-498d-ade4-97eb49ce9500" />
 
 When pressing start. They're met with the game. 6 or more generated words of the crossword in a grid with hints on the Right.
@@ -244,10 +285,10 @@ During the brainstorming session, we identified the following potential risks to
 
 | Category                                      | Description                                                    | Mitigtion Strategy                                                                                                                                            |
 |-----------------------------------------------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Lack of Coding Knowledge                      | Some people in this project may have different coding experience | Pair programming, online tutorials, team knowledge sharing.                                                                                                   |
+| Lack of Coding Knowledge                      | Some people in this project may have different coding experience | Pair programming, online tutorials, books from LRC, team knowledge sharing and helping each other when someone is stuck.                                      |
 | Dependencies on libraries                     | The project requires API for making the game more unique and random. If not, then it will be set values. Which may cause the user to become bored. | Create backend which will offer REST API and perform the overall heavy lifting of the game maintining game states, handling users, generating crosswords etc. |
 | Presence of bugs which affect user experience | No amount of testing can make sure the final product will be bug free. Some things might be overlooked. | Thorough testing, user feedback loops, quick bug fixing cycles.                                                                                               |
-| Scope creep                             | The project may become too big to handle for the three of us if we keep adding more and more features to the scope. | Mitigation: The scope should be frozen to MVP features only to ensure it can be delievered by the deadline.                                                   |
+| Scope creep                             | The project may become too big to handle for the three of us if we keep adding more and more features to the scope. | The scope should be frozen to MVP features only to ensure it can be delievered by the deadline.                                                   |
 
 
 ---
@@ -255,6 +296,7 @@ During the brainstorming session, we identified the following potential risks to
 ## Task 10 - Software development strategy 
 
 We compared three software development strategies Waterfall, Agile and Rapid Application Development (RAD) as the main three candidates to select from a software development strategy for our project.
+We used the following sources [8] and [9] stated in the References section to help us with the comparison of the three strategies.
 
 ### Comparison of the three strategies
 
@@ -272,14 +314,14 @@ We compared three software development strategies Waterfall, Agile and Rapid App
 ### Reasons for choosing RAD for our project
 
 After careful consideration we've decided to go with RAD software development strategy for our project because of the following reasons:
-1. Time sensitivity as the delivery has to happen by 3rd of Nov so the turnaround should be really fast to deliver the project.
-2. Requires speed of delivery and flexibility which RAD perfectly provides.
-3. Minimise upfront planning so we don’t need waterfall with its rigid planning and significant planning overhead.
-4. Process-wise: we aim to hit the ground running by prototyping features, testing them by users, getting feedback and iterating fast.
+1. Time sensitivity - as the delivery has to happen by 3rd of Nov so the turnaround should be really fast to deliver the project.
+2. Our project requires speed of delivery and flexibility which RAD perfectly provides.
+3. Minimise upfront planning so we don’t need waterfall with its rigid planning and significant planning overhead but we need to get to the coding stage as soon as possible.
+4. Process-wise - we aim to hit the ground running by prototyping features, testing them by users, getting feedback and iterating fast.
 5. In the first half of the project minimal documentation while fast prototyping. In the second half when things start to settle, spend time on documenting them to have everything documented by the submission deadline.
-6. Risks are reduced through the constant user feedback so that pivoting can happen after each prototype. 
+6. Risks are reduced through the constant user feedback so that pivoting can happen after each prototype say some new UX features to be added like crossing out solved clues etc. 
 7. RAD works great for small teams and our team is small so RAD fits very well.
-8. RAD also works well for teams with mixed experience levels as the more experienced members can help the less experienced ones.
+8. RAD also works well for teams with mixed experience levels as the more experienced members can help the less experienced ones. In our team we have mixed experience levels so RAD suits us well.
 9. RAD is good for small projects and our project is small in scope and also has to happen within a short span of time.
 10. Outcome focus: deliver working prototype quickly and then iterate fast to implement all MVP features so that the game crystalises into its final version to be submitted.
 
@@ -294,26 +336,26 @@ Such combination of manual functional testing and unit tests covering the code a
 
 #### Manual Testing
 
-Manual tests are going to be done on the frontend to test the user interface and user experience.
-For the manual testing a range of test cases will be created to cover all the main user flows and edge cases.
+Manual tests are going to be done on the frontend to test the user interface, game state logic like scoring, game over and overall user experience.
+For the manual testing a range of test cases will be created to cover all the main user flows and edge cases. For frontend part the Dev Tools in the browser will be used to inspect the game state, network calls and console logs to verify the correctness of the game behaviour.
+
 The manual tests will cover the following areas:
 1. Game start and main menu navigation.
-2. Crossword grid rendering and clue display.
+2. Crossword grid rendering and clues display.
 3. Word guessing and answer validation.
 4. Scoring system and HUD updates.
 5. Hint and auto-solve functionality.
 6. Game win and game over screens.
 7. User account creation and login.
+8. Game state recover when a user logs off and logins back again.
 
 The detailed manual test cases will be documented as part of the Activity 4 below.
 
 #### Unit Tests
 
-Unit tests are done on the backend to test the REST API endpoints, game logic, scoring etc.
-pytest framework is used for unit testing of the backend part.
-In the backend folder, run the following command to execute the unit tests:
-python -m pytest tests/test_app.py 
-
+Unit tests are to be done on the backend to test the REST API endpoints, game logic, scoring etc.
+pytest framework can be used for unit testing of the backend part.  
+Also a quick manual testing of the API endpoints can be done using a Streamlit based tool to verify the correctness of the API responses for various scenarios.
 
 ---
 
@@ -329,16 +371,16 @@ After reviewing our initial specifications from Activity 1, the team met to refi
 
 Improvements and Adjustments
 
-| Area | Original Idea | Issue Identified | Improvement Implemented |
-|------|----------------|------------------|--------------------------|
-| Difficulty Levels | Multiple difficulty levels (easy/medium/hard) | Too time-consuming to design and test within project timeline | Reduced to a single default level for the first release |
-| Timer Feature | Optional countdown and stopwatch | Not essential for gameplay; risked extra bugs | Removed timer for version 1.0, may add later |
-| Scoring System | Combo/streak bonuses and advanced logic | Over-complicated for MVP | Simplified to +10 points for correct answers and −2 for hints |
-| Hint Mechanism | Reveal entire word | Too generous; reduced challenge | Now reveals only one letter per click with a score penalty |
-| UI / UX Design | Basic black-and-white layout | Hard to identify selected cells | Added blue highlight for active word and responsive font scaling |
-| Backend Logic | Dynamic crossword generator via API | Not achievable in short timeframe | Using pre-defined word sets stored in JSON for reliability |
-| Accessibility | Minimal colour contrast only | Needed better readability and accessibility | Added larger-text option and ensured high contrast ratio |
-| Testing Plan | Only three manual tests | Limited coverage of key functions | Added more tests for hint button, win screen, and grid reset |
+| Area                      | Original Idea | Issue Identified                                                | Improvement Implemented                                                                                                                       |
+|---------------------------|----------------|-----------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Difficulty Levels         | Multiple difficulty levels (easy/medium/hard) | Too time-consuming to design and test within project timeline   | Reduced to a single default level for the first release (Unless we have time in the end to do it)                                             |
+| Timer Feature             | Optional countdown and stopwatch | Not essential for gameplay; risked extra bugs                   | Removed timer for the MVP version 1.0, may add later as part of Phase 2                                                                       |
+| Scoring System            | Combo/streak bonuses and advanced logic | Over-complicated for MVP                                        | Simplified to +10 points for each letter present in the correctly guessed word                                                                |
+| Clue Solve Mechanism | Reveal entire word | Too generous if offered as-is                                   | We offer this but the player scores penalty points. When a player decides to solve a clue without guessing then penalty points are scored     |
+| UI / UX Design            | Basic black-and-white layout | Hard to identify selected cells                                 | Added blue highlight for active word and responsive font scaling (if the time permits, low priority)                                          |
+| Backend Logic             | Dynamic crossword generator via API | To challenging to implement within the timelines of the project | We decided to do this as this is the core feature. Crosswords are to be dynamically generated in the backend from a vocabulary of words+clues |
+| Accessibility             | Minimal colour contrast only | Needed better readability and accessibility                     | Added larger-text option and ensured high contrast ratio                                                                                      |
+| Testing Plan              | Only three manual tests | Limited coverage of key functions                               | More manual tests for frontend part are to be done to test user flows, game logic etc as this is the key way to find any bugs                 |
 
 These refinements make the project **more achievable, user-friendly, and stable**, aligning with the RAD (Rapid Application Development) approach that emphasises quick prototyping, continuous testing, and iterative improvement.
 
@@ -349,13 +391,23 @@ After refining our ideas, the team agreed on the final set of requirements that 
 The focus is on simplicity, functionality, and a smooth user experience.
 
 #### Final Functional Specifications
-1. Single-topic crossword with 6–8 words per puzzle.  
-2. Player inputs answers manually and clicks **Check** to validate.  
-3. **Hint** button reveals one letter and deducts points.  
-4. Simple scoring system (+10 for correct, −2 for hint).  
-5. Responsive UI with highlighted active word.  
-6. **You Win** message appears when all words are completed.  
-7. Local storage saves current progress.
+1. Single-topic crossword with 5–15 words per puzzle.  
+2. Simple scoring system whereas for each correctly guessed word the player scores 10 * count of letters in the guessed word.
+3. Player is given real-time feedback on guesses (correct/incorrect).
+4. When new game starts a new crossword is generated using random words from a predefined vocabulary of words and clues.
+5. When new game starts the gameboard is rendered with numbered clues and words hidden horizontally and vertically and then is updated with revealed words while the game proceeds.
+6. When new game starts the HUD is rendered showing current score, guesses made, guesses remaining, total guesses limit, words guessed and total words to be guessed and is then updated while the game proceeds.
+7. When new game starts the clues are displayed alongside the gameboard with numbers and directions (across/down).
+8. When new game starts a player is given a limited number of guess attempts (e.g. 20 attempts) and each incorrect guess made by a player decreases the remaining number of guess attempts.
+9. Player selects a clue number and inputs guess word manually and clicks **Submit guess** to validate.  
+10. **Solve clue** button reveals one word but the player scores penalty points equal to 10 * count of letters in the revealed word.  
+11. **Auto-solve** button reveals the entire crossword and triggers **Game Over** state with penalty points for each unsolved word.
+12. **You Win** message appears when all words are completed.
+13. **You Lose** message appears when the player runs out of guesses or auto-solves the crossword.
+14. User account creation and login to save progress.
+15. Local storage saves current progress in the browser memory so that player can resume unfinished game later.
+16. Backend persists user accounts, game states and scores in JSON files in order backend app state can be recovered at restart and players can proceed from the last known state.
+
 
 #### Final Non-Functional Specifications
 - Loads within 3 seconds.  
@@ -504,60 +556,89 @@ It helps visualize how the game starts, how player input is processed, and how t
 This section defines how the game manages and tracks different states such as **Start**, **Win**, **Lose**, and **Draw**, as well as how these states are detected and updated during gameplay.
 
 #### Game States
-1. **Start State** – The game begins when the player clicks the **Start** button on the main menu.  
-   - The crossword grid, score, and clue list are loaded.  
-   - Score and wordsSolved counters are set to zero.
+1. **Start State** – The game begins when the player clicks the **New Game** button on the main menu.  
+   - The crossword grid, clue list, game score, guess limit, wirds guessed are loaded from the backend via REST API call.  
+   - Game score and words guessed counters are set to zero.
 
 2. **Active State** – The player is actively entering answers and interacting with the crossword grid.  
-   - Input is checked against the correct word list.  
-   - Hints can be requested at the cost of points.
+   - the player selects a clue number and inputs a word guess and submits it to the backend to check if the guess is correct and gets response and updates the game state accordingly.
+   - if the player correctly guessed the word then the success message is shown and word is revealed on the grid and the game score is bumped accordingly.
+   - if the player incorrectly guessed the word then a message is displayed and count of remaining guess attempts is reduced by one.
+   - if the player clicks **Solve Clue** button then one word is revealed on the grid and penalty points are deducted from the game score and shown to the player.
+   - The game state like game score, guesses made, words solved etc is shown in the HUD.
+   - The game continues in this state until either all words are solved (via correctly guessed words or clue auto solving) or the player runs out of guess attempts.
+   - The current state can go straight to Completed if the player decides to auto-solve the entire crossword.
 
-3. **Win State** – Triggered when all words are correctly solved.  
-   - A **“You Win!”** message is displayed.  
-   - The final score is shown and stored locally.
+3. **Completed State** – Triggered when all words are correctly solved via correct guess attempts or clue auto solving.
+   - When all words are solved the game detects this state by checking if the count of words guessed equals the total number of words in the crossword.
+   - If the game score is > 0 then the player wins otherwise the player loses.
+   - Even if the player has auto solved some of the clues and got the penalty points for that, as long as all words are revealed and the game score > 0 the player wins.
+   - If the game score > 0 a **“You Win!”** message is displayed.
+   - If the game score < 0 a **“You Lose!”** message is displayed.
+   - The final game state like game score, guesses made, words solved etc is shown in the HUD.
+   - The game changes its state into 'completed' so that the player can't do any actions for it.
 
-4. **Lose State** – (Optional) Activated if a time limit is implemented in later versions.  
-   - The player loses if the time runs out before solving all words.
+5. **Lose State** – activated when the player runs out of guess attempts.  
+   - The player loses when they run out of guess attempts.
+   - A **“You Lose!”** message is displayed.
+   - The final game state like game score, guesses made, words solved etc is shown in the HUD.
+   - The game changes its state into 'completed' so that the player can't do any actions for it.
 
-5. **Draw State** – (For future multiplayer implementation)  
-   - Triggered if both players find the same number of words when time expires.
+5. **Lose State** – activated when the player auto solved the entire crossword.  
+   - The player loses if the crossword is auto solved in full.
+   - A **“You Lose!”** message is displayed.
+   - The final game state like game score, guesses made, words solved etc is shown in the HUD.
+   - The game changes its state into 'completed' so that the player can't do any actions for it.
+
 
 #### Game Logic Overview
-- **Check Word Function:**  
-  - Compares the player’s input with the stored correct words.  
-  - If the word matches → display *“Correct!”*, reveal it in the grid, and award +10 points.  
-  - If the word does not match → display *“Incorrect!”* and no points are given.
+- **Guess word function:**  
+  - Compares the player’s input represented by the clue number and the guess word with the stored correct words for the crossword in the backend.  
+  - If the word matches → display *“Correct!”*, reveal it in the grid, and award +10 * count of letters in the correctly guessed word points. E.g. if the word is "TRAIN" then the player scores +50 points. Remaining count of guess attempts is reduced by 1.
+  - If the word does not match → display *“Incorrect!”* and no points are given but remaining count of guess attempts is reduced by 1.
+  - If the player runs out of guess attempts after an incorrect guess → trigger **Lose State**.
+  - If all words are solved after a correct guess → trigger **Completed State**.
 
-- **Hint Function:**  
-  - Reveals one random unrevealed letter from the selected word.  
-  - Deducts 2 points from the player’s score.  
-  - Hints limited to showing 3 letters per word.
+- **Solve clue function**  
+  - Reveals one word on the grid based on the selected clue number without requiring a guess from the player.
+  - Penalty points equal to 10 * count of letters in the revealed word are deducted from the player’s score. E.g. if the revealed word is "APPLE" then the player scores -50 points.
+  - If all words are solved after clue auto solving → trigger **Completed State**.
+
+- **Auto-solve function**  
+  - Asks the player if the player is sure about auto-solving the entire crossword.
+  - If the player decided to auto solve the entire crossword then reveals all unrevealed words on the grid.  
+  - Deducts penalty points equal to 10 * count of letters in all auto-solved words. E.g. if two words "GOLD" and "IRON" were auto-solved then the player scores -80 points.  
+  - Triggers **Lose State**.
 
 #### Win / Lose Conditions
 
 **Single Player Mode:**  
-- **Win:** All words are correctly solved.  
-- **Lose:** (If a timer is added) Time expires before all words are found.
-
-**Multiplayer Mode (Future):**  
-- **Win:** Player finds more words than opponent before the time runs out.  
-- **Lose:** Opponent finds more words before the timer ends.  
-- **Draw:** Both players solve an equal number of words.
+- **Win:** All words are correctly solved within the guess limit via correct guess attempts.
+- **Win:** All words are correctly solved within the guess limit via correct guess attempts or clue auto solving and game score > 0.
+- **Lose:** If the player runs out of guess attempts or auto-solves the entire crossword or game score < 0 when all words are solved via correct guess attempts or clue auto solving.
 
 ---
 
-This design ensures that game states are **clearly defined, easily monitored, and scalable**, allowing smooth future integration of multiplayer and timed challenges.
+This design ensures that game states are clearly defined, easily monitored, and scalable.
 
 ## Architecture Design
 
-Here goes the architecture design of the project (Alex).
+### Technology stack
+As per the assignment brief the platform should be web/online based.
+The stack is suggested as: JavaScript, CSS, HTML5, Python (Flask)
 
+### Architecture design decisions
+After reviewing the suggested stack and discussing the options we decided to go with the following architecture design for our crossword game.
 We are using a client-server architecture.
-We are going to have a backend server (controller) which will handle the game logic, scoring, leaderboard etc.
-The backend will expose a RESTful API which the frontend (view) will call to start new game, get game state, submit guesses, get leaderboard etc.
-The frontend will be a web app which will render the gameboard, clues, HUD etc.
-The frontend will call the backend API to get game state, submit guesses etc.
-Initially the backend will use a set of json files to store the game data (words, clues etc.) but later we might move to a database if time permits.
+We are going to have a Flask based backend server (controller) which will do the heavy lifting like handling the game logic, scoring, crosswords generation etc.
+The backend will expose a RESTful API which the frontend (view) will call to start new game, get game state, submit guesses, solve clues, auto solve crossword etc.
+The Flask backend also will serve the frontend which will be a web app using JavaScript, HTML and CSS. They together will render the gameboard, clues, HUD etc coming in the REST API responses from the backend.
+The JavaScript part of the frontend will call the backend REST API to get game state, submit guesses etc and then help rendering this dynamic data onto the HTML rendered by a browser to a player.
+Initially the backend will use a set of json files to store the game data (words, clues, users, games etc.) but later we might move to a database if time permits (low priority).
+As our Flask backend app from one side will be offering REST API endpoints to be called by the frontend and from the other side will be serving the frontend static files (HTML, CSS, JS) we will use Flask's capability to serve static files for this purpose.
+This way our Flask backend represents a hybrid app which serves both as a REST API server and as a static files server for the frontend.
+This makes such architecture simple and easy to deploy as we will have a single Flask app to deploy which serves both the backend REST API and the frontend static files.
+ALso, having REST API being offered by the Flask backend makes the architecture scalable and extensible as in future we can have multiple frontend clients (e.g. mobile Android or iPhone app, desktop app etc.) calling the same REST API endpoints to play the crossword game.
 
 ToDo: add a block diagram here (Alex).
 
@@ -594,6 +675,15 @@ ToDo: add a block diagram here (Alex).
 | Placeholder | Manual | placeholder | placeholder | N/A | Add Picture here |
 
 
+## References
 
-
-
+1. Willard, W., 2013. HTML: A Beginner’s Guide (5th ed.). New York: McGraw-Hill. Available at: HTML: https://learning.oreilly.com/library/view/html-a-beginners/9780071809276/?sso_link=yes&sso_link_from=UnivofHerts
+2. Wolf, Jürgen 2025. HTML and CSS: The Comprehensive Guide. Rheinwerk Publishing (via O’Reilly). Available at: https://learning.oreilly.com/library/view/html-and-css/9781806111831/?sso_link=yes&sso_link_from=UnivofHerts
+3. Preuitt, Sheela, 2019, Mission HTML. Lerner Publishing Group. Available at: https://ebookcentral.proquest.com/lib/herts/detail.action?docID=5831122
+4. Jephson, B., Coulson, L. & Silveira, A. C. (2024) Practical HTML and CSS: Second Edition. Birmingham: Packt Publishing. Available at: https://learning.oreilly.com/library/view/practical-html-and/9781835080917/?sso_link=yes&sso_link_from=UnivofHerts
+5. McFedries, P., 2023. HTML, CSS & JavaScript All-in-One For Dummies. Hoboken, NJ: Wiley. Available at: https://learning.oreilly.com/library/view/html-css/9781394164684/?sso_link=yes&sso_link_from=UnivofHerts
+6. Coulson, L., Jephson, B., Park, M., Zburlea, M., Ford, T., O’Brien, T., Rosson, A. & Kurri, S. (2019) The HTML and CSS Workshop. Birmingham: Packt Publishing. Available at: https://learning.oreilly.com/library/view/the-html-and/9781838824532/?sso_link=yes&sso_link_from=UnivofHerts
+7. McGrath, Mike, 2020, HTML in Easy Steps, 9th Edition : An Indispensible Guide for HTML Newbies!, In Easy Steps Limited, Available at: https://ebookcentral.proquest.com/lib/herts/detail.action?docID=7075470&pq-origsite=summon
+8. Malakar, Sudipta, 2021, Agile Methodologies In-Depth, BPB Publications, Available at: https://ebookcentral.proquest.com/lib/herts/detail.action?docID=6891862
+9. Flewelling, P., 2018. The Agile Developer’s Handbook. Birmingham: Packt Publishing. Available at: https://learning.oreilly.com/library/view/the-agile-developers/9781787280205/?sso_link=yes&sso_link_from=UnivofHerts
+10. Grinberg, M. (2020) Flask. Helion. Available at: https://learning.oreilly.com/library/view/flask/9788328363830/?sso_link=yes&sso_link_from=UnivofHerts
