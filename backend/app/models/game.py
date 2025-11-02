@@ -1,17 +1,27 @@
 from app.services.crossword_service import CrosswordService
 
 class Game:
-    def __init__(self, crossword, user_id, game_id, guess_limit):
+    def __init__(self, crossword, user_id, game_id, guess_limit, score=0, status='started', result=None, solved_clues=None, guesses=None, words_guessed=0):
         self.crossword = crossword
         self.user_id = user_id # to associate the game with a user
         self.game_id = game_id # unique identifier for the game session
         self.guess_limit = guess_limit # maximum number of guesses allowed
-        self.score = 0 # player's score, can be updated as the game progresses
-        self.status = 'started' # game status: 'started', 'completed'
-        self.result = None # final result of the game, e.g., 'win', 'lose'
-        self.solved_clues = [] # list to store solved clues
-        self.guesses = [] # list to store player's guesses
-        self.words_guessed = 0 # number of words guessed correctly
+        self.score = score # player's score, can be updated as the game progresses
+        self.status = status # game status: 'started', 'completed'
+        self.result = result # final result of the game, e.g., 'win', 'lose'
+
+        # Initialize solved_clues and guesses as empty lists if not provided
+        if solved_clues is None:
+            self.solved_clues = [] # list to store solved clues
+        else:
+            self.solved_clues = solved_clues
+
+        if guesses is None:
+            self.guesses = [] # list to store player's guesses
+        else:
+            self.guesses = guesses
+
+        self.words_guessed = words_guessed # number of words guessed correctly
 
     def check_if_game_is_completed(self):
         '''
@@ -31,6 +41,13 @@ class Game:
             return True
         else:
             return False
+
+    def is_status_started(self):
+        '''
+        Check if the game status is 'started'.
+        :return: True if the game status is 'started', False otherwise
+        '''
+        return self.status == 'started'
 
     def is_status_completed(self):
         '''

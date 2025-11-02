@@ -1,6 +1,8 @@
 from flask import Blueprint, request, jsonify, current_app
 from app.models.user import User
-from app.utils.helpers import save_users_to_json, generate_guid, hash_password, validate_username, validate_password
+from app.utils.helpers import save_users_to_json, generate_guid, hash_password, validate_username, validate_password, check_started_game_exists_for_user
+from app.schemas.crossword_schema import CrosswordSchema
+from app.schemas.game_schema import GameSchema
 
 user_bp = Blueprint('user', __name__)
 
@@ -28,12 +30,18 @@ def login():
                 if user.username == username and user.password == hash_password(password):
                     # Let's fetch a security token for the session
                     security_token = user.security_token
+
+                    # Let's check if there is a game in progress for this user so we can return it back to frontend
+                    game = check_started_game_exists_for_user(id)
+
                     return jsonify({
                         'result': 'success',
                         'message': 'Login successful',
                         'user_id': id,
                         'username': user.username,
-                        'security_token': security_token
+                        'security_token': security_token,
+                        'crossword': CrosswordSchema.dump(game.get_crossword()) if game else None,
+                        'game_state': GameSchema.dump_state(game) if game else None
                     }), 200
 
             # If no match found, return invalid credentials response

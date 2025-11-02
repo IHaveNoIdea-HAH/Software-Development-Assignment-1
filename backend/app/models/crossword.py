@@ -25,5 +25,5 @@ class Clue:
         self.direction = direction  # 'across' or 'down'
         self.text = text
         self.answer = answer
-        self.solved = False
+        self.solved = solved
 

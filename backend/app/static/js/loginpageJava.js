@@ -51,6 +51,14 @@ document.addEventListener("DOMContentLoaded", () => {
       session.last_result    = data.result;
       session.last_message   = data.message;
 
+      // If game state returned, save that too so when the /play page is loaded it fetches the in-progress game from the session.
+      if(data.game_state) {
+          session.game_id = data.game_state?.game_id;
+          session.game_state    = data.game_state;
+          session.game_status   = data.game_state?.game_status;
+          session.crossword     = data.crossword;
+      }
+
       // Save session to localStorage for future use in /play etc.
       saveSession(session);
 
