@@ -214,7 +214,11 @@ function renderClues(clues) {
       const ul = document.createElement('ul');
       grouped[dir].forEach(clue => {
         const li = document.createElement('li');
-        li.textContent = `${clue.number}. ${clue.text}`;
+        if (clue.solved) {
+          li.innerHTML = `<s>${clue.number}. ${clue.text}</s>`;
+        } else {
+          li.textContent = `${clue.number}. ${clue.text}`;
+        }
         ul.appendChild(li);
       });
       container.appendChild(ul);
@@ -275,16 +279,23 @@ function fillClueDropdown(clues) {
   // Remove all options except the first (placeholder)
   select.innerHTML = '<option value="" disabled selected>Select Clue Number</option>';
   if (!Array.isArray(clues) || clues.length === 0) return;
-  for (let i = 1; i <= clues.length; i++) {
-    const opt = document.createElement('option');
-    opt.value = i;
-    opt.textContent = i;
-    select.appendChild(opt);
-  }
+  // Only add clues that are not solved
+  clues.forEach(clue => {
+    if (!clue.solved) {
+      const opt = document.createElement('option');
+      opt.value = clue.number;
+      opt.textContent = clue.number;
+      select.appendChild(opt);
+    }
+  });
 }
 
 // Render game state into the game_state container
-function renderGameState(state) {
+function renderGameState() {
+  // Load session and game state
+  const session = loadSession() || {};
+  let state = session.game_state || {};
+
   const container = document.getElementById('game_state');
   if (!container) return;
   container.innerHTML = '';
@@ -292,30 +303,37 @@ function renderGameState(state) {
     container.textContent = 'No game state available.';
     return;
   }
-  // Create a table for game state
+
+  // Create a 3x2 table for game state
   const table = document.createElement('table');
   table.className = 'game-state-table';
-  const rows = [
-    // ['Status', state.game_status],
-    ['Game Result', state.game_result ?? 'In Progress'],
-    ['Game Score', state.current_score],
-    ['Guess Limit', state.guess_limit],
-    ['Guesses Made', state.guesses_made],
-    ['Guesses Left', state.guesses_left],
-    ['Words Solved', state.words_solved],
-    ['Words To Solve', state.words_to_solve]
-  ];
-  for (const [label, value] of rows) {
-    const tr = document.createElement('tr');
-    const tdLabel = document.createElement('td');
-    tdLabel.textContent = label;
-    tdLabel.style.fontWeight = 'bold';
-    const tdValue = document.createElement('td');
-    tdValue.textContent = value;
-    tr.appendChild(tdLabel);
-    tr.appendChild(tdValue);
-    table.appendChild(tr);
-  }
+  // First row: Game Score, Words Solved, Words To Solve
+  const tr1 = document.createElement('tr');
+  const tdScore = document.createElement('td');
+  tdScore.textContent = 'Game Score: ' + (state.current_score ?? '');
+  // tdScore.style.fontWeight = 'bold';
+  const tdSolved = document.createElement('td');
+  tdSolved.textContent = 'Words Solved: ' + (state.words_solved ?? '');
+  // tdSolved.style.fontWeight = 'bold';
+  const tdToSolve = document.createElement('td');
+  tdToSolve.textContent = 'Words Total: ' + (state.words_to_solve ?? '');
+  // tdToSolve.style.fontWeight = 'bold';
+  tr1.appendChild(tdScore);
+  tr1.appendChild(tdSolved);
+  tr1.appendChild(tdToSolve);
+  table.appendChild(tr1);
+  // Second row: Guess Limit, Guesses Made, Guesses Left
+  const tr2 = document.createElement('tr');
+  const tdLimit = document.createElement('td');
+  tdLimit.textContent = 'Guess Limit: ' + (state.guess_limit ?? '');
+  const tdMade = document.createElement('td');
+  tdMade.textContent = 'Guesses Made: ' + (state.guesses_made ?? '');
+  const tdLeft = document.createElement('td');
+  tdLeft.textContent = 'Guesses Left: ' + (state.guesses_left ?? '');
+  tr2.appendChild(tdLimit);
+  tr2.appendChild(tdMade);
+  tr2.appendChild(tdLeft);
+  table.appendChild(tr2);
   container.appendChild(table);
 }
 
@@ -357,8 +375,8 @@ async function startNewGame(difficulty) {
     fillClueDropdown(data.crossword?.clues);
     // Render clues
     renderClues(data.crossword?.clues);
-    // Render game state
-    renderGameState(data.game_state);
+    // Render latest game state
+    renderGameState();
     // render the game state onto the HUD
   } catch (err) {
     showMessage(`Error: ${err.message}`);
@@ -444,7 +462,7 @@ function checkUserLoggedIn() {
     // Render clues
     if (session.crossword.clues) renderClues(session.crossword.clues);
     // Render game state
-    if (session.game_state) renderGameState(session.game_state);
+    if (session.game_state) renderGameState();
     // Fill clue dropdown
     if (session.crossword.clues) fillClueDropdown(session.crossword.clues);
   }
@@ -525,12 +543,6 @@ async function submitGuessWord() {
       setTimeout(() => { dialog.remove(); }, 10000);
     }
 
-    // Let's update the game state to show the latest info
-    if (data.game_state) renderGameState(data.game_state);
-
-    // here we render the crossword grid again to show any updates sent by backend
-    if (data.crossword?.grid) renderGrid('crossword_grid', data.crossword.grid);
-
     // Update session data with latest game state
     session.last_result    = data.result;
     session.last_message   = data.message;
@@ -540,6 +552,19 @@ async function submitGuessWord() {
 
     // Update session data
     saveSession(session);
+
+
+    // Let's update the game state to show the latest info
+    if (session.game_state) renderGameState();
+
+    // here we render the crossword grid again to show any updates sent by backend
+    if (session.crossword?.grid) renderGrid('crossword_grid', session.crossword.grid);
+
+    // here we render the updated list of clue numbers
+    if (session.crossword?.clues) fillClueDropdown(session.crossword.clues);
+
+    // Render clues
+    if (session.crossword.clues) renderClues(session.crossword.clues);
 
     // Clear the inputs after word guess has been submitted
     document.getElementById('word_guess_user_input').value = '';
@@ -616,12 +641,6 @@ async function submitSolveClue() {
       setTimeout(() => { dialog.remove(); }, 10000);
     }
 
-    // Let's update the game state to show the latest info
-    if (data.game_state) renderGameState(data.game_state);
-
-    // here we render the crossword grid again to show any updates sent by backend
-    if (data.crossword?.grid) renderGrid('crossword_grid', data.crossword.grid);
-
     // Update session data with latest game state
     session.last_result    = data.result;
     session.last_message   = data.message;
@@ -631,6 +650,18 @@ async function submitSolveClue() {
 
     // Update session data
     saveSession(session);
+
+    // Let's update the game state to show the latest info
+    if (session.game_state) renderGameState();
+
+    // here we render the crossword grid again to show any updates sent by backend
+    if (session.crossword?.grid) renderGrid('crossword_grid', session.crossword.grid);
+
+    // here we render the updated list of clue numbers
+    if (session.crossword?.clues) fillClueDropdown(session.crossword.clues);
+
+    // Render clues
+    if (session.crossword.clues) renderClues(session.crossword.clues);
 
     // Clear the inputs after word guess has been submitted
     document.getElementById('word_guess_user_input').value = '';
@@ -735,12 +766,6 @@ async function submitAutoSolveCrossword() {
         setTimeout(() => { dialog.remove(); }, 10000);
       }
 
-      // Let's update the game state to show the latest info
-      if (data.game_state) renderGameState(data.game_state);
-
-      // here we render the crossword grid again to show the full solved crossword grid sent by backend
-      if (data.crossword?.grid) renderGrid('crossword_grid', data.crossword.grid);
-
       // Update session data with latest game state
       session.last_result    = data.result;
       session.last_message   = data.message;
@@ -751,6 +776,17 @@ async function submitAutoSolveCrossword() {
       // Update session data
       saveSession(session);
 
+      // Let's update the game state to show the latest info
+      if (session.game_state) renderGameState();
+
+      // here we render the crossword grid again to show the full solved crossword grid sent by backend
+      if (session.crossword?.grid) renderGrid('crossword_grid', session.crossword.grid);
+
+      // here we render the updated list of clue numbers
+      if (session.crossword?.clues) fillClueDropdown(session.crossword.clues);
+
+      // Render clues
+      if (session.crossword.clues) renderClues(session.crossword.clues);
 
     } catch (err) {
       showMessage(`Error: ${err.message}`);
@@ -829,4 +865,3 @@ window.addEventListener('DOMContentLoaded', function() {
   const autoSolveCrosswordBtn = document.getElementById('auto_solve_crossword_btn');
   if (autoSolveCrosswordBtn) autoSolveCrosswordBtn.addEventListener('click', submitAutoSolveCrossword);
 });
-
