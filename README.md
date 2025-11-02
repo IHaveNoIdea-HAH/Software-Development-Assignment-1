@@ -1,4 +1,4 @@
-# Software-Development-Assignment-1
+<img width="765" height="486" alt="image" src="https://github.com/user-attachments/assets/0c9d584c-866b-4cc5-90ce-ae68a8d22178" /># Software-Development-Assignment-1
 
 # Project Crossword
 The game chosen for the Project was Crossword. All members of the team have agreed to do.
@@ -574,9 +574,9 @@ ToDo: add a block diagram here (Alex).
 | Login takes you to play page | Manual | Takes you to play page | Took to play page when pressing play and login <img width="1083" height="768" alt="image" src="https://github.com/user-attachments/assets/a61ce486-26bf-4fe5-958a-aecee2e1561b" /> | Bug: When running the program for the first time. it takes you to the play page instantly. When starting new game bug occurs. |
 | New game | Manual | Pressing new game | error <img width="993" height="773" alt="image" src="https://github.com/user-attachments/assets/8cf838f2-ea7b-41b8-88d3-0da16f8c6b8f" /> | When pressing new game and not going to /register to go to /login. This error occurs. To fix this temporarily. Going to /register then login fixes it |
 | New game generation | Manual | Generates the words and grid when choosing difficulty | Generated words.<img width="364" height="474" alt="image" src="https://github.com/user-attachments/assets/7cd78e30-8c1b-4bfc-a7e8-5e55db62959d" /> <img width="887" height="559" alt="image" src="https://github.com/user-attachments/assets/32ff05fa-59ba-4072-a8b2-7f50c14ce477" /> <img width="818" height="321" alt="image" src="https://github.com/user-attachments/assets/d8ac01dd-9dd2-4a91-8ccd-809d00cafae1" /> | Generated words just fine based on difficulties |
-| Placeholder | Manual | placeholder | placeholder | N/A |
-| Placeholder | Manual | placeholder | placeholder | N/A |
-| Placeholder | Manual | placeholder | placeholder | N/A |
+| Grid generation when pressing new game | Manual | Generates grid when pressing new game based of difficulty | placeholder | N/A |
+| Auto solver deducting points when pressing button | Manual | Deducting the points when pressing "auto solve" | <img width="765" height="486" alt="image" src="https://github.com/user-attachments/assets/3c2e672f-fca2-443a-812c-15c2b4d1054a" /> | N/A |
+| Submitting incorrect guess | Manual | Says incorrect and add  |  <img width="873" height="734" alt="image" src="https://github.com/user-attachments/assets/419c19ae-f0ab-44c0-b087-b7ea63120aab" /> | N/A |
 | Placeholder | Manual | placeholder | placeholder | N/A |
 | Placeholder | Manual | placeholder | placeholder | N/A |
 | Placeholder | Manual | placeholder | placeholder | N/A |
