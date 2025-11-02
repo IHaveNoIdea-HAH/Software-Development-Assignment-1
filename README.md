@@ -1,4 +1,4 @@
-# Software-Development-Assignment-1
+<img width="840" height="412" alt="image" src="https://github.com/user-attachments/assets/5d794479-5cdb-4eef-af2a-b7b5464d0d79" /><img width="883" height="489" alt="image" src="https://github.com/user-attachments/assets/1806a89e-cc12-458c-ae18-ad0cb68a16c5" /># Software-Development-Assignment-1
 
 # Project Crossword
 The game chosen for the Project was Crossword. All members of the team have agreed to do.
@@ -563,23 +563,33 @@ ToDo: add a block diagram here (Alex).
 
 # Activity 4 - Testing
 
-| What's being tested | Testing type | What it should do | What it actually done | Comments |
-|-----------|-----------|-----------|-----------|-----------|
-| Login/Register | Manual | Store data in crossword_session | Stores user id, username and security token <img width="1375" height="58" alt="image" src="https://github.com/user-attachments/assets/b632e42a-d65f-49ee-a09a-e30a85f53aa1" /> <img width="1384" height="59" alt="image" src="https://github.com/user-attachments/assets/58744c38-466b-4e1e-9eb5-3e56efb15095" /> | Data has been stored after login |
-| Play button | Manual | Takes user to the login page | Successfully took user to login page <img width="756" height="422" alt="image" src="https://github.com/user-attachments/assets/b010440b-76ee-403e-aea9-8690a313b2d3" />  | Button does take to login page | 
-| Register storing data and encrypting password | Manual | When registering. It should store in the json file | Stored without issue <img width="824" height="664" alt="image" src="https://github.com/user-attachments/assets/6c78fd84-7259-4c6f-8747-54935cb8baa7" /> <img width="832" height="181" alt="image" src="https://github.com/user-attachments/assets/c4f189d8-746a-4274-95dd-13b4091ba799" /> | Stored in json file |
-| How to play button | Manual | Show pop up of how to play | Showed pop up <img width="997" height="1008" alt="image" src="https://github.com/user-attachments/assets/f194bb09-a658-4649-882f-b83a2bafea27" /> | Showed pop up without issue |
-| Register Invalidation | Manual | Error shows up saying fields must be filled out. email must have @ and end with .com | <img width="786" height="661" alt="image" src="https://github.com/user-attachments/assets/e48fac73-1982-47bd-bbcd-cbb1b4fb7a6d" /> | N/A |
-| Register Invalidation 2 | Manual | Password must be longer than 6 letters and user name must be longer than 3 letters | <img width="731" height="579" alt="image" src="https://github.com/user-attachments/assets/59c244f6-f494-434e-bfe9-11aaafc662a6" /><img width="769" height="690" alt="image" src="https://github.com/user-attachments/assets/ae254987-3e75-4c73-8983-47aa9a5b9bf3" /> | No changes needed |
-| Login takes you to play page | Manual | Takes you to play page | Took to play page when pressing play and login <img width="1083" height="768" alt="image" src="https://github.com/user-attachments/assets/a61ce486-26bf-4fe5-958a-aecee2e1561b" /> | Bug: When running the program for the first time. it takes you to the play page instantly. When starting new game bug occurs. |
-| New game | Manual | Pressing new game | error <img width="993" height="773" alt="image" src="https://github.com/user-attachments/assets/8cf838f2-ea7b-41b8-88d3-0da16f8c6b8f" /> | When pressing new game and not going to /register to go to /login. This error occurs. To fix this temporarily. Going to /register then login fixes it |
-| New game generation | Manual | Generates the words and grid when choosing difficulty | Generated words.<img width="364" height="474" alt="image" src="https://github.com/user-attachments/assets/7cd78e30-8c1b-4bfc-a7e8-5e55db62959d" /> <img width="887" height="559" alt="image" src="https://github.com/user-attachments/assets/32ff05fa-59ba-4072-a8b2-7f50c14ce477" /> <img width="818" height="321" alt="image" src="https://github.com/user-attachments/assets/d8ac01dd-9dd2-4a91-8ccd-809d00cafae1" /> | Generated words just fine based on difficulties |
-| Grid generation when pressing new game | Manual | Generates grid when pressing new game based of difficulty | placeholder | N/A |
-| Auto solver deducting points when pressing button | Manual | Deducting the points when pressing "auto solve" | <img width="765" height="486" alt="image" src="https://github.com/user-attachments/assets/3c2e672f-fca2-443a-812c-15c2b4d1054a" /> | N/A |
-| Submitting incorrect guess | Manual | Says incorrect and add  |  <img width="873" height="734" alt="image" src="https://github.com/user-attachments/assets/419c19ae-f0ab-44c0-b087-b7ea63120aab" /> | N/A |
-| Placeholder | Manual | placeholder | placeholder | N/A |
-| Placeholder | Manual | placeholder | placeholder | N/A |
-| Placeholder | Manual | placeholder | placeholder | N/A |
+## Home page, Register and Login Page Testing section
+| What's being tested | Testing type | What it should do | What it actually done | Comments | Proof |
+|-----------|-----------|-----------|-----------|-----------|-----------|
+| Login/Register | Manual | Store data in crossword_session | Stores user id, username and security token | Data has been stored after login | <img width="1375" height="58" alt="image" src="https://github.com/user-attachments/assets/b632e42a-d65f-49ee-a09a-e30a85f53aa1" /> <img width="1384" height="59" alt="image" src="https://github.com/user-attachments/assets/58744c38-466b-4e1e-9eb5-3e56efb15095" /> |
+| Play button | Manual | Takes user to the login page | Successfully took user to login page  | Button does take to login page | <img width="756" height="422" alt="image" src="https://github.com/user-attachments/assets/b010440b-76ee-403e-aea9-8690a313b2d3" /> | 
+| Register storing data and encrypting password | Manual | When registering. It should store in the json file | Stored without issue | Stored in json file |  <img width="824" height="664" alt="image" src="https://github.com/user-attachments/assets/6c78fd84-7259-4c6f-8747-54935cb8baa7" /> <img width="832" height="181" alt="image" src="https://github.com/user-attachments/assets/c4f189d8-746a-4274-95dd-13b4091ba799" /> |
+| How to play button | Manual | Show pop up of how to play | Showed pop up  | Showed pop up without issue | <img width="997" height="1008" alt="image" src="https://github.com/user-attachments/assets/f194bb09-a658-4649-882f-b83a2bafea27"/> |
+| Register Invalidation | Manual | Error shows up saying fields must be filled out. email must have @ and end with .com | Inputting email without @ or .com invalidated the attempt. | Worked as intended | <img width="786" height="661" alt="image" src="https://github.com/user-attachments/assets/e48fac73-1982-47bd-bbcd-cbb1b4fb7a6d" /> |
+| Register Invalidation 2 | Manual | Password must be longer than 6 letters and user name must be longer than 3 letters | Registering with password that less than 5 letters and not longer than 3 letters invalidated attempt to register | Worked as intended | <img width="731" height="579" alt="image" src="https://github.com/user-attachments/assets/59c244f6-f494-434e-bfe9-11aaafc662a6" /><img width="769" height="690" alt="image" src="https://github.com/user-attachments/assets/ae254987-3e75-4c73-8983-47aa9a5b9bf3" /> |
+| Login takes you to play page | Manual | Takes you to play page | Took to play page when pressing play and login | Bug: When running the program for the first time. it takes you to the play page instantly. When starting new game bug occurs. |  <img width="1083" height="768" alt="image" src="https://github.com/user-attachments/assets/a61ce486-26bf-4fe5-958a-aecee2e1561b" /> |
+
+## Play page Testing section
+| What's being tested | Testing type | What it should do | What it actually done | Comments | Proof |
+|-----------|-----------|-----------|-----------|-----------|-----------|
+| Logining out | Manual | Logs you out | takes you to the login page and logs you out. | N/A | <img width="1083" height="768" alt="image" src="https://github.com/user-attachments/assets/a61ce486-26bf-4fe5-958a-aecee2e1561b" /> |
+| New game | Manual | Pressing new game | error when pressing new game, takes you to login page then play page. Cannot start game due to not logging in | When pressing new game and not going to /register to go to /login. This error occurs. To fix this temporarily. Going to /register then login fixes it. Logging out works as well to fix it.| <img width="993" height="773" alt="image" src="https://github.com/user-attachments/assets/8cf838f2-ea7b-41b8-88d3-0da16f8c6b8f" /> |
+| New game generation | Manual | Generates the words and grid when choosing difficulty | Generated words without issue.| Generated words just fine based on difficulties | <img width="364" height="474" alt="image" src="https://github.com/user-attachments/assets/7cd78e30-8c1b-4bfc-a7e8-5e55db62959d" /> <img width="887" height="559" alt="image" src="https://github.com/user-attachments/assets/32ff05fa-59ba-4072-a8b2-7f50c14ce477" /> <img width="818" height="321" alt="image" src="https://github.com/user-attachments/assets/d8ac01dd-9dd2-4a91-8ccd-809d00cafae1" /> |
+| Grid generation when pressing new game | Manual | Generates grid when pressing new game based of difficulty | Chosen Difficulty: Medium. Generates 10 words | N/A | <img width="705" height="853" alt="image" src="https://github.com/user-attachments/assets/219a4b71-c006-414b-9a2c-22364b83dac8" /> |
+| Auto solver deducting points when pressing button | Manual | Deducting the points when pressing "auto solve" | Deducted points when pressed "auto solve" | N/A | <img width="765" height="486" alt="image" src="https://github.com/user-attachments/assets/3c2e672f-fca2-443a-812c-15c2b4d1054a" /> |
+| Submitting incorrect guess | Manual | Says incorrect and add  | Any incorrect answer increased the counter guesses made | N/A |  <img width="873" height="734" alt="image" src="https://github.com/user-attachments/assets/419c19ae-f0ab-44c0-b087-b7ea63120aab" /> |
+| guessing the correct guess | Manual | inputting the correct guess and number. Fills the grid as well. | added points when guessing correctly. | No comments | <img width="883" height="489" alt="image" src="https://github.com/user-attachments/assets/697389a3-73e3-4024-9706-3d34460e697b" /> |
+| Guessing the correct guess but inputting the wrong guess number | Manual | say incorrect | Said incorrect. | Worked as intended. | <img width="916" height="744" alt="image" src="https://github.com/user-attachments/assets/ab339171-d13d-4bb5-9a12-22bf19bb7d02" /> <img width="831" height="392" alt="image" src="https://github.com/user-attachments/assets/e221379c-1c1c-495e-be11-fcf0705acaee" />. The correct number <img width="831" height="392" alt="image" src="https://github.com/user-attachments/assets/6557151b-a465-401e-80c4-d3588c63a0a7" /> |
+| Inputting nothing  | Manual | Shouldn't allow any guesses | didn't allow any guess| if the box is empty no guesses are made | <img width="840" height="412" alt="image" src="https://github.com/user-attachments/assets/85fbc9bf-7933-4fbe-8c31-7c95d3fd0016" /> |
+| Placeholder | Manual | placeholder | placeholder | N/A | Add Picture here |
+| Placeholder | Manual | placeholder | placeholder | N/A | Add Picture here |
+| Placeholder | Manual | placeholder | placeholder | N/A | Add Picture here |
+
 
 
 
