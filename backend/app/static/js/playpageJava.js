@@ -763,12 +763,65 @@ async function submitAutoSolveCrossword() {
   };
 }
 
+// Log off the game and clear session when the user clicks log out on the /play page
+function logOffTheGame() {
+  // Create confirmation dialog
+  const confirmDialog = document.createElement('div');
+  confirmDialog.style.position = 'fixed';
+  confirmDialog.style.top = '0';
+  confirmDialog.style.left = '0';
+  confirmDialog.style.width = '100vw';
+  confirmDialog.style.height = '100vh';
+  confirmDialog.style.background = 'rgba(0,0,0,0.5)';
+  confirmDialog.style.display = 'flex';
+  confirmDialog.style.alignItems = 'center';
+  confirmDialog.style.justifyContent = 'center';
+  confirmDialog.style.zIndex = '1000';
+
+  const dialogBox = document.createElement('div');
+  dialogBox.style.background = '#fff';
+  dialogBox.style.padding = '24px';
+  dialogBox.style.borderRadius = '8px';
+  dialogBox.style.boxShadow = '0 2px 8px rgba(0,0,0,0.2)';
+  dialogBox.style.textAlign = 'center';
+
+  const message = document.createElement('p');
+  message.textContent = 'Would you like to log out from the game?';
+  dialogBox.appendChild(message);
+
+  const yesBtn = document.createElement('button');
+  yesBtn.textContent = 'Yes';
+  yesBtn.style.margin = '0 10px';
+  const noBtn = document.createElement('button');
+  noBtn.textContent = 'No';
+  noBtn.style.margin = '0 10px';
+
+  dialogBox.appendChild(yesBtn);
+  dialogBox.appendChild(noBtn);
+  confirmDialog.appendChild(dialogBox);
+  document.body.appendChild(confirmDialog);
+
+  yesBtn.onclick = function() {
+    // Clear crossword session from localStorage so that the player can log in again fresh
+    localStorage.removeItem('crossword_session');
+    document.body.removeChild(confirmDialog);
+    // Redirect to start page
+    window.location.href = '/';
+  };
+
+  noBtn.onclick = function() {
+    document.body.removeChild(confirmDialog);
+  };
+}
+
 
 // Attach event listeners to our buttons in the play page so that they work when clicked
 window.addEventListener('DOMContentLoaded', function() {
   if (!checkUserLoggedIn()) return;
   const btn = document.getElementById('new_game_btn');
   if (btn) btn.addEventListener('click', checkAndStartNewGame);
+  const logOutBtn = document.getElementById('log_out_btn');
+  if (logOutBtn) logOutBtn.addEventListener('click', logOffTheGame);
   const guessBtn = document.getElementById('submit_guess_word_btn');
   if (guessBtn) guessBtn.addEventListener('click', submitGuessWord);
   const solveClueBtn = document.getElementById('submit_solve_clue_btn');
@@ -776,3 +829,4 @@ window.addEventListener('DOMContentLoaded', function() {
   const autoSolveCrosswordBtn = document.getElementById('auto_solve_crossword_btn');
   if (autoSolveCrosswordBtn) autoSolveCrosswordBtn.addEventListener('click', submitAutoSolveCrossword);
 });
+
