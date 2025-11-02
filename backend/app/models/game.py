@@ -182,19 +182,22 @@ class Game:
 
         if self.check_clue_number_is_valid(clue_number):
             if CrosswordService.check_guess(self.crossword, word_guess, clue_number):
+                # Here we have a correct guess so we need to uncover the word on the crossword's covered grid
+                CrosswordService.solve_clue(self.crossword, clue_number)
                 # Correct guess so we mark the clue as solved
                 self.solved_clues.append(clue_number)
                 # Let's store the guess
                 self.add_guess(clue_number, word_guess, True)
                 # Let's bump the score
-                self.bump_score(len(word_guess) * 10)  # Scoring: 10 points per letter
+                bump_points = len(word_guess) * 10
+                self.bump_score(bump_points)  # Scoring: 10 points per letter
                 # Increment words guessed count
                 self.words_guessed += 1
-                return True
+                return True, bump_points
             else:
                 # Incorrect guess, let's store it
                 self.add_guess(clue_number, word_guess, False)
-                return False
+                return False, 0
         else:
             raise ValueError("Invalid clue number provided.")
 
@@ -207,7 +210,9 @@ class Game:
 
         if self.check_clue_number_is_valid(clue_number):
             answer = self.crossword.clues[clue_number - 1].answer.upper()
-            # Correct guess so we mark the clue as solved
+            # Here we have to uncover the word on the crossword's covered grid
+            CrosswordService.solve_clue(self.crossword, clue_number)
+            # We mark the clue as solved
             self.solved_clues.append(clue_number)
             # Let's calculate penalty points
             penalty_points = -len(answer) * 10

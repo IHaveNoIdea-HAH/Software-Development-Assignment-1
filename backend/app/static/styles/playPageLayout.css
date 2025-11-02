@@ -148,6 +148,18 @@ body {
     flex-wrap: wrap;
 }
 
+/* status message Box */
+.status-message-box {
+    background-color: white;
+    border: 3px solid #333;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 
 /* Clues Box */
 .clues-box {

@@ -13,20 +13,20 @@
             <h1>Crosswords Game</h1>
         </div>
 
+        <div class="status-message-box">
+            <span id="status_message">Welcome to the Crossword Puzzle!</span>
+        </div>
+
         <!-- Ensure buttons are functional -->
         <div class="button-box">
             <button id="new_game_btn">New Game</button>
-            <button>Auto solve a clue</button>
             <button>Auto solve the crossword</button>
         </div>
 
         <div class="hud-box">
+            <span id="game_state_label">Game state:</span>
             <div id="game_state">
             </div>
-        </div>
-
-        <div class="status-box">
-            <span id="statusMessage">Welcome to the Crossword Puzzle!</span>
         </div>
 
         <!--this is the container to render the crossword grid -->
@@ -41,8 +41,9 @@
             <select id="clue_number_select">
                 <option value="" disabled selected>Select Clue Number</option>
             </select>
-            <input type="text" id="userInput" placeholder="Type guess word here...">
-            <button id="submitGuessWordBtn">Submit guess word</button>
+            <input type="text" id="word_guess_user_input" placeholder="Type guess word here...">
+            <button id="submit_guess_word_btn">Submit guess</button>
+            <button id="submit_solve_clue_btn">Solve clue</button>
         </div>
 
         <!--here we go with the clues and render them for the player to see-->

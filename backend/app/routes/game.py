@@ -145,7 +145,7 @@ def guess_word():
             # Retrieve the game instance
             g = current_app.config['GAMES'][game_id]
             # Process the guess
-            is_correct = g.process_guess(clue_number, word_guess)
+            is_correct, points_scored = g.process_guess(clue_number, word_guess)
             answer = ''
 
             # check if game is over
@@ -167,7 +167,9 @@ def guess_word():
                 'message': message,
                 'is_correct': is_correct,
                 'answer': answer,
+                'points_scored': points_scored,
                 'game_state': GameSchema.dump_state(g),
+                'crossword': CrosswordSchema.dump(g.get_crossword())
             }), 200
     except Exception as e:
         return jsonify({
@@ -255,6 +257,7 @@ def solve_clue():
                 'answer': answer,
                 'penalty_points': penalty_points,
                 'game_state': GameSchema.dump_state(g),
+                'crossword': CrosswordSchema.dump(g.get_crossword())
             }), 200
     except Exception as e:
         return jsonify({
@@ -349,18 +352,34 @@ def game_status(game_id):
         }), 500
 
 
-@game_bp.route('/random-word', methods=['GET']) #Gets a random word
-def random_word():
-    json_path = os.path.join(current_app.root_path, 'data', 'crossword_words.json') #Gets words from data folder, crossword json file
+@game_bp.route('/list_active_games/<int:user_id>', methods=['GET'])
+def list_active_games(user_id):
     try:
-        with open(json_path, 'r') as f: #Loads json
-            words = json.load(f)
-
-        if words: #If the word has been located choose a random word from there
-            chosen = random.choice(words)
-            return jsonify(chosen), 200
+        # Check if user is known
+        if user_id == -1 or user_id not in current_app.config['USERS']:
+            # Unknown user, cannot start game
+            return jsonify({
+                'result': 'failure',
+                'message': 'Unknown user. Please log in to start a game.',
+                'error': 'Unknown User ID has been received.'
+            }), 400
         else:
-            return jsonify({'error': 'No words found'}), 404 #If no words has been found, cause error.
-    except FileNotFoundError: #Ensures we input json file in the correct place
-        return jsonify({'error': 'JSON file not found at ' + json_path}), 404
+            active_games = []
+            for game_id, game in current_app.config['GAMES'].items():
+                if game.user_id == user_id and not game.is_status_completed():
+                    active_games.append({
+                        'game_id': game_id,
+                        'game_state': GameSchema.dump_state(game),
+                    })
 
+            return jsonify({
+                'result': 'success',
+                'message': f'Found {len(active_games)} active games for user.',
+                'active_games': active_games,
+            }), 200
+    except Exception as e:
+        return jsonify({
+            'result': 'failure',
+            'message': 'Error listing active games',
+            'error': str(e)
+        }), 500

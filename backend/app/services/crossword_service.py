@@ -168,3 +168,37 @@ class CrosswordService:
         '''
         # Check if guess is correct
         return guess.upper() == crossword.clues[clue_number - 1].answer.upper()
+
+
+    @staticmethod
+    def solve_clue(crossword, clue_number):
+        '''
+        Solves a clue in the crossword by copying the answer from the solved grid to the covered grid.
+        :param crossword: the crossword object
+        :param clue_number: number of the clue in the crossword to solve
+        :return: answer string
+        '''
+        clue = crossword.clues[clue_number - 1]
+        answer = clue.answer.upper()
+
+        # Now we need to find where this clue is located on the grid
+        grid_size = len(crossword.solved_grid)
+
+        found = False
+
+        for row in range(grid_size):
+            for col in range(grid_size):
+                if crossword.covered_grid[row][col] == str(clue_number):
+                    # We found the starting position of the clue
+                    if clue.direction == 'across':
+                        for i in range(len(answer)):
+                            crossword.covered_grid[row][col + i] = answer[i]
+                    else:  # down
+                        for i in range(len(answer)):
+                            crossword.covered_grid[row + i][col] = answer[i]
+                    found = True
+                    break
+            if found:
+                break
+
+        return answer
