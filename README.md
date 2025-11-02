@@ -1,4 +1,4 @@
-<img width="840" height="412" alt="image" src="https://github.com/user-attachments/assets/5d794479-5cdb-4eef-af2a-b7b5464d0d79" /><img width="883" height="489" alt="image" src="https://github.com/user-attachments/assets/1806a89e-cc12-458c-ae18-ad0cb68a16c5" /># Software-Development-Assignment-1
+# Software-Development-Assignment-1
 
 # Project Crossword
 The game chosen for the Project was Crossword. All members of the team have agreed to do.
