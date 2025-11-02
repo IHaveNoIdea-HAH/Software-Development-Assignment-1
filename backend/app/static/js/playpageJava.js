@@ -150,15 +150,14 @@ function renderGameState(state) {
   const table = document.createElement('table');
   table.className = 'game-state-table';
   const rows = [
-    ['Game ID', state.game_id],
-    ['Status', state.game_status],
-    ['Score', state.current_score],
-    ['Words Solved', state.words_solved],
-    ['Words To Solve', state.words_to_solve],
+    // ['Status', state.game_status],
+    ['Game Result', state.game_result ?? 'In Progress'],
+    ['Game Score', state.current_score],
     ['Guess Limit', state.guess_limit],
     ['Guesses Made', state.guesses_made],
     ['Guesses Left', state.guesses_left],
-    ['Result', state.game_result ?? 'In Progress']
+    ['Words Solved', state.words_solved],
+    ['Words To Solve', state.words_to_solve]
   ];
   for (const [label, value] of rows) {
     const tr = document.createElement('tr');
@@ -177,7 +176,7 @@ function renderGameState(state) {
 // Main function to start a new game
 async function startNewGame(difficulty) {
   difficulty = (difficulty || 'normal').toLowerCase();
-  const out = document.getElementById('statusMessage');
+  const out = document.getElementById('status_message');
   try {
    const res = await fetch("/api/game/start", {
      method: "POST",
@@ -295,9 +294,178 @@ function checkUserLoggedIn() {
   return true;
 }
 
+
+// Handle guess word submission
+async function submitGuessWord() {
+  const session = loadSession() || {};
+  const userId = session.user_id;
+  const token = session.security_token;
+  const gameId = session.game_id;
+  const wordGuess = document.getElementById('word_guess_user_input')?.value?.trim();
+  const clueNumber = document.getElementById('clue_number_select')?.value;
+  const statusMsg = document.getElementById('status_message');
+
+  // Basic inputs validation to ensure we send good info to backend
+  if (!userId || !token || !gameId) {
+    statusMsg.textContent = 'Session missing. Please login and start a game.';
+    return;
+  }
+  if (!wordGuess) {
+    statusMsg.textContent = 'Please enter a guess word.';
+    return;
+  }
+  if (!clueNumber) {
+    statusMsg.textContent = 'Please select a clue number.';
+    return;
+  }
+
+  try {
+    const res = await fetch('/api/game/guess_word', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({
+        user_id: userId,
+        security_token: token,
+        game_id: gameId,
+        word_guess: wordGuess,
+        clue_number: Number(clueNumber)
+      })
+    });
+
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.message || data.error || 'Word guessing failed.');
+
+    statusMsg.textContent = data.message || 'Guess submitted!';
+
+    // Show dialog based on correctness of the guess made by the player
+    if (typeof data.is_correct !== 'undefined') {
+      const dialog = document.createElement('div');
+      dialog.id = 'guess-result-dialog';
+      dialog.style.position = 'fixed';
+      dialog.style.top = '0';
+      dialog.style.left = '0';
+      dialog.style.width = '100vw';
+      dialog.style.height = '100vh';
+      dialog.style.background = 'rgba(0,0,0,0.4)';
+      dialog.style.display = 'flex';
+      dialog.style.alignItems = 'center';
+      dialog.style.justifyContent = 'center';
+      dialog.style.zIndex = '10000';
+      let msg = '';
+      if (data.is_correct) {
+        msg = `<h2>Correct Guess for word <span style='color:green'>${data.answer}</span></h2><p>${data.points_scored} points scored</p>`;
+      } else {
+        msg = `<h2>Ooops, your guess was wrong, try again!</h2>`;
+      }
+      dialog.innerHTML = `<div style='background:white;padding:32px 24px;border-radius:8px;box-shadow:0 2px 16px #0003;min-width:320px;text-align:center;'>${msg}<br><button id='close-guess-dialog'>OK</button></div>`;
+      document.body.appendChild(dialog);
+      document.getElementById('close-guess-dialog').onclick = function() {
+        dialog.remove();
+      };
+      // Optionally auto-close after 10 seconds
+      setTimeout(() => { dialog.remove(); }, 10000);
+    }
+
+    // Let's update the game state to show the latest info
+    if (data.game_state) renderGameState(data.game_state);
+
+    // here we render the crossword grid again to show any updates sent by backend
+    if (data.crossword?.grid) renderGrid('crossword_grid', data.crossword.grid);
+
+    // Clear the inputs after word guess has been submitted
+    document.getElementById('word_guess_user_input').value = '';
+    document.getElementById('clue_number_select').value = '';
+  } catch (err) {
+    statusMsg.textContent = `Error: ${err.message}`;
+  }
+}
+
+
+// Handle solve clue submission
+async function submitSolveClue() {
+  const session = loadSession() || {};
+  const userId = session.user_id;
+  const token = session.security_token;
+  const gameId = session.game_id;
+  const clueNumber = document.getElementById('clue_number_select')?.value;
+  const statusMsg = document.getElementById('status_message');
+
+  // Basic inputs validation to ensure we send good info to backend
+  if (!userId || !token || !gameId) {
+    statusMsg.textContent = 'Session missing. Please login and start a game.';
+    return;
+  }
+  if (!clueNumber) {
+    statusMsg.textContent = 'Please select a clue number.';
+    return;
+  }
+
+  try {
+    const res = await fetch('/api/game/solve_clue', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({
+        user_id: userId,
+        security_token: token,
+        game_id: gameId,
+        clue_number: Number(clueNumber)
+      })
+    });
+
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.message || data.error || 'Solving clue failed.');
+
+    statusMsg.textContent = data.message || 'Solve clue submitted!';
+
+    // Show dialog based on correctness of the guess made by the player
+    if (data.result == 'success') {
+      const dialog = document.createElement('div');
+      dialog.id = 'guess-result-dialog';
+      dialog.style.position = 'fixed';
+      dialog.style.top = '0';
+      dialog.style.left = '0';
+      dialog.style.width = '100vw';
+      dialog.style.height = '100vh';
+      dialog.style.background = 'rgba(0,0,0,0.4)';
+      dialog.style.display = 'flex';
+      dialog.style.alignItems = 'center';
+      dialog.style.justifyContent = 'center';
+      dialog.style.zIndex = '10000';
+      let msg = '';
+      msg = `<h2>Clue solved, answer is <span style='color:red'>${data.answer}</span></h2><p>${data.penalty_points} penalty points scored</p>`;
+      dialog.innerHTML = `<div style='background:white;padding:32px 24px;border-radius:8px;box-shadow:0 2px 16px #0003;min-width:320px;text-align:center;'>${msg}<br><button id='close-guess-dialog'>OK</button></div>`;
+      document.body.appendChild(dialog);
+      document.getElementById('close-guess-dialog').onclick = function() {
+        dialog.remove();
+      };
+      // Optionally auto-close after 10 seconds
+      setTimeout(() => { dialog.remove(); }, 10000);
+    }
+
+    // Let's update the game state to show the latest info
+    if (data.game_state) renderGameState(data.game_state);
+
+    // here we render the crossword grid again to show any updates sent by backend
+    if (data.crossword?.grid) renderGrid('crossword_grid', data.crossword.grid);
+
+    // Clear the inputs after word guess has been submitted
+    document.getElementById('word_guess_user_input').value = '';
+    document.getElementById('clue_number_select').value = '';
+  } catch (err) {
+    statusMsg.textContent = `Error: ${err.message}`;
+  }
+}
+
+
 // Attach event listener to 'New Game' button
 window.addEventListener('DOMContentLoaded', function() {
   if (!checkUserLoggedIn()) return;
   const btn = document.getElementById('new_game_btn');
   if (btn) btn.addEventListener('click', checkAndStartNewGame);
+  const guessBtn = document.getElementById('submit_guess_word_btn');
+  if (guessBtn) guessBtn.addEventListener('click', submitGuessWord);
+  const solveClueBtn = document.getElementById('submit_solve_clue_btn');
+  if (solveClueBtn) solveClueBtn.addEventListener('click', submitSolveClue);
 });
