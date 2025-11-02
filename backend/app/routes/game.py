@@ -151,9 +151,9 @@ def guess_word():
             # check if game is over
             if g.check_if_game_is_completed():
                 if g.is_game_won():
-                    message = 'Game Over! Congratulations, you have won the game!'
+                    message = 'You have won the game!'
                 else:
-                    message = 'Game Over! You have used all your guesses.'
+                    message = 'You have lost!'
             else:
                 if is_correct:
                     message = 'Correct guess!'
@@ -244,9 +244,9 @@ def solve_clue():
             # Check if game is completed
             if g.check_if_game_is_completed():
                 if g.is_game_won():
-                    message = 'Game Over! Congratulations, you have won the game!'
+                    message = 'You have won the game!'
                 else:
-                    message = 'Game Over! You have lost!'
+                    message = 'You have lost!'
             else:
                 message = 'Clue solved successfully.'
 
@@ -308,7 +308,7 @@ def auto_solve():
         else:
             # Retrieve the game instance
             g = current_app.config['GAMES'][game_id]
-            g.auto_solve()
+            penalty_points = g.auto_solve()
 
             # Create response we are going to send back to frontend
             # Serialize crossword using CrosswordSchema
@@ -317,6 +317,7 @@ def auto_solve():
                 'message': 'Game Over - Auto Solved!',
                 'crossword': CrosswordSchema.dump_solved(g.get_crossword()),
                 'game_state': GameSchema.dump_state(g),
+                'penalty_points': penalty_points,
             }), 200
     except Exception as e:
         return jsonify({

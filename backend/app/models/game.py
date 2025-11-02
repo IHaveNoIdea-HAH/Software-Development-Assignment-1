@@ -49,16 +49,21 @@ class Game:
     def auto_solve(self):
         '''
         Automatically solve the crossword by filling in all answers.
-        :return:
+        :return: penalty points applied for auto-solving
         '''
         # Solve all unsolved clues and mark the game as completed with a loss
+        # Each solved clue incurs a penalty based on the length of the answer so we sum up total penalty points for all remaining clues being auto-solved
+        total_penalty_points = 0
+        answer = ""
         for i in range(0, self.get_words_to_solve()):
             clue_number = self.get_crossword().clues[i].number
             if not self.check_clue_is_solved(clue_number):
-                self.solve_clue(clue_number)
+                answer, penalty_points = self.solve_clue(clue_number)
+                total_penalty_points += penalty_points
 
         self.status = 'completed'
         self.result = 'loss'  # Auto-solve results in a loss
+        return total_penalty_points
 
     def get_user_id(self):
         '''
@@ -177,7 +182,7 @@ class Game:
         Process a player's guess and update the game state accordingly.
         :param clue_number: number of the clue in the crossword to check the word_guess against
         :param word_guess: the word guess submitted by player
-        :return: True if the guess is correct, False otherwise
+        :return: tuple (is_correct, bump_points)
         '''
 
         if self.check_clue_number_is_valid(clue_number):
@@ -205,7 +210,7 @@ class Game:
         '''
         Solves a clue submitted by the player, updating the game state accordingly.
         :param clue_number: number of the clue in the crossword to check the word_guess against
-        :return: answer string and penalty points applied
+        :return: tuple (answer, penalty_points)
         '''
 
         if self.check_clue_number_is_valid(clue_number):
