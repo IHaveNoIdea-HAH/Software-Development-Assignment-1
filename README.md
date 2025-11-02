@@ -15,7 +15,7 @@ The team is comprised from the following team members:
 3. Alex
 
 ## Contribution from Cedric
-
+Interface of the website using HTML and CSS. Activity 1 Mockup, Storyboard, Identifying risks. Reviewing available project to decide which to develop. Manual Testing of the website.
 ## Contribution from Shreyas
 
 ## Contribution from Alex
@@ -590,8 +590,7 @@ ToDo: add a block diagram here (Alex).
 | Inputting answer with no clue number  | Manual | Should say "input clue number" | Worked as intended. | if the box is empty no guesses are made | <img width="453" height="184" alt="image" src="https://github.com/user-attachments/assets/d64d53bc-bf7b-4f66-94e7-bb01696457cc" /> |
 | Completing the game | Manual | when filling out all words. It should say "you win" | done exactly that for all difficulites | No changes needed | <img width="883" height="1028" alt="image" src="https://github.com/user-attachments/assets/aa2c5e87-2d27-4c0a-b0f8-6786d58c49d5" /> |
 | Losing the game | Manual | When running out of guesses, it should say "you didn't complete the game" | Done exactly as intended. | N/A | <img width="849" height="587" alt="image" src="https://github.com/user-attachments/assets/a0721c5f-b940-4f74-a3b9-b7a28778b7f6" /> |
-| Placeholder | Manual | placeholder | placeholder | N/A | Add Picture here |
-| Placeholder | Manual | placeholder | placeholder | N/A | Add Picture here |
+
 | Placeholder | Manual | placeholder | placeholder | N/A | Add Picture here |
 
 
