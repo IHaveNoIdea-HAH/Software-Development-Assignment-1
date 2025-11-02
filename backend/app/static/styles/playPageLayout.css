@@ -275,3 +275,36 @@ button:hover {
   height: 22px;
   border: 1px solid #222;
 }
+
+/* Game state table styles to render nice HUD display with the latest game state */
+.game-state-table {
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  background: #fff;
+}
+.game-state-table td {
+  border: 1px solid #333;
+  padding: 10px 18px;
+  font-size: 15px;
+  text-align: center;
+  background: #f8f8f8;
+}
+.game-state-table tr:first-child td {
+  border-top: none;
+}
+.game-state-table tr:last-child td {
+  border-bottom: none;
+}
+.game-state-table td:first-child {
+  border-left: none;
+}
+.game-state-table td:last-child {
+  border-right: none;
+}
+.game-state-table {
+  border: 2px solid #333;
+}

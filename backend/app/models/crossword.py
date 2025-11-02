@@ -20,9 +20,10 @@ class Crossword:
             print(f"{clue.number} {clue.direction}: {clue.text} (Answer: {clue.answer})")
 
 class Clue:
-    def __init__(self, number, direction, text, answer):
+    def __init__(self, number, direction, text, answer, solved=False):
         self.number = number
         self.direction = direction  # 'across' or 'down'
         self.text = text
         self.answer = answer
+        self.solved = False
 

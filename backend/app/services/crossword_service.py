@@ -181,6 +181,9 @@ class CrosswordService:
         clue = crossword.clues[clue_number - 1]
         answer = clue.answer.upper()
 
+        # Here we mark this clue as solved so that the frontend can render it with strikes through it
+        clue.solved = True
+
         # Now we need to find where this clue is located on the grid
         grid_size = len(crossword.solved_grid)
 

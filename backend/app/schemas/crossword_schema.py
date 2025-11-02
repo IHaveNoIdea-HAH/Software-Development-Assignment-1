@@ -10,6 +10,7 @@ class CrosswordSchema:
                     'direction': clue.direction,
                     'text': clue.text,
                     # 'answer': clue.answer # Exclude answer so that it is not exposed to frontend
+                    'solved': clue.solved
                 } for clue in crossword.clues
             ]
         }
@@ -23,7 +24,8 @@ class CrosswordSchema:
                     'number': clue.number,
                     'direction': clue.direction,
                     'text': clue.text,
-                    'answer': clue.answer
+                    'answer': clue.answer,
+                    'solved': clue.solved
                 } for clue in crossword.clues
             ]
         }
