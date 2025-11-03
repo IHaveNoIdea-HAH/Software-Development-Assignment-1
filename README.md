@@ -52,7 +52,7 @@ Interface of the website using HTML and CSS. Activity 1 Mockup, Storyboard, Iden
 
 ### Activity 4 - Testing
 
-1. Created a set of automated tests (tests/test_script.py) to test the backend part of the crossword game application
+1. Created a set of 28 automated tests (tests/test_script.py) to test the backend part of the crossword game application for REST API endpoints covering main requests and error handling
 2. Executed the automated tests to verify the correctness of the backend part of the crossword game application to ensure all REST API endpoints work as expected together with error handling and edge cases
 3. To manually test REST API endpoints developed Streamlit based API testing tool (tests/test_frontend_app.py) to perform manual testing of the backend part of the crossword game application
 4. Fixed bugs found during automated testing of the backend part of the crossword game application
@@ -672,7 +672,26 @@ ToDo: add a block diagram here (Alex).
 | Completing the game | Manual | when filling out all words. It should say "you win" | done exactly that for all difficulites | No changes needed | <img width="883" height="1028" alt="image" src="https://github.com/user-attachments/assets/aa2c5e87-2d27-4c0a-b0f8-6786d58c49d5" /> |
 | Losing the game | Manual | When running out of guesses, it should say "you didn't complete the game" | Done exactly as intended. | N/A | <img width="849" height="587" alt="image" src="https://github.com/user-attachments/assets/a0721c5f-b940-4f74-a3b9-b7a28778b7f6" /> |
 
-| Placeholder | Manual | placeholder | placeholder | N/A | Add Picture here |
+### Backend comprehensive unit and manual testing
+
+For the unit testing of the backend the /tests/test_script.py file has been created which contains a set of 28 automated unit tests to test the following REST API endpoints of the backend:
+1. /api/user/register - user registration
+2. /api/user/login - user login
+3. /api/game/start - start new game
+4. /api/game/guess_word - submit a word guess
+5. /api/game/solve_clue - solve a clue
+6. /api/game/auto_solve - auto solve the entire crossword
+
+The unit tests cover both positive and negative test cases for each endpoint to verify the correctness of the API responses to contain expected data and status codes.
+The automated unit tests can be run by executing the following command in the terminal:
+```
+python tests/test_script.py
+```
+
+Here is the automated unit test results after running the above command:
+
+[<img width="600" height="400" alt="image" src="img/automated_tests_execution_log.png" />](img/automated_tests_execution_log.png)
+
 
 
 ## References
