@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+   <link rel="stylesheet" href="{{ url_for('static', filename='styles/loginPageLayout.css') }}">
+</head>
+<body> 
+    <div class="login-container">
+        
+        <form id="login-form" data-next="/play">
+
+        <h2>Login</h2>
+
+        <h3>Please enter your credentials to login</h3>
+
+        <div class="form-group">
+            <input type="text" id="username" placeholder="enter username" required>
+        </div>
+    
+        <div class="form-group">
+            <input type="password" id="password" placeholder="enter password" required>
+        </div>
+        
+        <button type="submit">Login</button>
+        
+        <div id="login-message"></div>
+
+        </form>
+
+        <div class="register-link">
+            Don't have an account? <a href="/register">Register here</a>
+        </div>
+
+    </div>
+   
+    <script src="{{ url_for('static', filename='js/loginpageJava.js') }}"></script>
+</body>
+</html>
