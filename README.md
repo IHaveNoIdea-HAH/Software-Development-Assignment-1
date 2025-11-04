@@ -720,10 +720,11 @@ Test evidence:
 [<img width="1024" height="768" alt="image" src="img/new_game_successful.png" />](img/new_game_successful.png)
 
 3. Manual test case to test correct guess of a word submitted to backend and the game state changing
-score increased by 60 points as expected
-guesses left decreased by 1
-words solved increased by 1
-guesses made increased by 1
+
+- score increased by 60 points as expected
+- guesses left decreased by 1
+- words solved increased by 1
+- guesses made increased by 1
 
 Test evidence:
 
@@ -731,10 +732,10 @@ Test evidence:
 
 4. Manual test case to test incorrect guess submitted to backend and the game state changing 
 
-score stayed the same
-guesses left decreased by 1
-words solved stayed the same
-guesses made increased by 1
+- score stayed the same
+- guesses left decreased by 1
+- words solved stayed the same
+- guesses made increased by 1
 
 Test evidence:
 
@@ -743,11 +744,11 @@ Test evidence:
 
 5. Manual test case to test auto solving of the entire crossword and triggering game complete state and game loss result
 
-game result is 'loss' as expected
-game status is 'completed' as expected
-words solved is 5 and equals to words to solve number of 5
-current score has been updated with penalty points
--200 penalty points have been scored as expected
+- game result is 'loss' as expected
+- game status is 'completed' as expected
+- words solved is 5 and equals to words to solve number of 5
+- current score has been updated with penalty points
+- minus 200 penalty points have been scored as expected
 
 Test evidence:
 
