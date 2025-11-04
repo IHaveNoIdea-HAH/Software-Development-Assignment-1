@@ -690,7 +690,68 @@ python tests/test_script.py
 
 Here is the automated unit test results after running the above command:
 
-[<img width="600" height="400" alt="image" src="img/automated_tests_execution_log.png" />](img/automated_tests_execution_log.png)
+[<img width="1024" height="768" alt="image" src="img/automated_tests_execution_log.png" />](img/automated_tests_execution_log.png)
+
+For the manual testing of the backend to test core gameplay user flows e.g. starting a game, guessing a word, solving a clue, auto solving a crossword, game states transition, scoring logic and game win/loss a simple Streamlit app has been developed.
+This Streamlit based testing tool should compliment the automated unit tests pack described above and also offered a convenient way to test the backend by firing various REST API requests and checking backend responses.
+
+It can be run like this:
+```
+streamlit run tests/test_frontend_app.py
+```
+
+It has the following UI:
+
+[<img width="1024" height="768" alt="image" src="img/streamlit_test_app.png" />](img/streamlit_test_app.png)
+
+1. Manual test case executed for the backend to test succesful login
+User submits username and password and backend responses back with the succesful login message:
+
+Test evidence:
+
+[<img width="1024" height="768" alt="image" src="img/login_successfull_test.png" />](img/login_successfull_test.png)
+
+
+2. Manual test case executed for the backend to test new game successfully started
+User submits user_id, security_token, game difficulty as Easy and backend sends response back with the details of the new game started:
+
+Test evidence:
+
+[<img width="1024" height="768" alt="image" src="img/new_game_successful.png" />](img/new_game_successful.png)
+
+3. Manual test case to test correct guess of a word submitted to backend and the game state changing
+score increased by 60 points as expected
+guesses left decreased by 1
+words solved increased by 1
+guesses made increased by 1
+
+Test evidence:
+
+[<img width="1024" height="768" alt="image" src="img/correct_guess_test.png" />](img/correct_guess_test.png)
+
+4. Manual test case to test incorrect guess submitted to backend and the game state changing 
+
+score stayed the same
+guesses left decreased by 1
+words solved stayed the same
+guesses made increased by 1
+
+Test evidence:
+
+[<img width="1024" height="768" alt="image" src="img/incorrect_guess_test.png" />](img/incorrect_guess_test.png)
+
+
+5. Manual test case to test auto solving of the entire crossword and triggering game complete state and game loss result
+
+game result is 'loss' as expected
+game status is 'completed' as expected
+words solved is 5 and equals to words to solve number of 5
+current score has been updated with penalty points
+-200 penalty points have been scored as expected
+
+Test evidence:
+
+[<img width="1024" height="768" alt="image" src="img/auto_solve_crossword_test.png" />](img/auto_solve_crossword_test.png)
 
 
 
