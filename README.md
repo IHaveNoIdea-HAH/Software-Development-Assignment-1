@@ -628,10 +628,11 @@ As per the assignment brief the platform should be web/online based.
 The stack is suggested as: JavaScript, CSS, HTML5, Python (Flask)
 
 ### Architecture design decisions
+
 After reviewing the suggested stack and discussing the options we decided to go with the following architecture design for our crossword game.
 We are using a client-server architecture.
 We are going to have a Flask based backend server (controller) which will do the heavy lifting like handling the game logic, scoring, crosswords generation etc.
-The backend will expose a RESTful API which the frontend (view) will call to start new game, get game state, submit guesses, solve clues, auto solve crossword etc.
+The backend will expose a REST API which the frontend (view) will call to start new game, get game state, submit guesses, solve clues, auto solve crossword etc.
 The Flask backend also will serve the frontend which will be a web app using JavaScript, HTML and CSS. They together will render the gameboard, clues, HUD etc coming in the REST API responses from the backend.
 The JavaScript part of the frontend will call the backend REST API to get game state, submit guesses etc and then help rendering this dynamic data onto the HTML rendered by a browser to a player.
 Initially the backend will use a set of json files to store the game data (words, clues, users, games etc.) but later we might move to a database if time permits (low priority).
@@ -640,7 +641,22 @@ This way our Flask backend represents a hybrid app which serves both as a REST A
 This makes such architecture simple and easy to deploy as we will have a single Flask app to deploy which serves both the backend REST API and the frontend static files.
 ALso, having REST API being offered by the Flask backend makes the architecture scalable and extensible as in future we can have multiple frontend clients (e.g. mobile Android or iPhone app, desktop app etc.) calling the same REST API endpoints to play the crossword game.
 
-ToDo: add a block diagram here (Alex).
+The app architecture can be schematically represented on the following diagram shown below:
+
+[<img width="1024" height="768" alt="image" src="img/app_architecture.png" />](img/app_architecture.png)
+
+When a player opens the crossword game in a browser the following sequence of events happens:
+1. The browser sends an HTTP GET request to the Flask backend server to load the main HTML page of the crossword game.
+2. The Flask backend serves the static HTML, CSS and JS files to the browser.
+3. The browser renders the HTML page and executes the JavaScript code.
+4. The JavaScript code sends an HTTP request to the Flask backend REST API to start a new game.
+5. The Flask backend generates a new crossword, initializes the game state and sends back the game data in the REST API response.
+6. The JavaScript code processes the REST API response and renders the crossword grid, clues and HUD onto the HTML page.
+7. As the player interacts with the game (submits guesses, solves clues etc.) the JavaScript code sends further REST API requests to the Flask backend to update the game state and get responses.
+8. The Flask backend processes these requests, updates the game state and sends back the updated data in the REST API responses.
+9. The JavaScript code updates the HTML page based on the REST API responses to reflect the current game state.
+10. When the game ends (win/lose) the JavaScript code displays the final results to the player.
+
 
 # Activity 4 - Testing
 
