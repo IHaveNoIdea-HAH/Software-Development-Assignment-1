@@ -755,6 +755,99 @@ Test evidence:
 [<img width="1024" height="768" alt="image" src="img/auto_solve_crossword_test.png" />](img/auto_solve_crossword_test.png)
 
 
+6. Manual test case to test solving a clue and the game state changing accordingly
+
+- score decreased by 60 points as expected
+- guess limit stayed the same
+- guesses left stayed the same
+- guesses made stayed the same
+- words solved increased by 1
+- words to solve stayed the same
+- game is still active as expected 
+- result is still 'success' as expected
+- game status is 'started' as expected
+
+Test evidence:
+
+[<img width="1024" height="768" alt="image" src="img/solve_clue_test_1.png" />](img/solve_clue_test_1.png)
+
+7. Manual test case to test already solved clue cannot be solved again
+
+- score stayed the same as expected
+- guess limit stayed the same
+- guesses left stayed the same
+- guesses made stayed the same
+- words solved stayed the same
+- words to solve stayed the same
+- game is still active as expected
+- result is 'failure' as expected
+- game status is 'started' as expected
+- error message is 'Clue already solved' as expected
+- no changes in the game state as expected
+- penalty points are not applied as expected
+
+Test evidence:
+
+[<img width="1024" height="768" alt="image" src="img/solved_clue_error.png" />](img/solved_clue_error.png)
+
+
+8. Manual test case to test game lost scenario when the user auto solved all the clues.
+
+- game result is 'loss' as expected
+- game status is 'completed' as expected
+- words solved is 5 and equals to words to solve number of 5
+- current score has been updated with penalty points
+- minus 300 penalty points have been scored as expected
+- penalty points are applied as expected
+- error message is not present as expected
+- game is no longer active as expected
+- user cannot make any further actions as expected
+
+
+Test evidence:
+
+[<img width="1024" height="768" alt="image" src="img/game_over_player_lost.png" />](img/game_over_player_lost.png)
+
+
+9. Manual test case to test game completed scenario and user cannot make any further actions getting error message back.
+
+- Error message "Game already completed." is shown as expected.
+- result is "failure".
+- Message error "Game is already completed. No more actions allowed.".
+
+Test evidence:
+
+[<img width="1024" height="768" alt="image" src="img/game_completed_no_actions_allowed.png" />](img/game_completed_no_actions_allowed.png)
+
+
+10. Manual test case to test game completed scenario and no more guesses left.
+
+- game result is 'loss' as expected
+- game status is 'completed' as expected
+- words solved is 0 and words to solve number is 15
+- current score is 0 as expected
+
+Test evidence:
+
+[<img width="1024" height="768" alt="image" src="img/game_completed_no_more_guesses.png" />](img/game_completed_no_more_guesses.png)
+
+
+11. Manual test case to test game won scenario when all words are correctly guessed within the guess limit.
+
+- game result is 'win' as expected
+- game status is 'completed' as expected
+- words solved is 5 and equals to words to solve number of 5
+- current score is 390 as expected
+- no penalty points applied as expected
+- error message is not present as expected
+- game is no longer active as expected
+- user cannot make any further actions as expected
+- final score is 390 as expected
+
+Test evidence:
+
+[<img width="1024" height="768" alt="image" src="img/game_completed_win_all_words_guessed.png" />](img/game_completed_win_all_words_guessed.png)
+
 
 ## References
 
