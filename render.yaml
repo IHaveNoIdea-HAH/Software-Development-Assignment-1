@@ -1,0 +1,14 @@
+# yaml
+services:
+  - type: web
+    name: crossword-game-service
+    runtime: python
+    plan: free
+    numInstances: 1
+    repo: https://github.com/IHaveNoIdea-HAH/Software-Development-Assignment-1
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 1 -b 0.0.0.0:8000 wsgi:app
+    envVars: # Env variables
+      - key: API_BASE_URL
+        value: https://crossword-game-project-flask.onrender.com

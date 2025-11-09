@@ -864,7 +864,7 @@ Test evidence:
 
 [<img width="1024" height="768" alt="image" src="img/game_completed_win_all_words_guessed.png" />](img/game_completed_win_all_words_guessed.png)
 
-## Deployment Instructions
+# Deployment Instructions
 
 Because the application consists of both a backend (Flask) and a frontend (HTML, CSS, JS), the deployment involves setting up a web server to host the Flask app and serve the static frontend files.
 Above means our app can't be deployed on GitHub Pages as it only serves static files.
@@ -892,8 +892,10 @@ Here is how the deployment looks like on Render.com when the web service is depl
 
 [<img width="1024" height="768" alt="image" src="img/render.png" />](img/render.png)
 
+Alternatively, we can deploy our app on Render.com by creating a Blueprint using render.yaml file in the root of our GitHub repository.
+This file contains the configuration for the web service and can be used to deploy the app with a single click from the Render.com dashboard.
 
-## References
+# References
 
 1. Willard, W., 2013. HTML: A Beginner’s Guide (5th ed.). New York: McGraw-Hill. Available at: HTML: https://learning.oreilly.com/library/view/html-a-beginners/9780071809276/?sso_link=yes&sso_link_from=UnivofHerts
 2. Wolf, Jürgen 2025. HTML and CSS: The Comprehensive Guide. Rheinwerk Publishing (via O’Reilly). Available at: https://learning.oreilly.com/library/view/html-and-css/9781806111831/?sso_link=yes&sso_link_from=UnivofHerts
