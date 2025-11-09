@@ -864,6 +864,34 @@ Test evidence:
 
 [<img width="1024" height="768" alt="image" src="img/game_completed_win_all_words_guessed.png" />](img/game_completed_win_all_words_guessed.png)
 
+## Deployment Instructions
+
+Because the application consists of both a backend (Flask) and a frontend (HTML, CSS, JS), the deployment involves setting up a web server to host the Flask app and serve the static frontend files.
+Above means our app can't be deployed on GitHub Pages as it only serves static files.
+
+We've decided to deploy our app using Render.com which offers free hosting for Flask apps with easy deployment from GitHub repositories.
+Here are the steps to deploy the application on Render.com:
+1. **Create a Render.com Account**: Sign up for a free account on Render.com if you don't have one already. You can also sign in using GitHub credentials.
+2. **Connect GitHub Repository**: Link your Render.com account to your GitHub account and select the repository containing your crossword game code.
+3. **Create a New Web Service**:
+   - Click on "New" and select "Web Service".
+   - Choose the repository and branch you want to deploy.
+4. **Configure Build Settings**:
+   - Set the build command to install dependencies, e.g. `pip install -r requirements.txt`.
+   - Set the start command to run the Flask app, e.g. `gunicorn app:app` (assuming your Flask app is in `app.py` and the Flask instance is named `app`).
+5. **Set Environment Variables**: If your app requires any environment variables (e.g. for secret keys), set them in the Render.com dashboard.
+6. **Deploy**: Click "Create Web Service" to start the deployment process. Render.com will build and deploy your app.
+7. **Access Your App**: Once deployed, Render.com will provide you with a URL where your crossword game can be accessed.
+
+We've following the above steps and successfully deployed our crossword game app on Render.com under the following URL:
+[https://crossword-game-project-flask.onrender.com/](https://crossword-game-project-flask.onrender.com/)
+
+Because we use free hosting plan on Render.com there might be some delay (a few seconds) when accessing the app for the first time after a period of inactivity as the server might go to sleep mode.
+
+Here is how the deployment looks like on Render.com when the web service is deployed successfully:
+
+[<img width="1024" height="768" alt="image" src="img/render.png" />](img/render.png)
+
 
 ## References
 

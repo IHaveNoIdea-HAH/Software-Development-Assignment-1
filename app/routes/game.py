@@ -87,6 +87,9 @@ def guess_word():
         # Let's retrieve the JSON payload from the request body of the POST request
         data = request.get_json()
 
+        if current_app.config['DEBUG']:
+            print("Received data:", data)
+
         clue_number = data.get('clue_number', -1)
         word_guess = data.get('word_guess', '')
         game_id = data.get('game_id', -1)
@@ -190,6 +193,8 @@ def solve_clue():
     try:
         # Let's retrieve the JSON payload from the request body of the POST request
         data = request.get_json()
+        if current_app.config['DEBUG']:
+            print("Received data:", data)
 
         clue_number = data.get('clue_number', -1)
         game_id = data.get('game_id', -1)
@@ -282,6 +287,9 @@ def auto_solve():
     try:
         # Let's retrieve the JSON payload from the request body of the POST request
         data = request.get_json()
+
+        if current_app.config['DEBUG']:
+            print("Received data:", data)
 
         game_id = data.get('game_id', -1)
         user_id = data.get('user_id', -1)

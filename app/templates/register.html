@@ -36,6 +36,9 @@
             Already have an account? <a id="login-link" href="/login">Login</a>
         </p>
     </div>
+    <script>
+      window.API_BASE_URL = "{{ api_base|e }}";
+    </script>
     <script src="{{ url_for('static', filename='js/registerpageJava.js') }}"></script>
 </body>
 </html>

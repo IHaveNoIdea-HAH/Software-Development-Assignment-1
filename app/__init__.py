@@ -46,6 +46,9 @@ def create_app(current_folder):
     # Set the LAST_USER_ID based on loaded users
     app.config['LAST_USER_ID'] = len(app.config['USERS'])
 
+    # Print summary of loaded data
+    print(f"Loaded {len(app.config['USERS'])} users and {len(app.config['GAMES'])} games from JSON.")
+
     # Register blueprints for different routes
     # This will expose them under /api/game and /api/user to frontend app calls
     print('Registering blueprints...')
