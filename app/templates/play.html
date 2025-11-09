@@ -50,6 +50,10 @@
         </div>
     </div>
 
+    <script>
+      window.API_BASE_URL = "{{ api_base|e }}";
+    </script>
+
     <script src="{{ url_for('static', filename='js/playpageJava.js') }}"></script>
 </body>
 </html>

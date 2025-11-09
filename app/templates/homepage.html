@@ -15,7 +15,7 @@
      <div class="container">
         <!-- the title box picture -->
         <div class="title-box">
-           <img src="{{ url_for('static', filename='Crossword%20image.png') }}" alt="Crossword">
+           <img src="{{ url_for('static', filename='crossword_image.png') }}" alt="Crossword">
         </div>
 
          <!--
@@ -51,6 +51,7 @@
     </div>
     <script>
       const baseURL = "{{ url_for('static', filename='') }}";
+      window.API_BASE_URL = "{{ api_base|e }}";
     </script>
     <script src="{{ url_for('static', filename='js/welcomepageJava.js') }}"></script>
 </body>

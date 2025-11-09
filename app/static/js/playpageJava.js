@@ -34,6 +34,7 @@ function renderGrid(containerId, grid) {
   const table = document.createElement('table');
   table.className = 'crossword-table';
 
+  const session = loadSession() || {};
   // Get clues from session if available
   const clues = session.crossword?.clues || [];
   // Build a map of clue start positions to clue numbers
@@ -339,9 +340,13 @@ function renderGameState() {
 
 // Main function to start a new game
 async function startNewGame(difficulty) {
+  const session = loadSession() || {};
   difficulty = (difficulty || 'normal').toLowerCase();
   try {
-   const res = await fetch("/api/game/start", {
+   const apiBase = (typeof window !== 'undefined' && window.API_BASE_URL) ? String(window.API_BASE_URL) : '';
+   const endpoint = apiBase ? `${apiBase}/api/game/start` : '/api/game/start';
+
+   const res = await fetch(endpoint, {
      method: "POST",
      headers: { "Content-Type": "application/json" },
      credentials: "include",
@@ -498,7 +503,10 @@ async function submitGuessWord() {
   }
 
   try {
-    const res = await fetch('/api/game/guess_word', {
+    const apiBase = (typeof window !== 'undefined' && window.API_BASE_URL) ? String(window.API_BASE_URL) : '';
+    const endpoint = apiBase ? `${apiBase}/api/game/guess_word` : '/api/game/guess_word';
+
+    const res = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -601,7 +609,10 @@ async function submitSolveClue() {
   }
 
   try {
-    const res = await fetch('/api/game/solve_clue', {
+    const apiBase = (typeof window !== 'undefined' && window.API_BASE_URL) ? String(window.API_BASE_URL) : '';
+    const endpoint = apiBase ? `${apiBase}/api/game/solve_clue` : '/api/game/solve_clue';
+
+    const res = await fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -719,6 +730,7 @@ async function submitAutoSolveCrossword() {
 
   yesBtn.onclick = async function() {
     document.body.removeChild(confirmDialog);
+    const session = loadSession() || {};
     const userId = session.user_id;
     const token = session.security_token;
     const gameId = session.game_id;
@@ -727,7 +739,10 @@ async function submitAutoSolveCrossword() {
       return;
     }
     try {
-      const res = await fetch('/api/game/auto_solve', {
+      const apiBase = (typeof window !== 'undefined' && window.API_BASE_URL) ? String(window.API_BASE_URL) : '';
+      const endpoint = apiBase ? `${apiBase}/api/game/auto_solve` : '/api/game/auto_solve';
+
+      const res = await fetch(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',

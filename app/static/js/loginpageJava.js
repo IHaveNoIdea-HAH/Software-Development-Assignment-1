@@ -35,7 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
     show("Signing in…");
 
     try {
-      const res = await fetch("/api/user/login", {
+    const apiBase = (typeof window !== 'undefined' && window.API_BASE_URL) ? String(window.API_BASE_URL) : '';
+    const endpoint = apiBase ? `${apiBase}/api/user/login` : '/api/user/login';
+      const res = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

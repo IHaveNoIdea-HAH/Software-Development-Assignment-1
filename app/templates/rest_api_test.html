@@ -18,6 +18,9 @@
         <button onclick="showSection('solveclue')">Solve Clue</button>
     </nav>
     <div id="content"></div>
+    <script>
+      window.API_BASE_URL = "{{ api_base|e }}";
+    </script>
     <script src="{{ url_for('static', filename='js/rest_api_test.js') }}"></script>
 </body>
 </html>
